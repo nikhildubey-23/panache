@@ -3,39 +3,500 @@
 {% block title %}Malo S Bridge - Panache Advanced Dental Care{% endblock %}
 
 {% block content %}
-<div class="container-fluid hero-section">
+<style>
+.hero-gradient {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+    opacity: 0.3;
+}
+.feature-card {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-color: var(--accent-sage);
+}
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--warm-white);
+    font-size: 1.5rem;
+}
+.procedure-step {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-sage);
+    transition: all 0.3s ease;
+}
+.procedure-step:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 25px;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    border: 3px solid var(--warm-white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.faq-item {
+    background: var(--warm-white);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.faq-question {
+    background: var(--primary-navy);
+    color: var(--warm-white);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+}
+.faq-question:hover {
+    background: var(--secondary-navy);
+}
+.faq-answer {
+    padding: 20px;
+    background: var(--warm-white);
+}
+.stat-box {
+    background: var(--warm-white);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--accent-sage);
+}
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+}
+.cta-box {
+    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
+    color: var(--warm-white);
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+    opacity: 0.2;
+}
+.bridge-comparison {
+    display: flex;
+    gap: 20px;
+    margin: 30px 0;
+}
+.bridge-item {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    background: var(--light-gray);
+    border-radius: 15px;
+}
+.bridge-item.featured {
+    background: var(--accent-sage);
+    color: var(--warm-white);
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+</style>
+
+<!-- Modern Hero Section -->
+<div class="hero-gradient py-5">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <h1 class="display-4 fw-bold mb-4">Malo S Bridge</h1>
-                <p class="lead">Content will be provided for this Malo S Bridge procedure.</p>
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <div class="badge bg-light text-dark mb-3">FULL MOUTH REHABILITATION</div>
+                    <h1 class="display-2 fw-bold mb-4 text-white">Malo S Bridge</h1>
+                    <h2 class="h3 mb-4 text-white-50">Revolutionary Full-Arch Bridge System</h2>
+                    <p class="lead mb-4 text-white-50">Experience immediate full mouth rehabilitation with the innovative Malo S Bridge system - a revolutionary solution for complete dental restoration in just 24-48 hours.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#consultation" class="btn btn-light btn-lg">Book Consultation</a>
+                        <a href="#procedure" class="btn btn-outline-light btn-lg">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <img src="https://www.datadentallab.com/uploads/202339306/malo-implant-bridge57c11712-0200-45a6-ac4b-d172412b8c60.jpg" alt="Malo S Bridge" class="img-fluid rounded-4 shadow-lg">
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Quick Stats -->
 <div class="container py-5">
     <div class="row">
-        <div class="col-lg-12">
-            <div class="doctor-card">
-                <h3 class="section-title">About Malo S Bridge</h3>
-                <p>Detailed information about the Malo S Bridge procedure will be provided here.</p>
-                
-                <h4>Procedure Details</h4>
-                <p>Information about the Malo S Bridge procedure will be added here.</p>
-                
-                <h4>Benefits</h4>
-                <p>Benefits of the procedure will be listed here.</p>
-                
-                <h4>After Care</h4>
-                <p>After care information will be provided here.</p>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">24-48</div>
+                <div class="text-muted">Hours Treatment Time</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">4-6</div>
+                <div class="text-muted">Implants Required</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">4-6</div>
+                <div class="text-muted">Implants Placed</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">98%+</div>
+                <div class="text-muted">Success Rate</div>
             </div>
         </div>
     </div>
-    
-    <div class="row mt-4">
-        <div class="col-lg-12 text-center">
-            <a href="{{ url_for('contact') }}" class="btn btn-primary-custom">Schedule Consultation</a>
+</div>
+
+<!-- Introduction -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">The Future of Full Mouth Rehabilitation</h2>
+                <p class="lead text-muted">Innovative Bridge System for Immediate Results</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="mb-3">The <strong>Malo S Bridge</strong> represents a breakthrough in full-arch rehabilitation, offering patients a complete dental restoration solution in just 24-48 hours. This innovative system utilizes strategically placed implants to support a full-arch bridge, restoring both function and aesthetics.</p>
+            <p>Developed by Dr. Paulo Malo, the <strong>Malo S Bridge</strong> provides immediate loading capabilities, allowing patients to leave with a beautiful, functional smile on the same day as surgery - perfect for those seeking complete dental transformation without the lengthy healing periods of traditional methods.</p>
+        </div>
+        <div class="col-lg-6">
+            <div class="bridge-comparison">
+                <div class="bridge-item">
+                    <h5>Traditional Approach</h5>
+                    <p>Multiple surgeries<br>6-12 months treatment<br>Gradual restoration</p>
+                </div>
+                <div class="bridge-item featured">
+                    <h5>Malo S Bridge</h5>
+                    <p>Single surgery<br>24-48 hours<br>Immediate full restoration</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- System Components -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">How the Malo S Bridge Works</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-crosshairs"></i>
+                        </div>
+                        <h4>Strategic Implant Placement</h4>
+                        <p class="text-muted">4-6 strategically positioned implants provide optimal support and stability for the entire arch, ensuring long-term success.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h4>Immediate Loading Protocol</h4>
+                        <p class="text-muted">Specialized angulation and placement allow for immediate loading, enabling same-day restoration of full dental function.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h4>Custom Bridge Framework</h4>
+                        <p class="text-muted">Precision-milled titanium framework provides exceptional strength and ensures accurate fit for optimal comfort and function.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h4>Aesthetic Restoration</h4>
+                        <p class="text-muted">High-quality porcelain or zirconia restorations create natural-looking teeth with perfect color matching and translucency.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Ideal Candidates -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Ideal Candidates for Malo S Bridge</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-check-circle text-success me-2"></i>Multiple Missing Teeth</h5>
+                        <p class="text-muted mb-0">Patients missing most or all teeth in one or both arches seeking complete restoration.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-check-circle text-success me-2"></i>Failed Dentures</h5>
+                        <p class="text-muted mb-0">Those dissatisfied with removable dentures wanting a fixed, stable alternative.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-check-circle text-success me-2"></i>Sufficient Bone Density</h5>
+                        <p class="text-muted mb-0">Adequate jawbone volume to support 4-6 implants (bone grafting available if needed).</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-check-circle text-success me-2"></i>Good General Health</h5>
+                        <p class="text-muted mb-0">Overall good health without uncontrolled medical conditions that could affect healing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Procedure Details -->
+<div id="procedure" class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">The Malo S Bridge Procedure</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="timeline-item">
+                        <h5>Comprehensive Planning</h5>
+                        <p class="text-muted">3D imaging, digital scanning, and precise planning for optimal implant positioning and bridge design.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Surgical Placement</h5>
+                        <p class="text-muted">Strategic placement of 4-6 implants under anesthesia, typically completed in 2-3 hours.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Immediate Bridge Loading</h5>
+                        <p class="text-muted">Custom-fabricated bridge immediately attached to implants, providing instant function and aesthetics.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Final Integration</h4>
+                        <p class="text-muted">Monitoring of osseointegration over 3-6 months with final adjustments and permanent bridge placement.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://www.wmdentallab.com/upload/310/20191228101413728592.jpg" alt="Malo S Bridge Procedure" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Benefits Grid -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Benefits of Malo S Bridge</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4>Immediate Results</h4>
+                        <p class="text-muted">Walk in with missing teeth and walk out with a complete, functional smile in just 24-48 hours.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-teeth"></i>
+                        </div>
+                        <h4>Full Function Restoration</h4>
+                        <p class="text-muted">Eat, speak, and smile confidently with a fixed restoration that feels and functions like natural teeth.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Long-Term Solution</h4>
+                        <p class="text-muted">Durable construction with proven success rate exceeding 98% and decades of reliable function.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Improved Quality of Life</h4>
+                        <p class="text-muted">Enhanced confidence, better nutrition, and elimination of denture-related problems for daily comfort.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- After Care -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">After Care & Maintenance</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-home me-2"></i>Immediate Post-Operative Care</h5>
+                        <p class="text-muted mb-0">Soft diet for first week, prescribed medications, and careful oral hygiene around the surgical sites.</p>
+                    </div>
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-toothbrush me-2"></i>Oral Hygiene Routine</h5>
+                        <p class="text-muted mb-0">Special cleaning tools for under the bridge, regular brushing, and antimicrobial rinses for optimal health.</p>
+                    </div>
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-calendar-check me-2"></i>Regular Follow-Up Visits</h5>
+                        <p class="text-muted mb-0">Scheduled check-ups at 1 week, 1 month, 3 months, and 6 months to monitor healing and integration.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://wilsoneastdental.com/wp-content/uploads/2023/05/Teeth-Whitening.jpg" alt="Dental Care" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How long does a Malo S Bridge last?
+                        </button>
+                        <div class="faq-answer">
+                            With proper care and maintenance, a Malo S Bridge can last 15-25 years or even longer. Regular dental check-ups and good oral hygiene are essential for longevity.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Is the procedure painful?
+                        </button>
+                        <div class="faq-answer d-none">
+                            The surgery is performed under anesthesia, ensuring you feel no pain during the procedure. Post-operative discomfort is typically managed with prescribed medications and resolves within a few days.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Can I eat normally with a Malo S Bridge?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Yes! The Malo S Bridge provides excellent chewing function. After the initial healing period, you can enjoy most foods with confidence, including harder foods that were difficult with dentures.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            What if I don't have enough bone for implants?
+                        </button>
+                        <div class="faq-answer d-none">
+                            We offer bone grafting procedures to build up the jawbone and create a solid foundation for the implants. This can be done prior to or during the Malo S Bridge procedure.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div id="consultation" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="cta-box">
+                <div class="position-relative">
+                    <h2 class="display-5 fw-bold mb-4">Ready for a Complete Smile Transformation?</h2>
+                    <p class="lead mb-4">Discover if Malo S Bridge is your solution for full mouth restoration in just 24-48 hours.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Schedule Consultation</a>
+                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Us Now</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

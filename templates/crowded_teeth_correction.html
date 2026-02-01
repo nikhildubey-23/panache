@@ -3,40 +3,410 @@
 {% block title %}Correction of Crowded Teeth - Panache Advanced Dental Care{% endblock %}
 
 {% block content %}
-<div class="container-fluid hero-section">
+<style>
+.hero-gradient {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+    opacity: 0.3;
+}
+.feature-card {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-color: var(--accent-sage);
+}
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--warm-white);
+    font-size: 1.5rem;
+}
+.treatment-comparison {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 30px 0;
+}
+.comparison-item {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 25px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+.comparison-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.comparison-item.featured {
+    border: 2px solid var(--accent-sage);
+    background: var(--warm-white);
+}
+.featured-badge {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background: var(--accent-sage);
+    color: var(--warm-white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+.stat-box {
+    background: var(--warm-white);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--accent-sage);
+}
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+}
+.cta-box {
+    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
+    color: var(--warm-white);
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+    opacity: 0.2;
+}
+.process-timeline {
+    position: relative;
+    padding-left: 30px;
+}
+.process-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--accent-sage);
+}
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+    padding-left: 40px;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -9px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    border: 3px solid var(--warm-white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+</style>
+
+<!-- Modern Hero Section -->
+<div class="hero-gradient py-5">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <h1 class="display-4 fw-bold mb-4">Correction of Crowded Teeth</h1>
-                <h2 class="h3 mb-4">With Aligners/Invisalign/Orthodontic Ceramic Braces</h2>
-                <p class="lead">Content will be provided for this crowded teeth correction procedure.</p>
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <div class="badge bg-light text-dark mb-3">ORTHODONTIC CARE</div>
+                    <h1 class="display-2 fw-bold mb-4 text-white">Correction of Crowded Teeth</h1>
+                    <h2 class="h3 mb-4 text-white-50">Clear Aligners, Invisalign & Ceramic Braces</h2>
+                    <p class="lead mb-4 text-white-50">Achieve the straight, beautiful smile you've always wanted with our advanced orthodontic solutions. From virtually invisible aligners to discreet ceramic braces, we have the perfect option for you.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#consultation" class="btn btn-light btn-lg">Free Consultation</a>
+                        <a href="#treatments" class="btn btn-outline-light btn-lg">Explore Options</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <img src="https://lirp.cdn-website.com/af41f423/dms3rep/multi/opt/Crowded+Teeth-2880w.jpg" alt="Straight Smile" class="img-fluid rounded-4 shadow-lg">
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Quick Stats -->
 <div class="container py-5">
     <div class="row">
-        <div class="col-lg-12">
-            <div class="doctor-card">
-                <h3 class="section-title">About Crowded Teeth Correction</h3>
-                <p>Detailed information about the crowded teeth correction procedure will be provided here.</p>
-                
-                <h4>Treatment Options</h4>
-                <p>Information about aligners, invisalign, and ceramic braces will be added here.</p>
-                
-                <h4>Benefits</h4>
-                <p>Benefits of the procedure will be listed here.</p>
-                
-                <h4>Treatment Duration</h4>
-                <p>Information about treatment duration will be provided here.</p>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">6-18</div>
+                <div class="text-muted">Months Treatment</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">90%</div>
+                <div class="text-muted">Invisible Appearance</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">100%</div>
+                <div class="text-muted">Custom Fit</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">24/7</div>
+                <div class="text-muted">Treatment Progress</div>
             </div>
         </div>
     </div>
-    
-    <div class="row mt-4">
-        <div class="col-lg-12 text-center">
-            <a href="{{ url_for('contact') }}" class="btn btn-primary-custom">Schedule Consultation</a>
+</div>
+
+<!-- Introduction -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Your Path to a Perfect Smile</h2>
+                <p class="lead text-muted">Modern Orthodontic Solutions for Crowded Teeth</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="mb-3"><strong>Crowded teeth</strong> can affect more than just your appearance - they impact your oral health, confidence, and quality of life. Our advanced orthodontic treatments provide effective solutions for achieving a straight, healthy smile without the discomfort and visibility of traditional metal braces.</p>
+            <p>Using state-of-the-art <strong>3D imaging technology</strong> and customized treatment planning, we ensure precise results that complement your facial features and meet your lifestyle needs. Whether you choose clear aligners for discretion or ceramic braces for efficiency, we deliver exceptional outcomes.</p>
+        </div>
+        <div class="col-lg-6">
+            <img src="https://www.diamondbraces.com/cdn/shop/articles/what-to-do-about-dental-crowding-and-misaligned-teeth-261542.jpg?v=1750355207" alt="Orthodontic Treatment" class="img-fluid rounded-3 shadow">
+        </div>
+    </div>
+</div>
+
+<!-- Treatment Options -->
+<div id="treatments" class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Choose Your Perfect Treatment</h2>
+            </div>
+            <div class="treatment-comparison">
+                <div class="comparison-item featured">
+                    <div class="featured-badge">MOST POPULAR</div>
+                    <div class="feature-icon">
+                        <i class="fas fa-invisible"></i>
+                    </div>
+                    <h4>Clear Aligners</h4>
+                    <p>Virtually invisible removable trays for gradual teeth straightening.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="fas fa-check text-success me-2"></i>Nearly invisible</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Removable for eating</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Comfortable plastic</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Fewer office visits</li>
+                    </ul>
+                </div>
+                <div class="comparison-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Invisalign</h4>
+                    <p>Premium clear aligner system with SmartTrack technology.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="fas fa-check text-success me-2"></i>Predictable results</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Advanced tracking</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Comfortable fit</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Proven technology</li>
+                    </ul>
+                </div>
+                <div class="comparison-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <h4>Ceramic Braces</h4>
+                    <p>Tooth-colored brackets and wires for discreet traditional treatment.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="fas fa-check text-success me-2"></i>Blends with teeth</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Effective for complex cases</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Durable treatment</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Cost-effective</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Treatment Process -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Your Treatment Journey</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="process-timeline">
+                        <div class="timeline-item">
+                            <h5>Initial Consultation</h5>
+                            <p class="text-muted">Comprehensive examination and 3D digital scanning to assess your needs.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>Custom Treatment Plan</h5>
+                            <p class="text-muted">Personalized treatment strategy with digital preview of your new smile.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>Device Creation</h5>
+                            <p class="text-muted">Precision manufacturing of your custom aligners or braces.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>Treatment Begins</h5>
+                            <p class="text-muted">Regular monitoring and adjustments to ensure optimal progress.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>Final Results</h5>
+                            <p class="text-muted">Achievement of your perfect smile with retention planning.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://my.clevelandclinic.org/-/scassets/Images/org/health/articles/24285-orthodontics" alt="Treatment Process" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Benefits Section -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Benefits of Straight Teeth</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Improved Oral Health</h4>
+                        <p class="text-muted">Easier cleaning reduces risk of cavities and gum disease.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                        <h4>Enhanced Confidence</h4>
+                        <p class="text-muted">A beautiful smile boosts self-esteem in social and professional settings.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h4>Better Function</h4>
+                        <p class="text-muted">Improved bite alignment enhances chewing and speech clarity.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Long-term Protection</h4>
+                        <p class="text-muted">Proper alignment prevents excessive wear and potential jaw issues.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Ideal Candidates -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Are You a Candidate?</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4 class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Ideal for:</h4>
+                    <ul>
+                        <li>Mild to moderate crowding</li>
+                        <li>Gap teeth (diastema)</li>
+                        <li>Overbite or underbite issues</li>
+                        <li>Crossbite concerns</li>
+                        <li>Adults seeking discreet treatment</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <h4 class="mb-3"><i class="fas fa-info-circle text-info me-2"></i>Requirements:</h4>
+                    <ul>
+                        <li>Good overall oral health</li>
+                        <li>No active gum disease</li>
+                        <li>Committed to wearing aligners 20-22 hours daily</li>
+                        <li>Regular dental check-ups</li>
+                        <li>Motivated to achieve results</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div id="consultation" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="cta-box">
+                <div class="position-relative">
+                    <h2 class="display-5 fw-bold mb-4">Ready for Your Dream Smile?</h2>
+                    <p class="lead mb-4">Take the first step towards straighter teeth and renewed confidence. Schedule your complimentary orthodontic consultation today.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Free Consultation</a>
+                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Now</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

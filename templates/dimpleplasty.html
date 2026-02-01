@@ -3,40 +3,463 @@
 {% block title %}Dimpleplasty - Panache Advanced Dental Care{% endblock %}
 
 {% block content %}
-<div class="container-fluid hero-section">
+<style>
+.hero-gradient {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+    opacity: 0.3;
+}
+.feature-card {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-color: var(--accent-sage);
+}
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--warm-white);
+    font-size: 1.5rem;
+}
+.procedure-step {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-sage);
+    transition: all 0.3s ease;
+}
+.procedure-step:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.stat-box {
+    background: var(--warm-white);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--accent-sage);
+}
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+}
+.cta-box {
+    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
+    color: var(--warm-white);
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+    opacity: 0.2;
+}
+.dimeline-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin: 30px 0;
+}
+.dimple-option {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.dimple-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.before-after {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+}
+.comparison-box {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+.before-box {
+    background: rgba(255,0,0,0.1);
+    border: 1px solid rgba(255,0,0,0.3);
+}
+.after-box {
+    background: rgba(0,255,0,0.1);
+    border: 1px solid rgba(0,255,0,0.3);
+}
+</style>
+
+<!-- Modern Hero Section -->
+<div class="hero-gradient py-5">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <h1 class="display-4 fw-bold mb-4">Dimpleplasty</h1>
-                <h2 class="h3 mb-4">CHARU</h2>
-                <p class="lead">Content will be provided for this dimpleplasty procedure.</p>
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <div class="badge bg-light text-dark mb-3">FACIAL COSMETIC SURGERY</div>
+                    <h1 class="display-2 fw-bold mb-4 text-white">Dimpleplasty</h1>
+                    <h2 class="h3 mb-4 text-white-50">Create Charming Dimples - Natural Enhancement</h2>
+                    <p class="lead mb-4 text-white-50">Enhance your facial aesthetics with natural-looking dimples that appear when you smile. Our minimally invasive dimpleplasty procedure creates adorable dimples that complement your unique facial features.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#consultation" class="btn btn-light btn-lg">Book Procedure</a>
+                        <a href="#details" class="btn btn-outline-light btn-lg">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <img src="https://drmanishshah.com/wp-content/uploads/2024/05/dimpleplasty-surgery.jpg" alt="Dimpleplasty Smile" class="img-fluid rounded-4 shadow-lg">
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Quick Stats -->
 <div class="container py-5">
     <div class="row">
-        <div class="col-lg-12">
-            <div class="doctor-card">
-                <h3 class="section-title">About Dimpleplasty</h3>
-                <p>Detailed information about the dimpleplasty procedure will be provided here.</p>
-                
-                <h4>Procedure Details</h4>
-                <p>Information about the dimple creation procedure will be added here.</p>
-                
-                <h4>Benefits</h4>
-                <p>Benefits of the procedure will be listed here.</p>
-                
-                <h4>Recovery</h4>
-                <p>Recovery information will be provided here.</p>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">30</div>
+                <div class="text-muted">Minutes Procedure</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">2-3</div>
+                <div class="text-muted">Days Recovery</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">99%</div>
+                <div class="text-muted">Natural Results</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">Life</div>
+                <div class="text-muted">Long-lasting</div>
             </div>
         </div>
     </div>
-    
-    <div class="row mt-4">
-        <div class="col-lg-12 text-center">
-            <a href="{{ url_for('contact') }}" class="btn btn-primary-custom">Schedule Consultation</a>
+</div>
+
+<!-- Introduction -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">The Art of Dimple Creation</h2>
+                <p class="lead text-muted">Minimally Invasive Procedure for Natural-Looking Dimples</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="mb-3"><strong>Dimpleplasty</strong> is a sophisticated cosmetic procedure designed to create natural-looking dimples that enhance your smile and facial expressions. This minimally invasive surgery creates a small, controlled indentation in the cheek muscle, resulting in charming dimples that appear when you smile.</p>
+            <p>Our advanced technique ensures <strong>natural-looking results</strong> that complement your facial anatomy. The procedure is quick, requires minimal recovery time, and produces permanent results that enhance your unique beauty without looking artificial or overdone.</p>
+        </div>
+        <div class="col-lg-6">
+            <img src="https://www.agulloplasticsurgery.com/wp-content/uploads/2023/12/cheekdimplepost.jpg" alt="Natural Smile Enhancement" class="img-fluid rounded-3 shadow">
+        </div>
+    </div>
+</div>
+
+<!-- Dimple Options -->
+<div id="details" class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Choose Your Dimple Style</h2>
+            </div>
+            <div class="dimeline-showcase">
+                <div class="dimple-option">
+                    <div class="feature-icon">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <h4>Round Dimples</h4>
+                    <p>Classic circular dimples that create a sweet, youthful appearance. Perfect for softer facial features.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="fas fa-check text-success me-2"></i>Traditional appearance</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Youthful charm</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Most popular choice</li>
+                    </ul>
+                </div>
+                <div class="dimple-option">
+                    <div class="feature-icon">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                    <h4>Linear Dimples</h4>
+                    <p>Elongated dimples that create a sophisticated, elegant look. Ideal for defined facial structures.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="fas fa-check text-success me-2"></i>Subtle enhancement</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Elegant appearance</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Unique style</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Procedure Details -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">The Dimpleplasty Procedure</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-map-marker-alt me-2"></i>Precise Marking</h5>
+                        <p class="text-muted mb-0">Strategic placement marking to ensure perfect positioning and symmetry.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-cut me-2"></i>Minimally Invasive Incision</h5>
+                        <p class="text-muted mb-0">Tiny incision inside the cheek to create a natural-looking indentation.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-link me-2"></i>Muscle Attachment</h5>
+                        <p class="text-muted mb-0">Creating a small connection between skin and cheek muscle for natural dimple formation.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-check me-2"></i>Precision Suturing</h5>
+                        <p class="text-muted mb-0">Careful closure with dissolvable sutures for minimal scarring and optimal healing.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-eye me-2"></i>Immediate Results</h5>
+                        <p class="text-muted mb-0">Visible dimples right away, with final appearance developing over 2-3 months.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Before/After Visualization -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Transformation Results</h2>
+            </div>
+            <div class="before-after">
+                <div class="comparison-box before-box">
+                    <h5><i class="fas fa-frown me-2"></i>Before</h5>
+                    <p>Smooth cheeks without dimples</p>
+                    <ul class="list-unstyled">
+                        <li>Less expressive smile</li>
+                        <li>Missing facial charm</li>
+                        <li>Standard appearance</li>
+                    </ul>
+                </div>
+                <div class="comparison-box after-box">
+                    <h5><i class="fas fa-smile me-2"></i>After</h5>
+                    <p>Natural dimples when smiling</p>
+                    <ul class="list-unstyled">
+                        <li>Enhanced facial expressions</li>
+                        <li>Added charm and character</li>
+                        <li>Unique, memorable appearance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Benefits Section -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Benefits of Dimpleplasty</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4>Quick Procedure</h4>
+                        <p class="text-muted">Completed in just 30 minutes with minimal discomfort.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Fast Recovery</h4>
+                        <p class="text-muted">Return to normal activities within 2-3 days.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Natural Appearance</h4>
+                        <p class="text-muted">Dimples appear only when smiling, looking completely natural.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Enhanced Confidence</h4>
+                        <p class="text-muted">Boosts self-esteem with a more charming, expressive smile.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Ideal Candidates -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Are You a Good Candidate?</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4 class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Ideal Candidates:</h4>
+                    <ul>
+                        <li>Desire natural-looking dimples</li>
+                        <li>Good overall health</li>
+                        <li>Realistic expectations</li>
+                        <li>Non-smokers or willing to quit temporarily</li>
+                        <li>Committed to post-procedure care</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <h4 class="mb-3"><i class="fas fa-info-circle text-info me-2"></i>Considerations:</h4>
+                    <ul>
+                        <li>Sufficient cheek tissue thickness</li>
+                        <li>No active skin infections</li>
+                        <li>No blood clotting disorders</li>
+                        <li>Understanding of temporary swelling</li>
+                        <li>Willingness to follow aftercare instructions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recovery Timeline -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Recovery Timeline</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <div class="text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-day-1"></i>
+                        </div>
+                        <h5>Day 1-2</h5>
+                        <p class="text-muted small">Mild swelling and temporary dimple appearance</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-day-3"></i>
+                        </div>
+                        <h5>Day 3-7</h5>
+                        <p class="text-muted small">Swelling subsides, natural healing begins</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-week"></i>
+                        </div>
+                        <h5>Week 2-4</h5>
+                        <p class="text-muted small">Dimples start appearing when smiling</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-check-double"></i>
+                        </div>
+                        <h5>Month 2-3</h5>
+                        <p class="text-muted small">Final natural dimple formation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div id="consultation" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="cta-box">
+                <div class="position-relative">
+                    <h2 class="display-5 fw-bold mb-4">Ready for Charming Dimples?</h2>
+                    <p class="lead mb-4">Transform your smile with natural-looking dimples that enhance your beauty. Schedule your personalized dimpleplasty consultation today.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Book Consultation</a>
+                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Us Now</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

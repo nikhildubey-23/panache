@@ -1,108 +1,489 @@
 {% extends "base.html" %}
 
-{% block title %}Third Molar Surgery - Panache Dental{% endblock %}
+{% block title %}Third Molar Surgery - Panache Advanced Dental Care{% endblock %}
 
 {% block content %}
-<section class="hero-section" style="background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 0;">
-    <div class="container text-center">
-        <h1 class="display-4 fw-bold mb-4">Third Molar Surgery</h1>
-        <p class="lead">Expert wisdom tooth extraction with minimal discomfort</p>
-    </div>
-</section>
+<style>
+.hero-gradient {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+    opacity: 0.3;
+}
+.feature-card {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-color: var(--accent-sage);
+}
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--warm-white);
+    font-size: 1.5rem;
+}
+.procedure-step {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-sage);
+    transition: all 0.3s ease;
+}
+.procedure-step:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 25px;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    border: 3px solid var(--warm-white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.faq-item {
+    background: var(--warm-white);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.faq-question {
+    background: var(--primary-navy);
+    color: var(--warm-white);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+}
+.faq-question:hover {
+    background: var(--secondary-navy);
+}
+.faq-answer {
+    padding: 20px;
+    background: var(--warm-white);
+}
+.stat-box {
+    background: var(--warm-white);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--accent-sage);
+}
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+}
+.cta-box {
+    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
+    color: var(--warm-white);
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+    opacity: 0.2;
+}
+</style>
 
-<section class="py-5">
+<!-- Modern Hero Section -->
+<div class="hero-gradient py-5">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <h2 class="mb-4">Wisdom Tooth Extraction</h2>
-                <p class="lead">Professional removal of impacted or problematic third molars</p>
-                
-                <h3 class="mt-4 mb-3">When is Third Molar Surgery Needed?</h3>
-                <ul class="list-unstyled">
-                    <li class="mb-3"><i class="fas fa-tooth text-primary me-2"></i><strong>Impacted Teeth:</strong> Teeth that don't have enough room to emerge properly</li>
-                    <li class="mb-3"><i class="fas fa-exclamation-triangle text-primary me-2"></i><strong>Infection Risk:</strong> Partially erupted teeth prone to infection and decay</li>
-                    <li class="mb-3"><i class="fas fa-compress text-primary me-2"></i><strong>Crowding:</strong> Wisdom teeth pushing other teeth out of alignment</li>
-                    <li class="mb-3"><i class="fas fa-moon text-primary me-2"></i><strong>Cyst Formation:</strong> Fluid-filled sacs developing around impacted teeth</li>
-                    <li class="mb-3"><i class="fas fa-bolt text-primary me-2"></i><strong>Pain and Discomfort:</strong> Chronic pain or recurring infections</li>
-                </ul>
-
-                <h3 class="mt-4 mb-3">Our Surgical Approach:</h3>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-x-ray text-primary me-2"></i>Pre-Surgical Assessment</h5>
-                                <p class="card-text">Comprehensive evaluation with digital X-rays and 3D imaging</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-user-md text-primary me-2"></i>Expert Anesthesia</h5>
-                                <p class="card-text">Local anesthesia with sedation options for comfortable procedures</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 class="mt-4 mb-3">What to Expect:</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h5><i class="fas fa-calendar-check text-primary me-2"></i>Consultation</h5>
-                        <p>Evaluation and treatment planning</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5><i class="fas fa-procedures text-primary me-2"></i>Surgery Day</h5>
-                        <p>Outpatient procedure (30-90 minutes)</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5><i class="fas fa-bed text-primary me-2"></i>Recovery</h5>
-                        <p>3-7 days initial healing, complete recovery in 2-3 weeks</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5><i class="fas fa-check-circle text-primary me-2"></i>Follow-up</h5>
-                        <p>Post-operative check to ensure proper healing</p>
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <div class="badge bg-light text-dark mb-3">ORAL SURGERY</div>
+                    <h1 class="display-2 fw-bold mb-4 text-white">Third Molar Surgery</h1>
+                    <h2 class="h3 mb-4 text-white-50">Wisdom Tooth Extraction</h2>
+                    <p class="lead mb-4 text-white-50">Expert removal of impacted or problematic wisdom teeth with advanced techniques for minimal discomfort and faster recovery.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#consultation" class="btn btn-light btn-lg">Book Consultation</a>
+                        <a href="#procedure" class="btn btn-outline-light btn-lg">Learn More</a>
                     </div>
                 </div>
             </div>
-            
-            <div class="col-lg-4">
-                <div class="card bg-light">
-                    <div class="card-body">
-                        <h4 class="card-title mb-4">Surgery Benefits</h4>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Prevents future dental problems</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Relieves pain and discomfort</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Protects surrounding teeth</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Reduces infection risk</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Improves oral health</li>
-                        </ul>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <img src="https://dimensionsofdentalhygiene.com/wp-content/uploads/2021/07/0721-sunstar-ebrief-01.jpg" alt="Wisdom Tooth Surgery" class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Stats -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">30-90</div>
+                <div class="text-muted">Minutes Duration</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">Local</div>
+                <div class="text-muted">Anesthesia Type</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">3-7</div>
+                <div class="text-muted">Days Initial Recovery</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">99%+</div>
+                <div class="text-muted">Success Rate</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Introduction -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Professional Wisdom Tooth Care</h2>
+                <p class="lead text-muted">Advanced Extraction for Optimal Oral Health</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="mb-3"><strong>Third molars</strong>, commonly known as wisdom teeth, are the last teeth to develop, typically emerging between ages 17-25. Due to limited space in modern jaws, these teeth often become <strong>impacted</strong> or cause various dental problems.</p>
+            <p>Our surgical team specializes in <strong>painless wisdom tooth extraction</strong> using minimally invasive techniques that preserve surrounding bone and tissue, ensuring faster healing and minimal post-operative discomfort.</p>
+        </div>
+        <div class="col-lg-6">
+            <img src="https://chambleedental.com/wp-content/uploads/wisdom-teeth20176s.jpg" alt="Wisdom Tooth X-Ray" class="img-fluid rounded-3 shadow">
+        </div>
+    </div>
+</div>
+
+<!-- When Surgery is Needed -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">When is Third Molar Surgery Needed?</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-tooth me-2"></i>Impacted Teeth</h5>
+                        <p class="text-muted mb-0">Teeth that don't have enough room to emerge properly or grow at abnormal angles, trapped in jawbone or gums.</p>
                     </div>
                 </div>
-                
-                <div class="card mt-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Post-Operative Care</h5>
-                        <ul class="small">
-                            <li>Soft food diet for 3-5 days</li>
-                            <li>Gentle oral hygiene</li>
-                            <li>Prescribed pain management</li>
-                            <li>Cold compress for swelling</li>
-                            <li>Avoid smoking and straws</li>
-                        </ul>
+                <div class="col-md-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle me-2"></i>Infection Risk</h5>
+                        <p class="text-muted mb-0">Partially erupted teeth prone to pericoronitis, decay, and bacterial infections due to difficult cleaning access.</p>
                     </div>
                 </div>
-                
-                <div class="card mt-4 bg-primary text-white">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Need Wisdom Tooth Removal?</h5>
-                        <p>Get expert evaluation today</p>
-                        <a href="{{ url_for('contact') }}" class="btn btn-light">Book Consultation</a>
+                <div class="col-md-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-compress me-2"></i>Crowding Issues</h5>
+                        <p class="text-muted mb-0">Wisdom teeth pushing adjacent teeth out of alignment, causing orthodontic problems and bite issues.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-moon me-2"></i>Cyst Formation</h5>
+                        <p class="text-muted mb-0">Fluid-filled sacs or tumors developing around impacted teeth, potentially damaging jawbone and adjacent teeth.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
+
+<!-- Surgical Approach -->
+<div id="procedure" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Our Advanced Surgical Approach</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="timeline-item">
+                        <h5>Comprehensive Assessment</h5>
+                        <p class="text-muted">Digital X-rays and 3D cone beam imaging for precise evaluation of tooth position, nerve proximity, and surgical planning.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Expert Anesthesia</h5>
+                        <p class="text-muted">Local anesthesia with optional sedation options for maximum comfort and anxiety-free experience.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Minimally Invasive Extraction</h5>
+                        <p class="text-muted">Gentle bone removal and tooth sectioning techniques to minimize trauma and preserve healthy tissue.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Precise Closure</h5>
+                        <p class="text-muted">Dissolvable sutures and optional bone grafting for optimal healing and preservation of jaw structure.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://cdn.prod.website-files.com/646fe284ced23f0c4cdba13c/6494cc1b17230924ee82513f_Third%20molar%20surgery.jpeg" alt="Surgical Procedure" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Benefits Section -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Benefits of Timely Wisdom Tooth Removal</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Prevents Future Problems</h4>
+                        <p class="text-muted">Early removal prevents potential complications like infections, cysts, and damage to adjacent teeth.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                        <h4>Relieves Pain & Discomfort</h4>
+                        <p class="text-muted">Eliminates chronic pain, pressure, and discomfort associated with impacted or problematic wisdom teeth.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-teeth"></i>
+                        </div>
+                        <h4>Protects Surrounding Teeth</h4>
+                        <p class="text-muted">Prevents crowding, decay in adjacent teeth, and maintains proper bite alignment.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Improves Overall Health</h4>
+                        <p class="text-muted">Reduces infection risk and contributes to better overall oral and systemic health.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recovery Timeline -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Recovery Process</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="timeline-item">
+                        <h5>Day 1-3</h5>
+                        <p class="text-muted">Initial healing phase with some swelling and discomfort. Soft food diet and rest recommended.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Day 4-7</h5>
+                        <p class="text-muted">Significant improvement in symptoms. Gradual return to normal activities and diet progression.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Week 2-3</h5>
+                        <p class="text-muted">Most discomfort resolved. Sutures dissolve. Return to normal oral hygiene and most activities.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Week 4-6</h5>
+                        <p class="text-muted">Complete healing of soft tissues. Bone remodeling continues internally for several months.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://www.stevebureauoms.com/files/2014/12/Wisdom-Tooth-Removal.jpg" alt="Recovery Process" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Post-Operative Care -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Post-Operative Care Instructions</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h4>Diet Guidelines</h4>
+                        <ul class="list-unstyled small">
+                            <li class="mb-2">✓ Soft food diet for 3-5 days</li>
+                            <li class="mb-2">✓ Avoid hot foods and liquids</li>
+                            <li class="mb-2">✓ No straws or sucking actions</li>
+                            <li class="mb-2">✓ Stay hydrated with water</li>
+                            <li class="mb-2">✓ Gradually reintroduce solid foods</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-toothbrush"></i>
+                        </div>
+                        <h4>Oral Hygiene</h4>
+                        <ul class="list-unstyled small">
+                            <li class="mb-2">✓ Gentle salt water rinses</li>
+                            <li class="mb-2">✓ Avoid brushing extraction site</li>
+                            <li class="mb-2">✓ Careful cleaning of other teeth</li>
+                            <li class="mb-2">✓ Use prescribed mouthwash</li>
+                            <li class="mb-2">✓ Resume normal hygiene after 1 week</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <h4>Swelling & Pain Management</h4>
+                        <ul class="list-unstyled small">
+                            <li class="mb-2">✓ Cold compress for first 48 hours</li>
+                            <li class="mb-2">✓ Take prescribed medications</li>
+                            <li class="mb-2">✓ Keep head elevated when resting</li>
+                            <li class="mb-2">✓ Avoid strenuous activities</li>
+                            <li class="mb-2">✓ Follow medication schedule</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Is wisdom tooth removal painful?
+                        </button>
+                        <div class="faq-answer">
+                            The procedure is performed under local anesthesia, ensuring you feel no pain during the extraction. Post-operative discomfort is typically mild and managed with prescribed medications.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            When should wisdom teeth be removed?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Early removal (teens to early 20s) is recommended when roots are not fully formed, making extraction easier and recovery faster. However, removal can be done at any age when needed.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How long does the procedure take?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Single tooth extraction typically takes 30-45 minutes. Multiple wisdom teeth may require 60-90 minutes. Time varies based on tooth position and complexity.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Will removing wisdom teeth change my face shape?
+                        </button>
+                        <div class="faq-answer d-none">
+                            No, wisdom tooth removal does not change your face shape. The procedure only removes teeth that are causing problems and has no impact on facial structure.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div id="consultation" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="cta-box">
+                <div class="position-relative">
+                    <h2 class="display-5 fw-bold mb-4">Need Wisdom Tooth Removal?</h2>
+                    <p class="lead mb-4">Get expert evaluation and painless extraction with our advanced surgical techniques.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Book Consultation</a>
+                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Emergency Appointment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

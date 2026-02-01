@@ -1,126 +1,447 @@
 {% extends "base.html" %}
 
-{% block title %}Maxillo-Facial Pathology - Panache Dental{% endblock %}
+{% block title %}Maxillo-Facial Pathology - Panache Advanced Dental Care{% endblock %}
 
 {% block content %}
-<section class="hero-section" style="background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 0;">
-    <div class="container text-center">
-        <h1 class="display-4 fw-bold mb-4">Maxillo-Facial Pathology</h1>
-        <p class="lead">Specialized treatment for cysts and tumors in the jaws</p>
-    </div>
-</section>
+<style>
+.hero-gradient {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+    opacity: 0.3;
+}
+.feature-card {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-color: var(--accent-sage);
+}
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--warm-white);
+    font-size: 1.5rem;
+}
+.procedure-step {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-sage);
+    transition: all 0.3s ease;
+}
+.procedure-step:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 25px;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    border: 3px solid var(--warm-white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.faq-item {
+    background: var(--warm-white);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.faq-question {
+    background: var(--primary-navy);
+    color: var(--warm-white);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+}
+.faq-question:hover {
+    background: var(--secondary-navy);
+}
+.faq-answer {
+    padding: 20px;
+    background: var(--warm-white);
+}
+.stat-box {
+    background: var(--warm-white);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--accent-sage);
+}
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+}
+.cta-box {
+    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
+    color: var(--warm-white);
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+    opacity: 0.2;
+}
+</style>
 
-<section class="py-5">
+<!-- Modern Hero Section -->
+<div class="hero-gradient py-5">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <h2 class="mb-4">Jaw Pathology Management</h2>
-                <p class="lead">Expert diagnosis and treatment of cysts, tumors, and other pathologies affecting the maxillofacial region</p>
-                
-                <h3 class="mt-4 mb-3">Conditions We Treat:</h3>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-microscope text-primary me-2"></i>Odontogenic Cysts</h5>
-                                <p class="card-text">Radicular cysts, dentigerous cysts, and other cysts arising from tooth development</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-tint text-primary me-2"></i>Non-Odontogenic Cysts</h5>
-                                <p class="card-text">Nasopalatine duct cysts, nasolabial cysts, and other developmental cysts</p>
-                            </div>
-                        </div>
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <div class="badge bg-light text-dark mb-3">ORAL PATHOLOGY</div>
+                    <h1 class="display-2 fw-bold mb-4 text-white">Maxillo-Facial Pathology</h1>
+                    <p class="lead mb-4 text-white-50">Specialized diagnosis and treatment of cysts, tumors, and pathological conditions affecting the jaws and facial structures.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#consultation" class="btn btn-light btn-lg">Get Evaluation</a>
+                        <a href="#procedure" class="btn btn-outline-light btn-lg">Learn More</a>
                     </div>
                 </div>
-                
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-exclamation-triangle text-warning me-2"></i>Benign Tumors</h5>
-                                <p class="card-text">Ameloblastoma, odontogenic keratocyst, and other non-cancerous growths</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-shield-alt text-danger me-2"></i>Malignant Tumors</h5>
-                                <p class="card-text">Early detection and comprehensive treatment of jaw cancers</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 class="mt-4 mb-3">Our Diagnostic Approach:</h3>
-                <div class="row">
-                    <div class="col-md-4 text-center mb-3">
-                        <i class="fas fa-x-ray fa-3x text-primary mb-2"></i>
-                        <h5>Advanced Imaging</h5>
-                        <p>Digital X-rays, CT scans, and MRI for precise diagnosis</p>
-                    </div>
-                    <div class="col-md-4 text-center mb-3">
-                        <i class="fas fa-vial fa-3x text-primary mb-2"></i>
-                        <h5>Histopathology</h5>
-                        <p>Biopsy and laboratory analysis for accurate diagnosis</p>
-                    </div>
-                    <div class="col-md-4 text-center mb-3">
-                        <i class="fas fa-user-md fa-3x text-primary mb-2"></i>
-                        <h5>Expert Evaluation</h5>
-                        <p>Specialized assessment by experienced maxillofacial surgeons</p>
-                    </div>
-                </div>
-
-                <h3 class="mt-4 mb-3">Treatment Options:</h3>
-                <ul class="list-unstyled">
-                    <li class="mb-3"><i class="fas fa-cut text-primary me-2"></i><strong>Surgical Excision:</strong> Complete removal of cysts and tumors with preservation of surrounding structures</li>
-                    <li class="mb-3"><i class="fas fa-bone text-primary me-2"></i><strong>Reconstruction:</strong> Restoration of form and function using bone grafts and advanced techniques</li>
-                    <li class="mb-3"><i class="fas fa-sync text-primary me-2"></i><strong>Reconstruction:</strong> Regular monitoring for early detection of any changes</li>
-                    <li class="mb-3"><i class="fas fa-pills text-primary me-2"></i><strong>Adjuvant Therapy:</strong> Coordinated care with oncology when needed</li>
-                </ul>
             </div>
-            
-            <div class="col-lg-4">
-                <div class="card bg-light">
-                    <div class="card-body">
-                        <h4 class="card-title mb-4">Warning Signs</h4>
-                        <p class="text-muted">Seek immediate evaluation if you notice:</p>
-                        <ul class="small">
-                            <li>Swelling that doesn't resolve</li>
-                            <li>Painless lumps or growths</li>
-                            <li>Numbness in face or mouth</li>
-                            <li>Loose teeth without cause</li>
-                            <li>Difficulty chewing or swallowing</li>
-                            <li>Unexplained bleeding</li>
-                            <li>Changes in bite or speech</li>
-                        </ul>
-                    </div>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <img src="https://neofacedental.com/wp-content/uploads/sites/124/2025/01/oral-maxillofacial.jpg" alt="Maxillofacial Pathology" class="img-fluid rounded-4 shadow-lg">
                 </div>
-                
-                <div class="card mt-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Early Detection Saves Lives</h5>
-                        <p>Regular dental check-ups can help detect pathological conditions early when treatment is most effective.</p>
-                        <div class="alert alert-info small">
-                            <i class="fas fa-info-circle me-2"></i>
-                            Most jaw pathologies are discovered during routine dental examinations
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Stats -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">1-3</div>
+                <div class="text-muted">Hours Duration</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">Local/General</div>
+                <div class="text-muted">Anesthesia Type</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">1-2</div>
+                <div class="text-muted">Weeks Recovery</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">98%+</div>
+                <div class="text-muted">Diagnostic Accuracy</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Introduction -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Expert Jaw Pathology Management</h2>
+                <p class="lead text-muted">Precision Diagnosis for Optimal Treatment Outcomes</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="mb-3"><strong>Maxillo-facial pathology</strong> encompasses a wide range of conditions affecting the jaws, facial bones, and associated soft tissues. From benign cysts to complex tumors, accurate diagnosis is crucial for effective treatment planning.</p>
+            <p>Our specialized team combines <strong>advanced diagnostic imaging</strong> with surgical expertise to identify and treat these conditions with minimal impact on function and aesthetics, ensuring comprehensive care for each patient.</p>
+        </div>
+        <div class="col-lg-6">
+            <img src="https://drlarrywolford.com/wp-content/uploads/maxillofacial-surgery.png" alt="Diagnostic Imaging" class="img-fluid rounded-3 shadow">
+        </div>
+    </div>
+</div>
+
+<!-- Conditions We Treat -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Conditions We Treat</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-microscope"></i>
                         </div>
+                        <h4>Odontogenic Cysts</h4>
+                        <p class="text-muted">Radicular cysts, dentigerous cysts, and other cysts arising from tooth development processes that can cause jaw swelling and bone destruction.</p>
                     </div>
                 </div>
-                
-                <div class="card mt-4 bg-primary text-white">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Concerned About Jaw Growth?</h5>
-                        <p>Get expert evaluation today</p>
-                        <a href="{{ url_for('contact') }}" class="btn btn-light">Schedule Consultation</a>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h4>Non-Odontogenic Cysts</h4>
+                        <p class="text-muted">Nasopalatine duct cysts, nasolabial cysts, and other developmental cysts not related to tooth formation but affecting facial structures.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h4>Benign Tumors</h4>
+                        <p class="text-muted">Ameloblastoma, odontogenic keratocyst, and other non-cancerous growths that require surgical removal and reconstruction.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Malignant Tumors</h4>
+                        <p class="text-muted">Early detection and comprehensive treatment of jaw cancers with coordinated oncology care and reconstruction.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
+
+<!-- Warning Signs -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Warning Signs & Symptoms</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Swelling That Doesn't Resolve</h5>
+                        <p class="text-muted mb-0">Persistent facial or jaw swelling that doesn't improve with time or treatment.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Painless Lumps or Growths</h5>
+                        <p class="text-muted mb-0">Unexplained masses or growths in the jaw, face, or neck region.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Numbness in Face or Mouth</h5>
+                        <p class="text-muted mb-0">Persistent numbness or tingling in facial areas without obvious cause.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Loose Teeth Without Cause</h5>
+                        <p class="text-muted mb-0">Teeth becoming loose without trauma or periodontal disease explanation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Diagnostic Approach -->
+<div id="procedure" class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Our Advanced Diagnostic Approach</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="timeline-item">
+                        <h5>Clinical Examination</h5>
+                        <p class="text-muted">Comprehensive physical examination including palpation, visual inspection, and functional assessment of affected areas.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Advanced Imaging</h5>
+                        <p class="text-muted">Digital X-rays, CT scans, MRI, and 3D cone beam imaging for precise anatomical evaluation.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Histopathology</h5>
+                        <p class="text-muted">Biopsy procedures and microscopic examination for definitive diagnosis and classification.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Multidisciplinary Review</h5>
+                        <p class="text-muted">Expert evaluation by our maxillofacial surgery team with pathology and radiology consultation.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://drhakimortho.com/wp-content/uploads/2024/04/AdobeStock_404575189.jpg" alt="Diagnostic Imaging" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Treatment Options -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Comprehensive Treatment Options</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <h4>Surgical Excision</h4>
+                        <p class="text-muted">Complete removal of cysts and tumors with preservation of surrounding structures and function where possible.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bone"></i>
+                        </div>
+                        <h4>Reconstruction</h4>
+                        <p class="text-muted">Restoration of form and function using bone grafts, advanced techniques, and implant-supported rehabilitation.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-sync"></i>
+                        </div>
+                        <h4>Regular Monitoring</h4>
+                        <p class="text-muted">Long-term surveillance and follow-up care for early detection of any changes or recurrence.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-pills"></i>
+                        </div>
+                        <h4>Adjuvant Therapy</h4>
+                        <p class="text-muted">Coordinated care with oncology specialists when additional treatment modalities are required.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Are all jaw growths cancerous?
+                        </button>
+                        <div class="faq-answer">
+                            No, most jaw growths and cysts are benign (non-cancerous). However, proper diagnosis is essential as some can be aggressive or potentially malignant. Early evaluation ensures appropriate treatment.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How are jaw cysts diagnosed?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Diagnosis typically involves clinical examination, radiographic imaging (X-rays, CT scans), and often a biopsy for histopathological examination to determine the exact nature of the lesion.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Will surgery affect my appearance?
+                        </button>
+                        <div class="faq-answer d-none">
+                            We use minimally invasive approaches and advanced reconstruction techniques to minimize aesthetic impact. Most procedures preserve facial appearance, with reconstruction when needed.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How long does recovery take?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Recovery varies by procedure complexity. Simple cyst removal may heal in 1-2 weeks, while complex tumor resections with reconstruction may require 6-12 weeks for full recovery.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div id="consultation" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="cta-box">
+                <div class="position-relative">
+                    <h2 class="display-5 fw-bold mb-4">Concerned About Jaw Growth?</h2>
+                    <p class="lead mb-4">Get expert evaluation and peace of mind with our comprehensive diagnostic services.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Schedule Consultation</a>
+                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Us Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 {% endblock %}

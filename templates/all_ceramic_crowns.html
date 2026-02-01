@@ -3,39 +3,464 @@
 {% block title %}All Ceramic Crowns - Panache Advanced Dental Care{% endblock %}
 
 {% block content %}
-<div class="container-fluid hero-section">
+<style>
+.hero-gradient {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+    opacity: 0.3;
+}
+.feature-card {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-color: var(--accent-sage);
+}
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--warm-white);
+    font-size: 1.5rem;
+}
+.procedure-step {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-sage);
+    transition: all 0.3s ease;
+}
+.procedure-step:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 25px;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    border: 3px solid var(--warm-white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.faq-item {
+    background: var(--warm-white);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.faq-question {
+    background: var(--primary-navy);
+    color: var(--warm-white);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+}
+.faq-question:hover {
+    background: var(--secondary-navy);
+}
+.faq-answer {
+    padding: 20px;
+    background: var(--warm-white);
+}
+.stat-box {
+    background: var(--warm-white);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--accent-sage);
+}
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+}
+.cta-box {
+    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
+    color: var(--warm-white);
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+    opacity: 0.2;
+}
+.crown-types {
+    display: flex;
+    gap: 20px;
+    margin: 30px 0;
+}
+.crown-type {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    background: var(--light-gray);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+.crown-type:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+</style>
+
+<!-- Modern Hero Section -->
+<div class="hero-gradient py-5">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <h1 class="display-4 fw-bold mb-4">All Ceramic Crowns</h1>
-                <p class="lead">Content will be provided for this all ceramic crowns procedure.</p>
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <div class="badge bg-light text-dark mb-3">RESTORATIVE DENTISTRY</div>
+                    <h1 class="display-2 fw-bold mb-4 text-white">All Ceramic Crowns</h1>
+                    <h2 class="h3 mb-4 text-white-50">Advanced Aesthetic Restoration</h2>
+                    <p class="lead mb-4 text-white-50">Transform your damaged or decayed teeth with beautiful, natural-looking ceramic crowns that combine strength with exceptional aesthetics for the perfect smile.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#consultation" class="btn btn-light btn-lg">Book Consultation</a>
+                        <a href="#procedure" class="btn btn-outline-light btn-lg">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <img src="https://www.emadental.com/assets/images/crown-1.jpg" alt="All Ceramic Crowns" class="img-fluid rounded-4 shadow-lg">
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Quick Stats -->
 <div class="container py-5">
     <div class="row">
-        <div class="col-lg-12">
-            <div class="doctor-card">
-                <h3 class="section-title">About All Ceramic Crowns</h3>
-                <p>Detailed information about the all ceramic crowns procedure will be provided here.</p>
-                
-                <h4>Procedure Details</h4>
-                <p>Information about the all ceramic crowns procedure will be added here.</p>
-                
-                <h4>Benefits</h4>
-                <p>Benefits of the procedure will be listed here.</p>
-                
-                <h4>Types of Ceramic Crowns</h4>
-                <p>Information about different types of ceramic crowns will be provided here.</p>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">2-3</div>
+                <div class="text-muted">Visits Required</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">Local</div>
+                <div class="text-muted">Anesthesia Type</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">10-15</div>
+                <div class="text-muted">Years Lifespan</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">2-3</div>
+                <div class="text-muted">Hours Duration</div>
             </div>
         </div>
     </div>
-    
-    <div class="row mt-4">
-        <div class="col-lg-12 text-center">
-            <a href="{{ url_for('contact') }}" class="btn btn-primary-custom">Schedule Consultation</a>
+</div>
+
+<!-- Introduction -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">The Perfect Blend of Strength and Beauty</h2>
+                <p class="lead text-muted">Advanced Ceramic Technology for Natural Results</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="mb-3"><strong>All-ceramic crowns</strong> represent the pinnacle of modern restorative dentistry, offering exceptional strength combined with lifelike aesthetics. These metal-free restorations are crafted from advanced ceramic materials that mimic the light-reflecting properties of natural tooth enamel.</p>
+            <p>Whether you're restoring a single tooth or multiple teeth, our <strong>ceramic crowns</strong> provide the perfect balance of durability and beauty, ensuring your restored teeth blend seamlessly with your natural smile while withstanding the forces of daily chewing and function.</p>
+        </div>
+        <div class="col-lg-6">
+            <img src="https://www.dentalholidayscrete.com/wp-content/uploads/2018/02/caserussian-105-e1648215343922.jpg" alt="Ceramic Crown" class="img-fluid rounded-3 shadow">
+        </div>
+    </div>
+</div>
+
+<!-- Types of Ceramic Crowns -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Types of All-Ceramic Crowns</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h4>Zirconia Crowns</h4>
+                        <p class="text-muted">Ultra-strong zirconium oxide crowns offering exceptional durability and translucency. Perfect for posterior teeth and patients who grind their teeth.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h4>E.max Crowns</h4>
+                        <p class="text-muted">Lithium disilicate glass-ceramic crowns with superior aesthetics and natural translucency. Ideal for front teeth where appearance matters most.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h4>Empress Crowns</h4>
+                        <p class="text-muted">Heat-pressed glass-ceramic crowns with excellent light transmission and chameleon effect, blending perfectly with surrounding teeth.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h4>Monolithic Crowns</h4>
+                        <p class="text-muted">Single-material construction for enhanced strength and natural appearance. No layering means more consistent color and translucency.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- When Ceramic Crowns are Needed -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">When Are Ceramic Crowns Recommended?</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i>Severely Decayed Teeth</h5>
+                        <p class="text-muted mb-0">When tooth decay is too extensive for fillings but the tooth structure is salvageable.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i>Cracked or Fractured Teeth</h5>
+                        <p class="text-muted mb-0">To protect weakened teeth from further damage and restore function and appearance.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i>After Root Canal Treatment</h5>
+                        <p class="text-muted mb-0">To strengthen and protect teeth that have become brittle following root canal therapy.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i>Large Fillings Replacement</h5>
+                        <p class="text-muted mb-0">When existing fillings fail or when too much tooth structure is missing for new fillings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Procedure Details -->
+<div id="procedure" class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">The Crown Placement Process</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="timeline-item">
+                        <h5>Consultation & Planning</h5>
+                        <p class="text-muted">Comprehensive examination with digital scanning and shade matching for perfect results.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Tooth Preparation</h5>
+                        <p class="text-muted">Gentle removal of damaged tooth structure and shaping to create space for the crown.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Digital Impressions</h5>
+                        <p class="text-muted">Precision digital scanning or traditional impressions for accurate crown fabrication.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Temporary Crown</h5>
+                        <p class="text-muted">Placement of temporary crown to protect the tooth while the final restoration is created.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Final Crown Placement</h5>
+                        <p class="text-muted">Precise cementation of the custom ceramic crown and final adjustments for perfect fit.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://media.healthdirect.org.au/images/inline/original/dental-crown-procedure-illustration-c33196.jpg" alt="Crown Procedure" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Benefits Section -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Benefits of All-Ceramic Crowns</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Natural Appearance</h4>
+                        <p class="text-muted">Superior translucency and light reflection that perfectly mimics natural tooth enamel, making them virtually indistinguishable.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Biocompatibility</h4>
+                        <p class="text-muted">Metal-free materials eliminate allergic reactions and gum tissue discoloration, ensuring optimal oral health.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Exceptional Strength</h4>
+                        <p class="text-muted">Modern ceramics withstand chewing forces and resist fracture, providing long-lasting durability.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h4>Stain Resistance</h4>
+                        <p class="text-muted">Non-porous surface resists staining from coffee, tea, wine, and other common staining agents.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How long do ceramic crowns last?
+                        </button>
+                        <div class="faq-answer">
+                            With proper care, all-ceramic crowns typically last 10-15 years. Some patients enjoy them for 20+ years with good oral hygiene and regular dental check-ups.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Are ceramic crowns strong enough for back teeth?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Yes! Modern ceramic materials like zirconia are extremely strong - even stronger than some metal-ceramic crowns. They can easily withstand the forces of back teeth chewing.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Will the crown match my other teeth?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Absolutely! We use advanced shade matching technology and can even customize the translucency and color characteristics to blend perfectly with your natural teeth.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Is the procedure painful?
+                        </button>
+                        <div class="faq-answer d-none">
+                            The procedure is performed under local anesthesia, ensuring you feel no pain. Some sensitivity may occur during preparation, but this is eliminated by the anesthetic.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div id="consultation" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="cta-box">
+                <div class="position-relative">
+                    <h2 class="display-5 fw-bold mb-4">Ready to Restore Your Smile?</h2>
+                    <p class="lead mb-4">Discover how all-ceramic crowns can restore damaged teeth with beautiful, natural-looking results.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Schedule Consultation</a>
+                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Us Now</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

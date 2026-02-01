@@ -1,185 +1,513 @@
 {% extends "base.html" %}
 
-{% block title %}Oral Cancer Surgery & Reconstruction - Panache Dental{% endblock %}
+{% block title %}Oral Cancer Surgery & Reconstruction - Panache Advanced Dental Care{% endblock %}
 
 {% block content %}
-<section class="hero-section" style="background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 0;">
-    <div class="container text-center">
-        <h1 class="display-4 fw-bold mb-4">Oral Cancer Surgery & Reconstruction</h1>
-        <p class="lead">Comprehensive cancer treatment with advanced reconstruction techniques</p>
-    </div>
-</section>
+<style>
+.hero-gradient {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+    opacity: 0.3;
+}
+.feature-card {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-color: var(--accent-sage);
+}
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--warm-white);
+    font-size: 1.5rem;
+}
+.procedure-step {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-sage);
+    transition: all 0.3s ease;
+}
+.procedure-step:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 25px;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    border: 3px solid var(--warm-white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.faq-item {
+    background: var(--warm-white);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.faq-question {
+    background: var(--primary-navy);
+    color: var(--warm-white);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+}
+.faq-question:hover {
+    background: var(--secondary-navy);
+}
+.faq-answer {
+    padding: 20px;
+    background: var(--warm-white);
+}
+.stat-box {
+    background: var(--warm-white);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--accent-sage);
+}
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+}
+.cta-box {
+    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
+    color: var(--warm-white);
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+    opacity: 0.2;
+}
+.warning-box {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px 0;
+}
+</style>
 
-<section class="py-5">
+<!-- Modern Hero Section -->
+<div class="hero-gradient py-5">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <h2 class="mb-4">Advanced Oral Cancer Care</h2>
-                <p class="lead">State-of-the-art surgical treatment for oral malignancies with immediate functional and aesthetic reconstruction</p>
-                
-                <div class="alert alert-danger mb-4">
-                    <i class="fas fa-exclamation-triangle me-2"></i>
-                    <strong>Early Detection Saves Lives:</strong> Regular oral cancer screenings are crucial for early detection and successful treatment outcomes.
-                </div>
-
-                <h3 class="mt-4 mb-3">Types of Oral Cancer We Treat:</h3>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-lips text-primary me-2"></i>Tongue Cancer</h5>
-                                <p class="card-text">Surgical removal with speech and swallowing preservation</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-microscope text-primary me-2"></i>Floor of Mouth Cancer</h5>
-                                <p class="card-text">Complex resection with functional reconstruction</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-tooth text-primary me-2"></i>Gum and Jaw Cancer</h5>
-                                <p class="card-text">Mandibulectomy and maxillectomy with bone reconstruction</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-cheese text-primary me-2"></i>Palate Cancer</h5>
-                                <p class="card-text">Resection with prosthetic or flap reconstruction</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 class="mt-4 mb-3">Our Surgical Approach:</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h5><i class="fas fa-search text-primary me-2"></i>Comprehensive Diagnosis</h5>
-                        <p>Biopsy, imaging studies, and multidisciplinary tumor board review</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5><i class="fas fa-users text-primary me-2"></i>Multidisciplinary Planning</h5>
-                        <p>Coordination with oncology, radiology, and rehabilitation specialists</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5><i class="fas fa-cut text-primary me-2"></i>Surgical Resection</h5>
-                        <p>Tumor removal with clear margins while preserving function</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5><i class="fas fa-hammer text-primary me-2"></i>Immediate Reconstruction</h5>
-                        <p>Advanced flap surgery and microvascular reconstruction</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5><i class="fas fa-sync text-primary me-2"></i>Rehabilitation</h5>
-                        <p>Speech therapy, swallowing therapy, and dental rehabilitation</p>
-                    </div>
-                </div>
-
-                <h3 class="mt-4 mb-3">Reconstruction Techniques:</h3>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-hand-paper text-primary me-2"></i>Free Flap Reconstruction</h5>
-                                <p class="card-text">Microvascular transfer of tissue from distant sites</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-bone text-primary me-2"></i>Bone Grafting</h5>
-                                <p class="card-text">Jaw reconstruction using vascularized bone grafts</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-robot text-primary me-2"></i>3D-Printed Implants</h5>
-                                <p class="card-text">Custom-made titanium implants for jaw reconstruction</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-teeth text-primary me-2"></i>Dental Rehabilitation</h5>
-                                <p class="card-text">Implant-supported prosthetics for functional restoration</p>
-                            </div>
-                        </div>
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <div class="badge bg-light text-dark mb-3">ONCOLOGIC SURGERY</div>
+                    <h1 class="display-2 fw-bold mb-4 text-white">Oral Cancer Surgery</h1>
+                    <h2 class="h3 mb-4 text-white-50">& Reconstruction</h2>
+                    <p class="lead mb-4 text-white-50">Comprehensive cancer treatment with advanced reconstruction techniques to restore both function and quality of life.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#consultation" class="btn btn-light btn-lg">Get Evaluation</a>
+                        <a href="#procedure" class="btn btn-outline-light btn-lg">Learn More</a>
                     </div>
                 </div>
             </div>
-            
-            <div class="col-lg-4">
-                <div class="card bg-danger text-white">
-                    <div class="card-body">
-                        <h4 class="card-title mb-4">Warning Signs</h4>
-                        <p class="mb-3">Seek immediate evaluation if you notice:</p>
-                        <ul class="small">
-                            <li class="mb-2"><i class="fas fa-exclamation-circle me-2"></i>Persistent mouth sore</li>
-                            <li class="mb-2"><i class="fas fa-exclamation-circle me-2"></i>White or red patches</li>
-                            <li class="mb-2"><i class="fas fa-exclamation-circle me-2"></i>Unexplained bleeding</li>
-                            <li class="mb-2"><i class="fas fa-exclamation-circle me-2"></i>Numbness or pain</li>
-                            <li class="mb-2"><i class="fas fa-exclamation-circle me-2"></i>Difficulty swallowing</li>
-                            <li class="mb-2"><i class="fas fa-exclamation-circle me-2"></i>Hoarseness</li>
-                            <li class="mb-2"><i class="fas fa-exclamation-circle me-2"></i>Lump or thickening</li>
-                        </ul>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <img src="https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-981-15-1346-6_82/MediaObjects/462947_1_En_82_Fig11_HTML.png" alt="Oral Cancer Treatment" class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Stats -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">4-8</div>
+                <div class="text-muted">Hours Duration</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">General</div>
+                <div class="text-muted">Anesthesia Type</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">7-14</div>
+                <div class="text-muted">Days Hospital Stay</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">80-90%+</div>
+                <div class="text-muted">Success Rate (Early Detection)</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Introduction -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Advanced Oral Cancer Care</h2>
+                <p class="lead text-muted">Comprehensive Treatment with Life-Restoring Reconstruction</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="mb-3"><strong>Oral cancer</strong> requires a specialized, multidisciplinary approach for optimal outcomes. Our surgical team combines <strong>oncologic expertise</strong> with advanced reconstructive techniques to remove cancer while preserving function and aesthetics.</p>
+            <p>We understand that oral cancer treatment impacts not just physical health, but emotional wellbeing too. That's why we focus on <strong>immediate reconstruction</strong> and comprehensive rehabilitation to help patients return to normal life with confidence.</p>
+        </div>
+        <div class="col-lg-6">
+            <img src="https://airavatcancercare.com/wp-content/uploads/2025/08/Comprehensive-Oral-Cancer-Treatment-in-Ahmedabad-at-Airavat-Cancer-Care-1170x627.jpg" alt="Oral Cancer Screening" class="img-fluid rounded-3 shadow">
+        </div>
+    </div>
+</div>
+
+<!-- Types of Oral Cancer -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Types of Oral Cancer We Treat</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lips"></i>
+                        </div>
+                        <h4>Tongue Cancer</h4>
+                        <p class="text-muted">Surgical removal with advanced techniques to preserve speech and swallowing function. Partial or total glossectomy with immediate reconstruction.</p>
                     </div>
                 </div>
-                
-                <div class="card mt-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Risk Factors</h5>
-                        <ul class="small">
-                            <li><strong>Tobacco Use:</strong> Smoking or chewing tobacco</li>
-                            <li><strong>Alcohol:</strong> Heavy alcohol consumption</li>
-                            <li><strong>HPV:</strong> Human papillomavirus infection</li>
-                            <li><strong>Sun Exposure:</strong> Lip cancer risk</li>
-                            <li><strong>Age:</strong> Risk increases after 40</li>
-                            <li><strong>Diet:</strong> Poor nutrition</li>
-                        </ul>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h4>Floor of Mouth Cancer</h4>
+                        <p class="text-muted">Complex resection with functional reconstruction to maintain tongue mobility and oral competence for optimal recovery.</p>
                     </div>
                 </div>
-                
-                <div class="card mt-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Prevention Tips</h5>
-                        <ul class="small">
-                            <li>✓ Quit tobacco use</li>
-                            <li>✓ Limit alcohol consumption</li>
-                            <li>✓ Practice good oral hygiene</li>
-                            <li>✓ Eat a balanced diet</li>
-                            <li>✓ Use lip protection from sun</li>
-                            <li>✓ Get regular dental check-ups</li>
-                            <li>✓ Consider HPV vaccination</li>
-                        </ul>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tooth"></i>
+                        </div>
+                        <h4>Gum and Jaw Cancer</h4>
+                        <p class="text-muted">Mandibulectomy and maxillectomy procedures with vascularized bone reconstruction and dental rehabilitation.</p>
                     </div>
                 </div>
-                
-                <div class="card mt-4 bg-dark text-white">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Need Oral Cancer Screening?</h5>
-                        <p>Early detection is key to successful treatment</p>
-                        <a href="{{ url_for('contact') }}" class="btn btn-warning">Schedule Screening</a>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cheese"></i>
+                        </div>
+                        <h4>Palate Cancer</h4>
+                        <p class="text-muted">Resection with prosthetic or microvascular flap reconstruction to restore speech and swallowing functions.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
+
+<!-- Warning Signs Section -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Warning Signs & Symptoms</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-danger me-2"></i>Persistent Mouth Sores</h5>
+                        <p class="text-muted mb-0">Sores that don't heal within 2 weeks or keep recurring in the same location.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-danger me-2"></i>White or Red Patches</h5>
+                        <p class="text-muted mb-0">Leukoplakia (white) or erythroplakia (red) patches that cannot be scraped off.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-danger me-2"></i>Unexplained Bleeding</h5>
+                        <p class="text-muted mb-0">Bleeding from the mouth or throat without obvious cause or injury.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-danger me-2"></i>Numbness or Pain</h5>
+                        <p class="text-muted mb-0">Persistent pain, numbness, or tenderness in the mouth, face, or neck area.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-danger me-2"></i>Difficulty Swallowing</h5>
+                        <p class="text-muted mb-0">Pain or difficulty when swallowing, chewing, or speaking.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-danger me-2"></i>Lump or Thickening</h5>
+                        <p class="text-muted mb-0">Any lump, thickening, rough spot, or eroded area in the mouth.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Surgical Approach -->
+<div id="procedure" class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Our Comprehensive Surgical Approach</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="timeline-item">
+                        <h5>Comprehensive Diagnosis</h5>
+                        <p class="text-muted">Detailed biopsy, advanced imaging studies (CT, MRI, PET), and multidisciplinary tumor board review for accurate staging.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Multidisciplinary Planning</h5>
+                        <p class="text-muted">Coordination with oncology, radiology, nutrition, speech therapy, and rehabilitation specialists for comprehensive care.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Surgical Resection</h5>
+                        <p class="text-muted">Tumor removal with clear margins while preserving maximum function and surrounding healthy tissue.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Immediate Reconstruction</h5>
+                        <p class="text-muted">Advanced microvascular flap surgery and bone reconstruction performed in the same operation when possible.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Rehabilitation & Follow-up</h5>
+                        <p class="text-muted">Speech therapy, swallowing therapy, dental rehabilitation, and regular surveillance for optimal recovery.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://www.mdpi.com/cancers/cancers-13-02122/article_deploy/html/images/cancers-13-02122-g001.png" alt="Oral Cancer Surgery Process" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Reconstruction Techniques -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Advanced Reconstruction Techniques</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-hand-paper"></i>
+                        </div>
+                        <h4>Free Flap Reconstruction</h4>
+                        <p class="text-muted">Microvascular transfer of tissue from distant sites (fibula, radial forearm, scapula) with blood vessel reconnection for optimal survival.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bone"></i>
+                        </div>
+                        <h4>Vascularized Bone Grafting</h4>
+                        <p class="text-muted">Jaw reconstruction using bone grafts with their own blood supply for successful integration and dental implant placement.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4>3D-Printed Implants</h4>
+                        <p class="text-muted">Custom-made titanium implants and surgical guides designed from patient's CT scans for precise reconstruction.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-teeth"></i>
+                        </div>
+                        <h4>Dental Rehabilitation</h4>
+                        <p class="text-muted">Implant-supported prosthetics and custom dental devices for functional restoration of chewing and speech.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Risk Factors and Prevention -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Risk Factors & Prevention</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-exclamation-circle text-danger"></i>
+                        </div>
+                        <h4>Major Risk Factors</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-times text-danger me-2"></i><strong>Tobacco Use:</strong> Smoking or chewing tobacco</li>
+                            <li class="mb-2"><i class="fas fa-times text-danger me-2"></i><strong>Alcohol:</strong> Heavy alcohol consumption</li>
+                            <li class="mb-2"><i class="fas fa-times text-danger me-2"></i><strong>HPV:</strong> Human papillomavirus infection</li>
+                            <li class="mb-2"><i class="fas fa-times text-danger me-2"></i><strong>Sun Exposure:</strong> Lip cancer risk</li>
+                            <li class="mb-2"><i class="fas fa-times text-danger me-2"></i><strong>Age:</strong> Risk increases after 40</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-check-circle text-success"></i>
+                        </div>
+                        <h4>Prevention Strategies</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Quit tobacco use completely</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Limit alcohol consumption</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Practice good oral hygiene</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Eat a balanced, nutritious diet</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Use lip protection from sun</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Consider HPV vaccination</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How successful is oral cancer treatment?
+                        </button>
+                        <div class="faq-answer">
+                            When detected early, oral cancer has a success rate of 80-90%. Regular screenings and early detection significantly improve outcomes. Even with advanced cases, modern treatments offer improved survival rates and quality of life.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Will I be able to speak and eat normally after surgery?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Our immediate reconstruction techniques focus on preserving function. While there may be temporary difficulties, speech therapy and rehabilitation help most patients regain near-normal speaking and eating abilities.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How long is the recovery period?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Initial hospital stay is typically 7-14 days. Full recovery can take 3-6 months, with ongoing rehabilitation. The exact timeline depends on the extent of surgery and individual healing factors.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Will my appearance be significantly changed?
+                        </button>
+                        <div class="faq-answer d-none">
+                            We prioritize aesthetic reconstruction using advanced techniques to minimize visible changes. In many cases, appearance can be restored to near-normal with microvascular reconstruction and cosmetic refinement.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div id="consultation" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="cta-box">
+                <div class="position-relative">
+                    <h2 class="display-5 fw-bold mb-4">Need Oral Cancer Screening?</h2>
+                    <p class="lead mb-4">Early detection is key to successful treatment. Schedule your comprehensive oral examination today.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Schedule Screening</a>
+                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Emergency Consultation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

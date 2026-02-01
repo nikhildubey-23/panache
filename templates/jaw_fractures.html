@@ -1,103 +1,490 @@
 {% extends "base.html" %}
 
-{% block title %}Jaw Fractures Treatment - Panache Dental{% endblock %}
+{% block title %}Jaw Fractures Treatment - Panache Advanced Dental Care{% endblock %}
 
 {% block content %}
-<section class="hero-section" style="background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 0;">
-    <div class="container text-center">
-        <h1 class="display-4 fw-bold mb-4">Jaw Fractures Treatment</h1>
-        <p class="lead">Expert care for jaw, zygoma, nasal, and orbital fractures</p>
-    </div>
-</section>
+<style>
+.hero-gradient {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+    opacity: 0.3;
+}
+.feature-card {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-color: var(--accent-sage);
+}
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--warm-white);
+    font-size: 1.5rem;
+}
+.procedure-step {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-sage);
+    transition: all 0.3s ease;
+}
+.procedure-step:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 25px;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    border: 3px solid var(--warm-white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.faq-item {
+    background: var(--warm-white);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.faq-question {
+    background: var(--primary-navy);
+    color: var(--warm-white);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+}
+.faq-question:hover {
+    background: var(--secondary-navy);
+}
+.faq-answer {
+    padding: 20px;
+    background: var(--warm-white);
+}
+.stat-box {
+    background: var(--warm-white);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--accent-sage);
+}
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+}
+.cta-box {
+    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
+    color: var(--warm-white);
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+    opacity: 0.2;
+}
+.emergency-box {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px 0;
+}
+</style>
 
-<section class="py-5">
+<!-- Modern Hero Section -->
+<div class="hero-gradient py-5">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <h2 class="mb-4">Comprehensive Facial Fracture Management</h2>
-                
-                <h3 class="mt-4 mb-3">Types of Facial Fractures We Treat:</h3>
-                <ul class="list-unstyled">
-                    <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i><strong>Jaw Fractures:</strong> Mandibular and maxillary fractures with advanced fixation techniques</li>
-                    <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i><strong>Zygoma (Cheekbone) Fractures:</strong> Precise reconstruction of mid-face injuries</li>
-                    <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i><strong>Nasal Fractures:</strong> Functional and aesthetic nasal reconstruction</li>
-                    <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i><strong>Orbital Fractures:</strong> Eye socket reconstruction with vision preservation</li>
-                </ul>
-
-                <h3 class="mt-4 mb-3">Our Treatment Approach:</h3>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-x-ray text-primary me-2"></i>Advanced Imaging</h5>
-                                <p class="card-text">3D CT scans for precise fracture assessment and surgical planning</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-procedures text-primary me-2"></i>Minimally Invasive Surgery</h5>
-                                <p class="card-text">Modern fixation techniques with minimal scarring and faster recovery</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 class="mt-4 mb-3">Benefits of Our Treatment:</h3>
-                <div class="row">
-                    <div class="col-md-4 text-center mb-3">
-                        <i class="fas fa-user-md fa-3x text-primary mb-2"></i>
-                        <h5>Expert Surgical Team</h5>
-                        <p>17+ years of experience in maxillofacial trauma care</p>
-                    </div>
-                    <div class="col-md-4 text-center mb-3">
-                        <i class="fas fa-hospital fa-3x text-primary mb-2"></i>
-                        <h5>Advanced Technology</h5>
-                        <p>State-of-the-art surgical equipment and techniques</p>
-                    </div>
-                    <div class="col-md-4 text-center mb-3">
-                        <i class="fas fa-smile fa-3x text-primary mb-2"></i>
-                        <h5>Optimal Outcomes</h5>
-                        <p>Restored function with excellent aesthetic results</p>
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <div class="badge bg-light text-dark mb-3">TRAUMA SURGERY</div>
+                    <h1 class="display-2 fw-bold mb-4 text-white">Jaw Fractures</h1>
+                    <h2 class="h3 mb-4 text-white-50">Expert Facial Trauma Care</h2>
+                    <p class="lead mb-4 text-white-50">Comprehensive treatment for jaw, zygoma, nasal, and orbital fractures with advanced reconstruction techniques for optimal function and aesthetics.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#consultation" class="btn btn-light btn-lg">Book Consultation</a>
+                        <a href="#emergency" class="btn btn-outline-light btn-lg">Emergency Care</a>
                     </div>
                 </div>
             </div>
-            
-            <div class="col-lg-4">
-                <div class="card bg-light">
-                    <div class="card-body">
-                        <h4 class="card-title mb-4">Emergency Care</h4>
-                        <p class="card-text">For immediate treatment of facial fractures:</p>
-                        <div class="mb-3">
-                            <i class="fas fa-phone-alt text-primary me-2"></i>
-                            <strong>Emergency:</strong> 9993888758
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <img src="https://physio-maxillo-faciale.ch/wp-content/uploads/2024/06/machoire-fracture-schema_reeducation-geneve.jpg" alt="Jaw Fracture Treatment" class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Stats -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">2-4</div>
+                <div class="text-muted">Hours Duration</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">General</div>
+                <div class="text-muted">Anesthesia Type</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">6-12</div>
+                <div class="text-muted">Weeks Recovery</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">95%+</div>
+                <div class="text-muted">Success Rate</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Emergency Alert -->
+<
+
+<!-- Introduction -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Comprehensive Facial Fracture Management</h2>
+                <p class="lead text-muted">Advanced Reconstruction for Optimal Outcomes</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="mb-3"><strong>Facial trauma</strong> requires immediate, specialized care to restore both function and appearance. Our maxillofacial surgery team has extensive experience treating complex <strong>jaw fractures</strong> and other facial injuries using the latest surgical techniques.</p>
+            <p>We understand that facial fractures impact not just physical health, but emotional wellbeing too. Our comprehensive approach ensures <strong>precise reconstruction</strong> that maintains facial symmetry, preserves function, and minimizes visible scarring.</p>
+        </div>
+        <div class="col-lg-6">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/3D_CT_of_bilateral_mandible_fracture.jpg" alt="3D CT Scan" class="img-fluid rounded-3 shadow">
+        </div>
+    </div>
+</div>
+
+<!-- Types of Fractures -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Types of Facial Fractures We Treat</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-check-circle"></i>
                         </div>
-                        <div class="mb-3">
-                            <i class="fas fa-clock text-primary me-2"></i>
-                            <strong>24/7 Trauma Care Available</strong>
-                        </div>
-                        <hr>
-                        <h5>When to Seek Immediate Care:</h5>
-                        <ul class="small">
-                            <li>Difficulty breathing or swallowing</li>
-                            <li>Severe facial pain</li>
-                            <li>Visible deformity</li>
-                            <li>Bleeding that won't stop</li>
-                            <li>Double vision or eye problems</li>
-                        </ul>
+                        <h4>Jaw Fractures</h4>
+                        <p class="text-muted">Mandibular and maxillary fractures treated with advanced fixation techniques including plates, screws, and arch bars for stable healing.</p>
                     </div>
                 </div>
-                
-                <div class="card mt-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Book Consultation</h5>
-                        <p>Get expert evaluation and treatment planning</p>
-                        <a href="{{ url_for('contact') }}" class="btn btn-primary btn-block">Schedule Appointment</a>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>Zygoma (Cheekbone) Fractures</h4>
+                        <p class="text-muted">Precise reconstruction of mid-face injuries using minimally invasive approaches to restore facial projection and symmetry.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>Nasal Fractures</h4>
+                        <p class="text-muted">Functional and aesthetic nasal reconstruction using closed and open reduction techniques to restore breathing and appearance.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>Orbital Fractures</h4>
+                        <p class="text-muted">Eye socket reconstruction with vision preservation using specialized implants and techniques for complex orbital injuries.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
+
+<!-- Emergency Signs -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">When to Seek Immediate Care</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-danger me-2"></i>Difficulty Breathing or Swallowing</h5>
+                        <p class="text-muted mb-0">Any breathing difficulties or inability to swallow requires immediate medical attention.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-danger me-2"></i>Severe Facial Pain</h5>
+                        <p class="text-muted mb-0">Intense, uncontrolled facial pain may indicate serious fracture or nerve involvement.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-danger me-2"></i>Visible Deformity</h5>
+                        <p class="text-muted mb-0">Obvious changes in facial shape, asymmetry, or displaced facial bones.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-danger me-2"></i>Double Vision or Eye Problems</h5>
+                        <p class="text-muted mb-0">Changes in vision, double vision, or difficulty moving eyes may indicate orbital fracture.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Treatment Approach -->
+<div id="procedure" class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Our Advanced Treatment Approach</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="timeline-item">
+                        <h5>Emergency Assessment</h5>
+                        <p class="text-muted">Immediate evaluation of airway, bleeding control, and stabilization of vital functions for trauma patients.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Advanced Imaging</h5>
+                        <p class="text-muted">3D CT scans and digital imaging for precise fracture assessment, surgical planning, and outcome prediction.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Surgical Reconstruction</h5>
+                        <p class="text-muted">Open reduction and internal fixation using titanium plates, screws, and specialized implants for stable healing.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Post-Operative Care</h5>
+                        <p class="text-muted">Comprehensive rehabilitation including physical therapy, nutritional support, and regular follow-up monitoring.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://www.theperfectdental.com/wp-content/uploads/2021/10/Jaw-Fractures.jpg" alt="Surgical Reconstruction" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Benefits Section -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Benefits of Our Treatment</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h4>Expert Surgical Team</h4>
+                        <p class="text-muted">17+ years of experience in maxillofacial trauma care with specialized training in complex reconstructive procedures.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h4>Advanced Technology</h4>
+                        <p class="text-muted">State-of-the-art surgical equipment, 3D imaging, and computer-assisted surgical planning.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                        <h4>Optimal Outcomes</h4>
+                        <p class="text-muted">Restored function with excellent aesthetic results and minimal visible scarring.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4>Comprehensive Care</h4>
+                        <p class="text-muted">Complete treatment from emergency care through final rehabilitation and follow-up.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recovery Timeline -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Recovery Timeline</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="timeline-item">
+                        <h5>Week 1-2</h5>
+                        <p class="text-muted">Initial healing with soft diet, pain management, and monitoring for complications. Swelling gradually decreases.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Week 3-6</h5>
+                        <p class="text-muted">Gradual return to normal diet and activities. Physical therapy begins if needed for jaw mobility.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Week 7-12</h5>
+                        <p class="text-muted">Most normal activities resumed. Regular follow-up appointments to monitor bone healing progress.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Month 6+</h5>
+                        <p class="text-muted">Complete bone union achieved. Hardware removal may be considered if necessary. Final functional assessment.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://www.foleyandleoralsurgery.com/wp-content/uploads/2022/12/jaw-fracture.jpg" alt="Recovery Process" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How soon should I seek treatment for a suspected jaw fracture?
+                        </button>
+                        <div class="faq-answer">
+                            Immediately. Facial fractures require prompt medical attention to prevent complications and ensure optimal healing outcomes. Delayed treatment can lead to improper healing, infection, or permanent functional impairment.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Will I have visible scars after surgery?
+                        </button>
+                        <div class="faq-answer d-none">
+                            We use minimally invasive techniques and hidden incision locations whenever possible. Any scars are typically minimal and placed in natural skin folds or inside the mouth, making them barely visible.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How long will I be unable to eat normally?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Most patients require a soft or liquid diet for 4-6 weeks, gradually progressing to normal foods as healing progresses. Your surgeon will provide specific dietary guidelines based on your fracture type and treatment.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Will the plates and screws need to be removed?
+                        </button>
+                        <div class="faq-answer d-none">
+                            In most cases, the hardware remains permanently and causes no problems. However, removal may be recommended if they become prominent, cause discomfort, or interfere with future dental work.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div id="consultation" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="cta-box">
+                <div class="position-relative">
+                    <h2 class="display-5 fw-bold mb-4">Need Facial Fracture Treatment?</h2>
+                    <p class="lead mb-4">Get expert evaluation and comprehensive care from our experienced maxillofacial surgery team.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Schedule Consultation</a>
+                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Emergency: 9993888758</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

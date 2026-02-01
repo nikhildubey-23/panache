@@ -1,162 +1,481 @@
 {% extends "base.html" %}
 
-{% block title %}TMJ Surgery - Panache Dental{% endblock %}
+{% block title %}TMJ Surgery - Panache Advanced Dental Care{% endblock %}
 
 {% block content %}
-<section class="hero-section" style="background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 0;">
-    <div class="container text-center">
-        <h1 class="display-4 fw-bold mb-4">TMJ Surgery (TMJR)</h1>
-        <p class="lead">Advanced treatment for temporomandibular joint disorders</p>
-    </div>
-</section>
+<style>
+.hero-gradient {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+    opacity: 0.3;
+}
+.feature-card {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-color: var(--accent-sage);
+}
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--warm-white);
+    font-size: 1.5rem;
+}
+.procedure-step {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-sage);
+    transition: all 0.3s ease;
+}
+.procedure-step:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 25px;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    border: 3px solid var(--warm-white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.faq-item {
+    background: var(--warm-white);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.faq-question {
+    background: var(--primary-navy);
+    color: var(--warm-white);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+}
+.faq-question:hover {
+    background: var(--secondary-navy);
+}
+.faq-answer {
+    padding: 20px;
+    background: var(--warm-white);
+}
+.stat-box {
+    background: var(--warm-white);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--accent-sage);
+}
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+}
+.cta-box {
+    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
+    color: var(--warm-white);
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+    opacity: 0.2;
+}
+</style>
 
-<section class="py-5">
+<!-- Modern Hero Section -->
+<div class="hero-gradient py-5">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <h2 class="mb-4">Temporomandibular Joint Replacement</h2>
-                <p class="lead">Comprehensive surgical solutions for chronic TMJ disorders and joint replacement</p>
-                
-                <h3 class="mt-4 mb-3">When is TMJ Surgery Recommended?</h3>
-                <ul class="list-unstyled">
-                    <li class="mb-3"><i class="fas fa-exclamation-triangle text-primary me-2"></i><strong>Severe Arthritis:</strong> Advanced degenerative joint disease unresponsive to conservative treatment</li>
-                    <li class="mb-3"><i class="fas fa-broken-bone text-primary me-2"></i><strong>Traumatic Injury:</strong> Fractured or severely damaged temporomandibular joint</li>
-                    <li class="mb-3"><i class="fas fa-times-circle text-primary me-2"></i><strong>Failed Previous Surgery:</strong> Complications from previous TMJ procedures</li>
-                    <li class="mb-3"><i class="fas fa-chart-line text-primary me-2"></i><strong>Progressive Dysfunction:</strong> Worsening jaw function despite non-surgical treatment</li>
-                    <li class="mb-3"><i class="fas fa-bolt text-primary me-2"></i><strong>Chronic Pain:</strong> Severe, persistent pain affecting quality of life</li>
-                </ul>
-
-                <h3 class="mt-4 mb-3">Our Surgical Options:</h3>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-tools text-primary me-2"></i>Arthroscopy</h5>
-                                <p class="card-text">Minimally invasive procedure using small cameras and instruments</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-cogs text-primary me-2"></i>Joint Replacement (TMJR)</h5>
-                                <p class="card-text">Total joint replacement with custom prosthetic devices</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-cut text-primary me-2"></i>Discectomy</h5>
-                                <p class="card-text">Removal of damaged disc tissue to relieve pain and improve function</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-bone text-primary me-2"></i>Joint Reconstruction</h5>
-                                <p class="card-text">Complex reconstruction using bone grafts and specialized techniques</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 class="mt-4 mb-3">Surgical Process:</h3>
-                <div class="row">
-                    <div class="col-md-3 text-center mb-3">
-                        <i class="fas fa-clipboard-check fa-3x text-primary mb-2"></i>
-                        <h5>Pre-Operative Planning</h5>
-                        <p>3D imaging and custom prosthesis design</p>
-                    </div>
-                    <div class="col-md-3 text-center mb-3">
-                        <i class="fas fa-procedures fa-3x text-primary mb-2"></i>
-                        <h5>Surgery</h5>
-                        <p>2-4 hour procedure under general anesthesia</p>
-                    </div>
-                    <div class="col-md-3 text-center mb-3">
-                        <i class="fas fa-hospital fa-3x text-primary mb-2"></i>
-                        <h5>Hospital Stay</h5>
-                        <p>1-3 days depending on procedure complexity</p>
-                    </div>
-                    <div class="col-md-3 text-center mb-3">
-                        <i class="fas fa-dumbbell fa-3x text-primary mb-2"></i>
-                        <h5>Rehabilitation</h5>
-                        <p>Physical therapy and gradual jaw exercises</p>
-                    </div>
-                </div>
-
-                <h3 class="mt-4 mb-3">Benefits of TMJ Surgery:</h3>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card text-center mb-3">
-                            <div class="card-body">
-                                <i class="fas fa-smile fa-2x text-success mb-2"></i>
-                                <h6>Pain Relief</h6>
-                                <small>Eliminate chronic jaw pain</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card text-center mb-3">
-                            <div class="card-body">
-                                <i class="fas fa-utensils fa-2x text-success mb-2"></i>
-                                <h6>Improved Function</h6>
-                                <small>Restore normal chewing and speech</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card text-center mb-3">
-                            <div class="card-body">
-                                <i class="fas fa-expand-arrows-alt fa-2x text-success mb-2"></i>
-                                <h6>Better Range</h6>
-                                <small>Increase jaw mobility</small>
-                            </div>
-                        </div>
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <div class="badge bg-light text-dark mb-3">MAXILLOFACIAL SURGERY</div>
+                    <h1 class="display-2 fw-bold mb-4 text-white">TMJ Surgery (TMJR)</h1>
+                    <p class="lead mb-4 text-white-50">Advanced surgical solutions for chronic temporomandibular joint disorders, offering lasting relief from pain and restored jaw function.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#consultation" class="btn btn-light btn-lg">Book Consultation</a>
+                        <a href="#procedure" class="btn btn-outline-light btn-lg">Learn More</a>
                     </div>
                 </div>
             </div>
-            
-            <div class="col-lg-4">
-                <div class="card bg-light">
-                    <div class="card-body">
-                        <h4 class="card-title mb-4">TMJ Disorder Symptoms</h4>
-                        <ul class="small">
-                            <li class="mb-2"><i class="fas fa-chevron-right text-primary me-2"></i>Jaw pain or tenderness</li>
-                            <li class="mb-2"><i class="fas fa-chevron-right text-primary me-2"></i>Difficulty chewing</li>
-                            <li class="mb-2"><i class="fas fa-chevron-right text-primary me-2"></i>Clicking or popping sounds</li>
-                            <li class="mb-2"><i class="fas fa-chevron-right text-primary me-2"></i>Locking of jaw joint</li>
-                            <li class="mb-2"><i class="fas fa-chevron-right text-primary me-2"></i>Headaches and ear pain</li>
-                            <li class="mb-2"><i class="fas fa-chevron-right text-primary me-2"></i>Difficulty opening mouth wide</li>
-                        </ul>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <img src="https://www.concordoralsurgery.ca/wp-content/uploads/2024/12/tmj-2.jpg" alt="TMJ Surgery" class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Stats -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">2-4</div>
+                <div class="text-muted">Hours Duration</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">General</div>
+                <div class="text-muted">Anesthesia Type</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">3-6</div>
+                <div class="text-muted">Months Recovery</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">95%+</div>
+                <div class="text-muted">Success Rate</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Introduction -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Advanced TMJ Disorder Treatment</h2>
+                <p class="lead text-muted">When Conservative Care Isn't Enough</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="mb-3"><strong>Temporomandibular Joint (TMJ) disorders</strong> can cause debilitating pain, limited jaw movement, and significantly impact quality of life. When non-surgical treatments fail to provide relief, <strong>TMJ surgery</strong> becomes the definitive solution for lasting improvement.</p>
+            <p>Our <strong>Total Joint Replacement (TMJR)</strong> procedures utilize state-of-the-art prosthetic joints designed to restore normal jaw function, eliminate chronic pain, and return patients to a life free from TMJ limitations.</p>
+        </div>
+        <div class="col-lg-6">
+            <img src="https://www.newsmile4u.com/wp-content/uploads/2022/03/tmj-disorder-treatment.jpg" alt="TMJ Joint Structure" class="img-fluid rounded-3 shadow">
+        </div>
+    </div>
+</div>
+
+<!-- When Surgery Is Needed -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">When is TMJ Surgery Recommended?</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle me-2"></i>Severe Arthritis</h5>
+                        <p class="text-muted mb-0">Advanced degenerative joint disease that has not responded to conservative treatments like medications, physical therapy, or splints.</p>
                     </div>
                 </div>
-                
-                <div class="card mt-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Recovery Timeline</h5>
-                        <ul class="list-unstyled small">
-                            <li class="mb-2"><strong>Week 1-2:</strong> Soft diet, limited jaw movement</li>
-                            <li class="mb-2"><strong>Week 2-4:</strong> Gradual increase in jaw activity</li>
-                            <li class="mb-2"><strong>Week 4-8:</strong> Physical therapy begins</li>
-                            <li class="mb-2"><strong>Month 3-6:</strong> Return to normal function</li>
-                        </ul>
+                <div class="col-md-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-broken-bone me-2"></i>Traumatic Injury</h5>
+                        <p class="text-muted mb-0">Fractured or severely damaged temporomandibular joint from accidents, sports injuries, or other traumatic events.</p>
                     </div>
                 </div>
-                
-                <div class="card mt-4 bg-primary text-white">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Chronic TMJ Pain?</h5>
-                        <p>Find out if surgery is right for you</p>
-                        <a href="{{ url_for('contact') }}" class="btn btn-light">Get Evaluation</a>
+                <div class="col-md-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-times-circle me-2"></i>Failed Previous Surgery</h5>
+                        <p class="text-muted mb-0">Complications or unsatisfactory results from previous TMJ procedures requiring revision surgery.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-bolt me-2"></i>Chronic Pain</h5>
+                        <p class="text-muted mb-0">Severe, persistent pain affecting daily activities, sleep, and overall quality of life despite conservative management.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
+
+<!-- Surgical Options -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Our Advanced Surgical Options</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h4>Arthroscopy</h4>
+                        <p class="text-muted">Minimally invasive procedure using small cameras and specialized instruments to diagnose and treat internal joint problems with minimal tissue disruption.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4>Total Joint Replacement (TMJR)</h4>
+                        <p class="text-muted">Complete joint replacement using custom-designed prosthetic devices made from biocompatible materials for long-term function.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <h4>Discectomy</h4>
+                        <p class="text-muted">Surgical removal of damaged or displaced articular disc tissue to relieve pain, improve function, and prevent further joint damage.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bone"></i>
+                        </div>
+                        <h4>Joint Reconstruction</h4>
+                        <p class="text-muted">Complex reconstruction procedures using bone grafts, tissue engineering, and specialized surgical techniques to restore joint anatomy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Benefits Grid -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Benefits of TMJ Surgery</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                        <h4>Pain Relief</h4>
+                        <p class="text-muted">Eliminate chronic jaw pain, headaches, and facial discomfort that have persisted despite other treatments.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h4>Improved Function</h4>
+                        <p class="text-muted">Restore normal chewing, speaking, and swallowing abilities for improved nutrition and quality of life.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                        </div>
+                        <h4>Increased Range of Motion</h4>
+                        <p class="text-muted">Regain normal jaw opening and movement patterns, eliminating restrictions that affect daily activities.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Long-Term Solution</h4>
+                        <p class="text-muted">Provide lasting results with durable prosthetic materials designed for decades of reliable function.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Procedure Details -->
+<div id="procedure" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">The Surgical Process</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-clipboard-check me-2"></i>Pre-Operative Planning</h5>
+                        <p class="text-muted mb-0">Comprehensive 3D imaging, CT scans, and custom prosthesis design for perfect anatomical fit.</p>
+                    </div>
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-procedures me-2"></i>Surgery</h5>
+                        <p class="text-muted mb-0">2-4 hour procedure performed under general anesthesia with meticulous surgical precision.</p>
+                    </div>
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-hospital me-2"></i>Hospital Stay</h5>
+                        <p class="text-muted mb-0">1-3 days of monitored care depending on procedure complexity and individual recovery progress.</p>
+                    </div>
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-dumbbell me-2"></i>Rehabilitation</h5>
+                        <p class="text-muted mb-0">Structured physical therapy program and gradual jaw exercises for optimal functional recovery.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://img1.wsimg.com/isteam/ip/a948c8e1-b894-4dea-8ddb-1c2dd0075cf9/arthrocentesis-for-tm-8col.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:600,cg:true" alt="TMJ Surgical Process" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recovery Timeline -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Recovery and Rehabilitation</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="timeline-item">
+                        <h5>Week 1-2</h5>
+                        <p class="text-muted">Initial recovery with soft diet, limited jaw movement, and pain management. Hospital discharge and home care begins.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Week 2-4</h5>
+                        <p class="text-muted">Gradual increase in jaw activity under medical supervision. Introduction of gentle range-of-motion exercises.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Week 4-8</h5>
+                        <p class="text-muted">Structured physical therapy program begins. Progression to soft-solid foods and improved jaw mobility.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Month 3-6</h5>
+                        <p class="text-muted">Return to normal function with most daily activities resumed. Continued monitoring and adjustment of therapy as needed.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://parkwayphysiotherapy.ca/wp-content/uploads/2025/09/Title8.jpg" alt="Recovery Process" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Is TMJ surgery safe?
+                        </button>
+                        <div class="faq-answer">
+                            Yes, TMJ surgery is a well-established procedure with high success rates when performed by experienced maxillofacial surgeons. Our team uses advanced imaging and surgical techniques to maximize safety and outcomes.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How long does recovery take?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Initial recovery takes 2-4 weeks for basic healing, with full functional recovery typically achieved within 3-6 months. Individual recovery times vary based on the specific procedure and patient factors.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Will I be able to eat normally after surgery?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Yes, patients typically progress from liquid diets to soft foods and eventually return to normal eating patterns within 6-12 weeks, depending on their individual healing progress.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How long do TMJ implants last?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Modern TMJ prosthetic devices are designed for long-term durability, with many lasting 15-20 years or more. Regular follow-up care helps ensure optimal longevity and function.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- CTA Section -->
+<div id="consultation" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="cta-box">
+                <div class="position-relative">
+                    <h2 class="display-5 fw-bold mb-4">Ready for Lasting TMJ Relief?</h2>
+                    <p class="lead mb-4">Schedule a consultation to explore your surgical options and reclaim your life from chronic TMJ pain.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Schedule Consultation</a>
+                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Us Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

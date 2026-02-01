@@ -3,41 +3,910 @@
 {% block title %}Crown & Bridges/FPD - Panache Advanced Dental Care{% endblock %}
 
 {% block content %}
-<div class="container-fluid hero-section">
+<style>
+:root {
+    --primary-navy: #1a365d;
+    --secondary-navy: #2c5282;
+    --accent-sage: #718096;
+    --warm-white: #ffffff;
+    --light-gray: #f7fafc;
+    --border-light: #e2e8f0;
+}
+
+.hero-gradient {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+    opacity: 0.3;
+}
+.feature-card {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-color: var(--accent-sage);
+}
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--warm-white);
+    font-size: 1.5rem;
+}
+.procedure-step {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-sage);
+    transition: all 0.3s ease;
+}
+.procedure-step:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 25px;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    border: 3px solid var(--warm-white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.faq-item {
+    background: var(--warm-white);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.faq-question {
+    background: var(--primary-navy);
+    color: var(--warm-white);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+}
+.faq-question:hover {
+    background: var(--secondary-navy);
+}
+.faq-answer {
+    padding: 20px;
+    background: var(--warm-white);
+}
+.stat-box {
+    background: var(--warm-white);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--accent-sage);
+}
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+}
+.cta-box {
+    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
+    color: var(--warm-white);
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+    opacity: 0.2;
+}
+.crown-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 30px 0;
+}
+.crown-type {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.crown-type:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.before-after {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.image-comparison {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+.image-comparison img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.comparison-slider {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: #fff;
+    cursor: ew-resize;
+    z-index: 10;
+}
+.comparison-slider::before {
+    content: '⟷';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--primary-navy);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.testimonial-card {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.testimonial-stars {
+    color: #ffc107;
+    margin-bottom: 15px;
+}
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+.testimonial-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--accent-sage);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.pricing-card {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    position: relative;
+}
+.pricing-card.featured {
+    transform: scale(1.05);
+    border: 2px solid var(--accent-sage);
+}
+.pricing-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+.pricing-card.featured:hover {
+    transform: translateY(-10px) scale(1.05);
+}
+.price-tag {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--primary-navy);
+    margin: 20px 0;
+}
+.price-currency {
+    font-size: 1.5rem;
+    vertical-align: super;
+}
+.price-period {
+    font-size: 1rem;
+    color: var(--accent-sage);
+}
+
+.hero-content {
+    animation: fadeInUp 0.8s ease-out;
+}
+.hero-image {
+    animation: fadeInRight 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-gradient {
+        padding: 2rem 0;
+    }
+    .display-2 {
+        font-size: 2.5rem;
+    }
+    .stat-number {
+        font-size: 2rem;
+    }
+    .crown-types {
+        grid-template-columns: 1fr;
+    }
+    .pricing-card.featured {
+        transform: none;
+        border-width: 1px;
+    }
+    .hero-content .d-flex {
+        flex-direction: column !important;
+    }
+    .hero-image img {
+        margin-top: 2rem;
+    }
+    .testimonial-card {
+        margin-bottom: 1.5rem;
+    }
+    .procedure-step {
+        margin-bottom: 1rem;
+    }
+    .timeline-item {
+        padding-left: 30px;
+    }
+    .cta-box {
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .display-5 {
+        font-size: 2rem;
+    }
+    .price-tag {
+        font-size: 2rem;
+    }
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+}
+</style>
+
+<!-- Enhanced Hero Section -->
+<div class="hero-gradient py-5">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <h1 class="display-4 fw-bold mb-4">Crown & Bridges</h1>
-                <h2 class="h3 mb-4">Fixed Partial Denture (FPD)</h2>
-                <p class="lead">Content will be provided for this crown and bridges procedure.</p>
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <div class="badge bg-light text-dark mb-3 px-3 py-2">
+                        <i class="fas fa-tooth me-2"></i>RESTORATIVE DENTISTRY
+                    </div>
+                    <h1 class="display-2 fw-bold mb-4 text-white">
+                        Crown & Bridges
+                        <div class="text-white-50 h3 mt-3">Fixed Partial Dentures (FPD)</div>
+                    </h1>
+                    <p class="lead mb-4 text-white-50">Restore your smile with precision-crafted crowns and bridges that look, feel, and function just like natural teeth. Advanced materials and techniques for durable, aesthetic results.</p>
+                    <div class="d-flex flex-column flex-sm-row gap-3 mb-4">
+                        <a href="#consultation" class="btn btn-light btn-lg px-4 py-3">
+                            <i class="fas fa-calendar-check me-2"></i>Book Consultation
+                        </a>
+                        <a href="#procedure" class="btn btn-outline-light btn-lg px-4 py-3">
+                            <i class="fas fa-info-circle me-2"></i>Learn More
+                        </a>
+                    </div>
+                    <div class="d-flex gap-4 text-white">
+                        <div>
+                            <i class="fas fa-check-circle me-2"></i>
+                            <span>Painless Procedure</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-check-circle me-2"></i>
+                            <span>10+ Year Warranty</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-check-circle me-2"></i>
+                            <span>Natural Look</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image position-relative">
+                    <img src="https://aluxdental.com/wp-content/uploads/2019/09/dental-bridges-1200x800.jpg" alt="Crown and Bridges" class="img-fluid rounded-4 shadow-lg">
+                    <div class="position-absolute top-0 start-0 m-3">
+                        <div class="bg-white text-dark px-3 py-2 rounded-pill shadow">
+                            <i class="fas fa-award text-warning me-2"></i>
+                            <strong>97% Success Rate</strong>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Before & After Showcase -->
 <div class="container py-5">
     <div class="row">
         <div class="col-lg-12">
-            <div class="doctor-card">
-                <h3 class="section-title">About Crown & Bridges</h3>
-                <p>Detailed information about the crown and bridges procedure will be provided here.</p>
-                
-                <h4>Procedure Details</h4>
-                <p>Information about the FPD procedure will be added here.</p>
-                
-                <h4>Benefits</h4>
-                <p>Benefits of the procedure will be listed here.</p>
-                
-                <h4>Recovery</h4>
-                <p>Recovery information will be provided here.</p>
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Amazing Transformations</h2>
+                <p class="lead text-muted">See the incredible results our patients have achieved</p>
             </div>
         </div>
     </div>
-    
-    <div class="row mt-4">
-        <div class="col-lg-12 text-center">
-            <a href="{{ url_for('contact') }}" class="btn btn-primary-custom">Schedule Consultation</a>
+   
+</div>
+
+<!-- Quick Stats -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">2-3</div>
+                <div class="text-muted">Visits per Crown</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">10-15</div>
+                <div class="text-muted">Years Lifespan</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">97%</div>
+                <div class="text-muted">Success Rate</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">Same Day</div>
+                <div class="text-muted">Temporary Available</div>
+            </div>
         </div>
     </div>
 </div>
+
+<!-- Introduction -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Precision Restorative Solutions</h2>
+                <p class="lead text-muted">Advanced crown and bridge work for perfect function and aesthetics</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="mb-3"><strong>Fixed Partial Dentures (FPD)</strong> and <strong>dental bridges</strong> are the gold standard for replacing missing teeth. These <strong>custom prosthetic devices</strong> are designed to restore your smile's function and appearance, allowing you to eat, speak, and smile with confidence.</p>
+            <p>Our advanced techniques and high-quality materials ensure <strong>optimal fit</strong> and <strong>durability</strong>. Whether you need to replace a single tooth or multiple teeth, our precision-crafted solutions provide the foundation for a healthy, functional smile.</p>
+        </div>
+        <div class="col-lg-6">
+            <img src="https://www.advanceddental.com.au/wp-content/uploads/2021/10/shutterstock_1409334488-1170x658.png" alt="Crowns and Bridges" class="img-fluid rounded-3 shadow">
+        </div>
+        </div>
+    </div>
+</div>
+
+<!-- Types of Crown & Bridges -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Types of Restorations</h2>
+            </div>
+            <div class="crown-types">
+                <div class="crown-type">
+                    <h4>Porcelain Crowns</h4>
+                    <p>All-ceramic crowns offering superior aesthetics and durability for front teeth.</p>
+                </div>
+                <div class="crown-type">
+                    <h4>Zirconia Crowns</h4>
+                    <p>Ultra-strong zirconium crowns perfect for posterior teeth and patients who grind their teeth.</p>
+                </div>
+                <div class="crown-type">
+                    <h4>Emax Crowns</h4>
+                    <p>Lithium disilicate glass-ceramic crowns with exceptional translucency and aesthetics.</p>
+                </div>
+                <div class="crown-type">
+                    <h4>Porcelain Fused to Metal</h4>
+                    <p>Traditional porcelain fused to metal crowns combining beauty with strength.</p>
+                </div>
+                <div class="crown-type">
+                    <h4>Gold Crowns</h4>
+                    <p>Timeless, durable option for back teeth and long-lasting results.</p>
+                </div>
+                <div class="crown-type">
+                    <h4>Composite Crowns</h4>
+                    <p>Cost-effective solution with good aesthetics for front teeth.</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bridge Types -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Bridge Options</h2>
+            </div>
+            <div class="crown-types">
+                <div class="crown-type">
+                    <h4>Traditional Bridges</h4>
+                    <p>Conventional bridges using adjacent teeth as support, replacing 1-3 missing teeth.</p>
+                </div>
+                <div class="crown-type">
+                    <h4>Cantilever Bridges</h4>
+                    <p>Modern bridges with precision attachments for secure fit without damaging healthy teeth.</p>
+                </div>
+                <div class="crown-type">
+                    <h4>Maryland Bridges</h4>
+                    <p>Durable resin-retained bridges offering excellent aesthetics at lower cost than porcelain.</p>
+                </div>
+                <div class="crown-type">
+                    <h4>Implant-Supported Bridges</h4>
+                    <p>Bridges anchored by dental implants for maximum stability and bone preservation.</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- When FPD is Needed -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">When is Crown & Bridge Treatment Needed?</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i>Missing Teeth</h5>
+                        <p class="text-muted mb-0">Gaps in your smile from missing teeth can affect appearance and function.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i>Severely Damaged Teeth</h5>
+                        <p class="text-muted mb-0">Extensive decay or broken teeth beyond repairable with fillings.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i>Failed Large Fillings</h5>
+                        <p class="text-muted mb-0">When existing fillings have cracked, fallen out, or developed recurrent decay.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i>Worn Teeth</h5>
+                        <p class="text-muted mb-0">Age-related wear causing enamel erosion and appearance changes.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i>Bite Problems</h5>
+                        <p class="text-muted mb-0">Misaligned teeth causing uneven wear and jaw joint issues.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- The FPD Process -->
+<div id="procedure" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">The Crown & Bridge Process</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="timeline-item">
+                        <h5>Comprehensive Consultation</h5>
+                        <p class="text-muted">Detailed examination and discussion of your goals, medical history, and aesthetic preferences.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Tooth Preparation</h5>
+                        <p class="text-muted">Gentle reshaping of adjacent teeth to receive crowns or bridges.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Impressions & Scanning</h5>
+                        <p class="text-muted">Digital or traditional impressions for precise crown and bridge fabrication.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Temporary FPD</h5>
+                        <p class="text-muted">Provisional restoration while permanent restorations are being created.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Final Placement</h5>
+                        <p class="text-muted">Precise cementation and adjustments for perfect fit and bite.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Final Check-up</h5>
+                        <p class="text-muted">Follow-up appointments to ensure long-term success.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://www.advanceddental.com.au/wp-content/uploads/2021/10/shutterstock_1409334488-1170x658.png" alt="Crown and Bridge Process" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Benefits Section -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Benefits of Crown & Bridges</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tooth"></i>
+                        </div>
+                        <h4>Restored Function</h4>
+                        <p class="text-muted">Regain ability to chew, speak, and eat normally with restored teeth.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Improved Aesthetics</h4>
+                        <p class="text-muted">Natural-looking results that blend seamlessly with surrounding teeth.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Enhanced Confidence</h4>
+                        <p class="text-muted">Complete smile transformation and renewed self-esteem.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4>Durable Solution</h4>
+                        <p class="text-muted">Long-lasting results with proper care and maintenance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Materials Used -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Premium Materials Used</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h4>All-Ceramic</h4>
+                        <p>High-quality ceramic for exceptional aesthetics and durability.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h4>Zirconia</h4>
+                        <p>Ultra-strong material perfect for posterior teeth and bruxism patients.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>E.max</h4>
+                        <p>Advanced lithium disilicate glass ceramic for superior light transmission.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bone"></i>
+                        </div>
+                        <h4>Gold Alloys</h4>
+                        <p>Time-tested strength for posterior teeth with excellent longevity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- FAQ Section -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How long do crowns and bridges last?
+                        </button>
+                        <div class="faq-answer">
+                            With proper care, crowns and bridges typically last 10-15 years. Porcelain restorations can last 20+ years with good hygiene. Bridges may need replacement after 7-10 years.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Are crowns and bridges noticeable?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Modern all-ceramic and zirconia materials can be made to match natural tooth color so precisely that even dentists often can't detect them without close examination.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Can I eat normally with crowns?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Yes! After initial adjustment period, you can return to normal eating. However, avoid extremely hard foods and very hot or cold items for the first 24 hours.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How do I care for my crowns and bridges?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Practice good oral hygiene with regular brushing and flossing. Avoid sticky foods and biting hard objects. Regular dental check-ups are essential for monitoring.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div id="consultation" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="cta-box">
+                <div class="position-relative">
+                    <h2 class="display-5 fw-bold mb-4">Ready for Your Dream Smile?</h2>
+                    <p class="lead mb-4">Experience the life-changing benefits of precision-crafted crowns and bridges.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Schedule Consultation</a>
+                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Us Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Animate elements on scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe feature cards, stat boxes, and other elements
+document.addEventListener('DOMContentLoaded', () => {
+    const animatedElements = document.querySelectorAll('.feature-card, .stat-box, .crown-type, .pricing-card, .testimonial-card');
+    
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+
+    // Add hover effects to procedure steps
+    const procedureSteps = document.querySelectorAll('.procedure-step');
+    procedureSteps.forEach(step => {
+        step.addEventListener('mouseenter', function() {
+            this.style.borderLeftWidth = '6px';
+        });
+        step.addEventListener('mouseleave', function() {
+            this.style.borderLeftWidth = '4px';
+        });
+    });
+
+    // FAQ accordion functionality
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            const answer = this.nextElementSibling;
+            const isOpen = !answer.classList.contains('d-none');
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-answer').forEach(a => {
+                a.classList.add('d-none');
+            });
+            
+            // Toggle current FAQ
+            if (!isOpen) {
+                answer.classList.remove('d-none');
+            }
+        });
+    });
+
+    // Add parallax effect to hero section
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const heroGradient = document.querySelector('.hero-gradient');
+        if (heroGradient && scrolled < window.innerHeight) {
+            heroGradient.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+    });
+});
+
+// Add number animation to stats
+function animateNumber(element, target, duration = 2000) {
+    const start = 0;
+    const increment = target / (duration / 16);
+    let current = start;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
+        }
+        element.textContent = Math.floor(current);
+    }, 16);
+}
+
+// Trigger number animation when stats are visible
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.animated) {
+            entry.target.animated = true;
+            const statNumber = entry.target.querySelector('.stat-number');
+            const text = statNumber.textContent;
+            const number = parseInt(text);
+            
+            if (!isNaN(number)) {
+                animateNumber(statNumber, number);
+            }
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-box').forEach(stat => {
+    statsObserver.observe(stat);
+});
+</script>
+
 {% endblock %}

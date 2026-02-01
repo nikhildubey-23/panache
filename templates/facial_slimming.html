@@ -3,41 +3,979 @@
 {% block title %}Facial Slimming Procedure - Panache Advanced Dental Care{% endblock %}
 
 {% block content %}
-<div class="container-fluid hero-section">
+<style>
+:root {
+    --primary-navy: #1A3B5D;
+    --secondary-navy: #2C4F7C;
+    --accent-sage: #6B8E7A;
+    --warm-white: #FFFFFF;
+    --light-gray: #F5F7F9;
+    --border-light: #E1E8ED;
+    --text-charcoal: #333333;
+    --text-muted: #666666;
+    --highlight-gold: #B8860B;
+}
+
+.hero-gradient {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+    opacity: 0.3;
+}
+.feature-card {
+    background: var(--warm-white);
+    border-radius: 15px;
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-color: var(--accent-sage);
+}
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--warm-white);
+    font-size: 1.5rem;
+}
+.procedure-step {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-sage);
+    transition: all 0.3s ease;
+}
+.procedure-step:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.stat-box {
+    background: var(--warm-white);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--accent-sage);
+}
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+}
+.cta-box {
+    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
+    color: var(--warm-white);
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+    opacity: 0.2;
+}
+.transformation-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin: 40px 0;
+}
+.before-after-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.before-after-box:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+.before-after-box img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+.before-after-box:hover img {
+    transform: scale(1.05);
+}
+.overlay-label {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255,255,255,0.9);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.before-label {
+    color: var(--primary-navy);
+}
+.after-label {
+    color: var(--accent-sage);
+}
+
+/* Interactive Before/After Slider */
+.comparison-slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    margin: 40px 0;
+}
+.comparison-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+.comparison-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.comparison-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 20px 0 0 20px;
+}
+.comparison-overlay img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    object-fit: cover;
+}
+.slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: white;
+    cursor: ew-resize;
+    z-index: 3;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.slider-handle::before {
+    content: '⟷';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--primary-navy);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.slider-labels {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 4;
+}
+.slider-label {
+    background: rgba(255,255,255,0.95);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
+}
+.recovery-timeline {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0;
+    position: relative;
+    padding: 20px 0;
+}
+.recovery-timeline::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent-sage);
+    z-index: 1;
+}
+.timeline-point {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    background: var(--warm-white);
+    padding: 0 10px;
+}
+.timeline-dot {
+    width: 50px;
+    height: 50px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--warm-white);
+    font-weight: bold;
+}
+
+/* Enhanced FAQ Styles */
+.faq-item {
+    background: var(--warm-white);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+}
+.faq-item:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+.faq-question {
+    background: var(--primary-navy);
+    color: var(--warm-white);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+}
+.faq-question:hover {
+    background: var(--secondary-navy);
+}
+.faq-answer {
+    padding: 25px;
+    background: var(--warm-white);
+    color: var(--primary-navy);
+    line-height: 1.6;
+    border-top: 1px solid var(--border-light);
+}
+
+/* Candidate List Styles */
+.candidate-list {
+    list-style: none;
+    padding: 0;
+}
+.candidate-list li {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-light);
+    position: relative;
+    padding-left: 35px;
+    transition: all 0.3s ease;
+}
+.candidate-list li:last-child {
+    border-bottom: none;
+}
+.candidate-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 15px;
+    width: 25px;
+    height: 25px;
+    background: var(--accent-sage);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+.candidate-list li:hover {
+    transform: translateX(5px);
+    padding-left: 40px;
+}
+
+/* Hero Content Animation */
+.hero-content {
+    animation: fadeInUp 0.8s ease-out;
+}
+.hero-image {
+    animation: fadeInRight 0.8s ease-out;
+    position: relative;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero-gradient {
+        padding: 3rem 0;
+    }
+    .display-2 {
+        font-size: 2.5rem;
+    }
+    .timeline-dot {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    .hero-image {
+        margin-top: 2rem;
+    }
+    
+    .stat-number {
+        font-size: 2.2rem;
+    }
+    .stat-box {
+        padding: 20px 15px;
+    }
+    
+    .transformation-showcase {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .recovery-timeline {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .recovery-timeline::before {
+        width: 3px;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+    }
+    
+    .timeline-point {
+        padding: 0;
+    }
+    
+    .comparison-container {
+        height: 300px;
+    }
+    
+    .cta-box {
+        padding: 40px 20px;
+    }
+    
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.3rem;
+    }
+    
+    .procedure-step {
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .display-5 {
+        font-size: 2rem;
+    }
+    .timeline-dot {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+    }
+    .hero-content .d-flex {
+        flex-direction: column !important;
+    }
+    .slider-handle::before {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
+
+/* Scroll Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Enhanced Button Styles */
+.btn-primary-custom {
+    background: var(--primary-navy);
+    border: none;
+    color: var(--warm-white);
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(26,59,93,0.3);
+}
+.btn-primary-custom:hover {
+    background: var(--secondary-navy);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(44,79,124,0.4);
+    color: var(--warm-white);
+}
+</style>
+
+<!-- Modern Hero Section -->
+<div class="hero-gradient py-5">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <h1 class="display-4 fw-bold mb-4">Facial Slimming Procedure</h1>
-                <h2 class="h3 mb-4">Buccal Fat Reduction - CHARU</h2>
-                <p class="lead">Content will be provided for this facial slimming procedure.</p>
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <div class="badge bg-light text-dark mb-3">FACIAL CONTOURING</div>
+                    <h1 class="display-2 fw-bold mb-4 text-white">Facial Slimming</h1>
+                    <h2 class="h3 mb-4 text-white-50">Buccal Fat Reduction - Define Your Features</h2>
+                    <p class="lead mb-4 text-white-50">Achieve a more sculpted, V-shaped facial profile with our advanced buccal fat reduction procedure. Remove excess cheek fat for a naturally slimmer, more defined appearance.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#consultation" class="btn btn-light btn-lg">Book Consultation</a>
+                        <a href="#procedure" class="btn btn-outline-light btn-lg">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <img src="https://www.drbasner.com/wp-content/uploads/2025/08/how-to-reduce-face-fat.jpg" alt="Facial Contouring" class="img-fluid rounded-4 shadow-lg">
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Quick Stats -->
 <div class="container py-5">
     <div class="row">
-        <div class="col-lg-12">
-            <div class="doctor-card">
-                <h3 class="section-title">About Buccal Fat Reduction</h3>
-                <p>Detailed information about the buccal fat reduction procedure will be provided here.</p>
-                
-                <h4>Procedure Details</h4>
-                <p>Information about the procedure will be added here.</p>
-                
-                <h4>Benefits</h4>
-                <p>Benefits of the procedure will be listed here.</p>
-                
-                <h4>Recovery</h4>
-                <p>Recovery information will be provided here.</p>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">45</div>
+                <div class="text-muted">Minutes Surgery</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">7-10</div>
+                <div class="text-muted">Days Recovery</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">30%</div>
+                <div class="text-muted">Cheek Volume Reduction</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">Life</div>
+                <div class="text-muted">Permanent Results</div>
             </div>
         </div>
     </div>
-    
-    <div class="row mt-4">
-        <div class="col-lg-12 text-center">
-            <a href="{{ url_for('contact') }}" class="btn btn-primary-custom">Schedule Consultation</a>
+</div>
+
+<!-- Introduction -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Sculpt Your Perfect Profile</h2>
+                <p class="lead text-muted">Advanced Buccal Fat Reduction for Facial Harmony</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="mb-3"><strong>Buccal fat reduction</strong> is a sophisticated cosmetic procedure designed to create a more sculpted facial appearance by removing excess fat pads from the cheeks. This procedure targets the buccal fat pads, which can contribute to a round or "chubby" facial appearance.</p>
+            <p>Our minimally invasive approach ensures <strong>natural-looking results</strong> that enhance your facial contours without creating an overly hollow or gaunt appearance. The procedure is particularly effective for individuals seeking a more defined jawline, higher cheekbones, and an overall V-shaped facial profile.</p>
+        </div>
+        <div class="col-lg-6">
+            <img src="https://dradarshtripathi.com/wp-content/uploads/2025/07/Face-Sculpting-by-Dr-Adarsh-in-Delhi.jpg" alt="Facial Structure" class="img-fluid rounded-3 shadow">
         </div>
     </div>
 </div>
+
+
+<!-- Procedure Details -->
+<div id="procedure" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">The Buccal Fat Reduction Process</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-camera me-2"></i>3D Facial Analysis</h5>
+                        <p class="text-muted mb-0">Comprehensive assessment of facial structure and fat distribution using advanced imaging.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-map-marked-alt me-2"></i>Precise Marking</h5>
+                        <p class="text-muted mb-0">Strategic placement marking inside the mouth for optimal fat removal.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-procedures me-2"></i>Minimally Invasive Removal</h5>
+                        <p class="text-muted mb-0">Small incision inside the cheek to carefully remove excess buccal fat.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-check me-2"></i>Precision Closure</h5>
+                        <p class="text-muted mb-0">Dissolvable sutures for seamless healing with no external scars.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-ice-pack me-2"></i>Cold Compress Application</h5>
+                        <p class="text-muted mb-0">Immediate cooling to reduce swelling and promote healing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Benefits Section -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Benefits of Facial Slimming</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shapes"></i>
+                        </div>
+                        <h4>Defined Jawline</h4>
+                        <p class="text-muted">Creates a more sculpted, V-shaped facial appearance.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h4>Enhanced Cheekbones</h4>
+                        <p class="text-muted">Reveals natural cheekbone structure for higher, defined contours.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Permanent Results</h4>
+                        <p class="text-muted">Fat removal is permanent with lasting facial contour improvements.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Quick Recovery</h4>
+                        <p class="text-muted">Minimally invasive procedure with rapid healing time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recovery Timeline -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Recovery Journey</h2>
+            </div>
+            <div class="recovery-timeline">
+                <div class="timeline-point">
+                    <div class="timeline-dot">1</div>
+                    <h6>Day 1-3</h6>
+                    <p class="small text-muted">Mild swelling</p>
+                </div>
+                <div class="timeline-point">
+                    <div class="timeline-dot">2</div>
+                    <h6>Week 1</h6>
+                    <p class="small text-muted">Swelling subsides</p>
+                </div>
+                <div class="timeline-point">
+                    <div class="timeline-dot">3</div>
+                    <h6>Week 2-4</h6>
+                    <p class="small text-muted">Visible slimming</p>
+                </div>
+                <div class="timeline-point">
+                    <div class="timeline-dot">4</div>
+                    <h6>Month 2-3</h6>
+                    <p class="small text-muted">Final results</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Ideal Candidates -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Are You a Perfect Candidate?</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4 class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Ideal For:</h4>
+                    <ul class="candidate-list">
+                        <li>Round or "chubby" facial appearance</li>
+                        <li>Genetically full cheeks</li>
+                        <li>Desire for more defined facial contours</li>
+                        <li>Good overall health and skin elasticity</li>
+                        <li>Realistic expectations about results</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <h4 class="mb-3"><i class="fas fa-info-circle text-info me-2"></i>Important Considerations:</h4>
+                    <ul class="candidate-list">
+                        <li>Sufficient buccal fat pad volume</li>
+                        <li>No active dental infections</li>
+                        <li>Non-smoker or willing to quit temporarily</li>
+                        <li>Understanding of gradual results</li>
+                        <li>Commitment to post-procedure care</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Will I look gaunt or hollow?
+                        </button>
+                        <div class="faq-answer">
+                            No, our precision technique removes only excess fat to create natural-looking definition without creating a hollow appearance. We carefully assess each patient's facial structure to ensure harmonious results.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Are results permanent?
+                        </button>
+                        <div class="faq-answer">
+                            Yes, the removed buccal fat does not regenerate, making results permanent. Natural aging will still occur normally, but the sculpted facial contour will be maintained long-term.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How long is the recovery period?
+                        </button>
+                        <div class="faq-answer">
+                            Most patients experience mild swelling for 3-7 days. You can return to work within a week, and full results are visible after 2-3 months when all swelling has completely subsided.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Are there any risks or complications?
+                        </button>
+                        <div class="faq-answer">
+                            The procedure is very safe when performed by experienced surgeons. Rare risks include temporary numbness, asymmetry, or infection. We use advanced techniques to minimize any potential complications.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div id="consultation" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="cta-box">
+                <div class="position-relative">
+                    <h2 class="display-5 fw-bold mb-4">Ready to Define Your Features?</h2>
+                    <p class="lead mb-4">Transform your facial profile with our advanced buccal fat reduction procedure. Schedule your personalized consultation today.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Book Consultation</a>
+                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Interactive Before/After Slider
+document.addEventListener('DOMContentLoaded', function() {
+    const comparisonSlider = document.querySelector('.comparison-slider');
+    if (comparisonSlider) {
+        const container = comparisonSlider.querySelector('.comparison-container');
+        const overlay = comparisonSlider.querySelector('.comparison-overlay');
+        const sliderHandle = comparisonSlider.querySelector('.slider-handle');
+        let isSliding = false;
+
+        function updateSliderPosition(x) {
+            const rect = container.getBoundingClientRect();
+            const position = Math.max(0, Math.min(x - rect.left, rect.width));
+            const percentage = (position / rect.width) * 100;
+            
+            overlay.style.width = percentage + '%';
+            sliderHandle.style.left = percentage + '%';
+        }
+
+        sliderHandle.addEventListener('mousedown', () => isSliding = true);
+        document.addEventListener('mouseup', () => isSliding = false);
+        document.addEventListener('mousemove', (e) => {
+            if (isSliding) {
+                updateSliderPosition(e.clientX);
+            }
+        });
+
+        // Touch support
+        sliderHandle.addEventListener('touchstart', () => isSliding = true);
+        document.addEventListener('touchend', () => isSliding = false);
+        document.addEventListener('touchmove', (e) => {
+            if (isSliding) {
+                updateSliderPosition(e.touches[0].clientX);
+            }
+        });
+
+        // Initialize slider position
+        updateSliderPosition(container.getBoundingClientRect().left + container.offsetWidth / 2);
+    }
+
+    // FAQ Accordion
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            const answer = this.nextElementSibling;
+            const isActive = this.classList.contains('active');
+            
+            // Close all other FAQs
+            faqQuestions.forEach(q => {
+                q.classList.remove('active');
+                q.nextElementSibling.style.maxHeight = null;
+            });
+            
+            // Toggle current FAQ
+            if (!isActive) {
+                this.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        });
+    });
+
+    // Initialize FAQ answers
+    document.querySelectorAll('.faq-answer').forEach(answer => {
+        answer.style.maxHeight = null;
+        answer.style.overflow = 'hidden';
+        answer.style.transition = 'max-height 0.3s ease';
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Observe elements for animation
+    document.addEventListener('DOMContentLoaded', () => {
+        const animatedElements = document.querySelectorAll('.feature-card, .stat-box, .procedure-step, .timeline-point, .comparison-slider, .faq-item');
+        
+        animatedElements.forEach(el => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroGradient = document.querySelector('.hero-gradient');
+            if (heroGradient && scrolled < window.innerHeight) {
+                heroGradient.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Add hover effect to procedure steps
+        const procedureSteps = document.querySelectorAll('.procedure-step');
+        procedureSteps.forEach(step => {
+            step.addEventListener('mouseenter', function() {
+                this.style.borderLeftWidth = '8px';
+            });
+            step.addEventListener('mouseleave', function() {
+                this.style.borderLeftWidth = '5px';
+            });
+        });
+
+        // Add number animation to stats
+        function animateNumber(element, target, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current);
+            }, 16);
+        }
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.animated) {
+                    entry.target.animated = true;
+                    const statNumber = entry.target.querySelector('.stat-number');
+                    const text = statNumber.textContent;
+                    
+                    // Handle different number formats
+                    if (text.includes('%')) {
+                        const number = parseInt(text);
+                        if (!isNaN(number)) {
+                            animateNumber(statNumber, number, 1500);
+                            setTimeout(() => {
+                                statNumber.textContent = text;
+                            }, 1500);
+                        }
+                    } else if (text.includes('Life')) {
+                        // Special case for "Life" text
+                        const originalText = text;
+                        animateNumber(statNumber, 100, 2000);
+                        setTimeout(() => {
+                            statNumber.textContent = originalText;
+                        }, 2000);
+                    } else {
+                        const number = parseInt(text);
+                        if (!isNaN(number)) {
+                            animateNumber(statNumber, number);
+                        }
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-box').forEach(stat => {
+            statsObserver.observe(stat);
+        });
+    });
+});
+</script>
+
 {% endblock %}

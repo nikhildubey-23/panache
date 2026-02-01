@@ -1,41 +1,516 @@
 {% extends "base.html" %}
 
-{% block title %}Composite/Tooth Colored Restoration - Panache Advanced Dental Care{% endblock %}
+{% block title %}Composite Restoration - Panache Advanced Dental Care{% endblock %}
 
 {% block content %}
-<div class="container-fluid hero-section">
+<style>
+.hero-gradient {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+    opacity: 0.3;
+}
+.feature-card {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-color: var(--accent-sage);
+}
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--warm-white);
+    font-size: 1.5rem;
+}
+.procedure-step {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-sage);
+    transition: all 0.3s ease;
+}
+.procedure-step:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 25px;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    border: 3px solid var(--warm-white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.faq-item {
+    background: var(--warm-white);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.faq-question {
+    background: var(--primary-navy);
+    color: var(--warm-white);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+}
+.faq-question:hover {
+    background: var(--secondary-navy);
+}
+.faq-answer {
+    padding: 20px;
+    background: var(--warm-white);
+}
+.stat-box {
+    background: var(--warm-white);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--accent-sage);
+}
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+}
+.cta-box {
+    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
+    color: var(--warm-white);
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+    opacity: 0.2;
+}
+.before-after {
+    display: flex;
+    gap: 20px;
+    margin: 30px 0;
+}
+.before-after-item {
+    flex: 1;
+    text-align: center;
+}
+.before-after-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+</style>
+
+<!-- Modern Hero Section -->
+<div class="hero-gradient py-5">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <h1 class="display-4 fw-bold mb-4">Composite/Tooth Colored Restoration</h1>
-                <p class="lead">Content will be provided for this composite restoration procedure.</p>
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <div class="badge bg-light text-dark mb-3">RESTORATIVE DENTISTRY</div>
+                    <h1 class="display-2 fw-bold mb-4 text-white">Composite Restoration</h1>
+                    <h2 class="h3 mb-4 text-white-50">Natural-Looking Tooth-Colored Fillings</h2>
+                    <p class="lead mb-4 text-white-50">Restore decayed, chipped, or worn teeth with advanced composite materials that match natural tooth color perfectly. Modern techniques provide durable, aesthetic solutions for your smile.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#consultation" class="btn btn-light btn-lg">Book Consultation</a>
+                        <a href="#procedure" class="btn btn-outline-light btn-lg">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <img src="https://www.myzerodonto.com/wp-content/uploads/2024/09/2EFE7492-0DC6-4C03-99DC-7430612FDB66-scaled.jpeg" alt="Composite Restoration" class="img-fluid rounded-4 shadow-lg">
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Quick Stats -->
 <div class="container py-5">
     <div class="row">
-        <div class="col-lg-12">
-            <div class="doctor-card">
-                <h3 class="section-title">About Composite Restoration</h3>
-                <p>Detailed information about the composite restoration procedure will be provided here.</p>
-                
-                <h4>Procedure Details</h4>
-                <p>Information about the tooth colored restoration procedure will be added here.</p>
-                
-                <h4>Benefits</h4>
-                <p>Benefits of the procedure will be listed here.</p>
-                
-                <h4>After Care</h4>
-                <p>After care information will be provided here.</p>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">30-60</div>
+                <div class="text-muted">Minutes Duration</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">Local</div>
+                <div class="text-muted">Anesthesia Type</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">5-10</div>
+                <div class="text-muted">Years Lifespan</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">Same Day</div>
+                <div class="text-muted">Results</div>
             </div>
         </div>
     </div>
-    
-    <div class="row mt-4">
-        <div class="col-lg-12 text-center">
-            <a href="{{ url_for('contact') }}" class="btn btn-primary-custom">Schedule Consultation</a>
+</div>
+
+<!-- Introduction -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">The Art of Invisible Restoration</h2>
+                <p class="lead text-muted">Advanced Composite Technology for Natural-Looking Results</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="mb-3"><strong>Composite restoration</strong> offers the perfect blend of artistry and science for repairing damaged teeth. Using advanced <strong>tooth-colored composite materials</strong>, we can restore both function and aesthetics with results that are virtually indistinguishable from natural teeth.</p>
+            <p>Unlike traditional fillings that were visible silver, modern composite materials can be precisely matched to your natural tooth color and translucent properties. This allows us to create <strong>invisible repairs</strong> that enhance your smile without anyone knowing you've had dental work done.</p>
+        </div>
+        <div class="col-lg-6">
+            <div class="before-after">
+                <div class="before-after-item">
+                   
+                    
+                    <img src="https://pocketdentistry.com/wp-content/uploads/285/B9780323083331000083_f008-001ad-9780323083331.jpg" alt="Before Composite" style="object-fit:contain;height:300px;">
+               
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Types of Composite Restoration -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Composite Restoration Solutions</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tooth"></i>
+                        </div>
+                        <h4>Anterior Restoration</h4>
+                        <p class="text-muted">Repair of front teeth using composite materials matched perfectly to natural tooth color and translucency.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h4>Posterior Restoration</h4>
+                        <p class="text-muted">Repair of back teeth using durable composite materials that withstand chewing forces and maintain aesthetics.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chalkboard"></i>
+                        </div>
+                        <h4>Class IV Restoration</h4>
+                        <p class="text-muted">Comprehensive restoration for severely damaged teeth, often requiring build-up of tooth structure.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h4>Smile Makeover</h4>
+                        <p class="text-muted">Full smile enhancement using composite materials for multiple teeth, creating dramatic aesthetic improvement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- When Composite Restoration is Needed -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">When is Composite Restoration Needed?</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i>Decay & Cavities</h5>
+                        <p class="text-muted mb-0">When tooth decay has created cavities that compromise tooth structure and require filling.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i>Chipped or Broken Teeth</h5>
+                        <p class="text-muted mb-0">When teeth have been damaged due to trauma, wear, or grinding.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i>Worn Teeth</h5>
+                        <p class="text-muted mb-0">When teeth have become worn down from age, acid erosion, or bruxism.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i>Failed Fillings</h5>
+                        <p class="text-muted mb-0">When existing fillings have cracked, fallen out, or developed recurrent decay around edges.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Procedure Details -->
+<div id="procedure" class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">The Composite Restoration Process</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="timeline-item">
+                        <h5>Color Matching</h5>
+                        <p class="text-muted">Precise shade selection using a shade guide to match your natural tooth color perfectly for invisible results.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Tooth Preparation</h5>
+                        <p class="text-muted">Gentle removal of decayed tooth structure while preserving as much healthy tooth as possible.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Etching & Bonding</h5>
+                        <p class="text-muted">Surface preparation and application of bonding agents to ensure strong composite adhesion.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Layering Technique</h5>
+                        <p class="text-muted">Application of composite in thin layers for optimal strength, color stability, and natural appearance.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Shaping & Polishing</h5>
+                        <p class="text-muted">Precision sculpting of composite to restore natural tooth contours and create smooth, life-like surface texture.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Final Curing</h5>
+                        <p class="text-muted">Special light curing hardens the composite material completely for durable, long-lasting results.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfDODgqAxmOBMBi-uwiruFkvhJjUwL6ne6jkNTwC2rEGwTG3qKdZaib-riwv-aSRd28g23AmQ7rEqx5CHEHC3pmUw_26UTWv1b8QNiUC-H2S0txxAA4ZHlJ1F0mwG0waf7pzVniJGHpC4BAdpLPXAhaReQD?key=_ToOCVCMfDNhjkQ5JBFu_g" alt="Composite Restoration Process" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Benefits Section -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Benefits of Composite Restoration</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h4>Natural Appearance</h4>
+                        <p class="text-muted">Tooth-colored materials blend seamlessly with your natural teeth, making repairs virtually invisible.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h4>Strong Bond</h4>
+                        <p class="text-muted">Modern bonding techniques create strong adhesion to tooth structure for long-lasting results.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Durable Material</h4>
+                        <p class="text-muted">Advanced composites resist wear and staining, lasting 5-10 years with proper care.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h4>Color Stability</h4>
+                        <p class="text-muted">Modern materials resist discoloration and maintain their natural appearance over time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- After Care -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">After Care Instructions</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h4>Oral Hygiene</h4>
+                        <p class="text-muted">Continue regular brushing and flossing. Composite restorations can still develop cavities around edges if not cared for properly.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <h4>Avoid Staining</h4>
+                        <p class="text-muted">Limit coffee, tea, red wine, and smoking to maintain color and prevent staining.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>Regular Check-ups</h4>
+                        <p class="text-muted">Visit your dentist every 6 months for professional cleaning and examination.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How long do composite restorations last?
+                        </button>
+                        <div class="faq-answer">
+                            With proper care, composite restorations typically last 5-10 years. Your dentist will monitor them during regular check-ups and recommend replacement when needed.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Is the procedure painful?
+                        </button>
+                        <div class="faq-answer d-none">
+                            The procedure is performed under local anesthesia, ensuring you feel no pain during treatment. You may experience some sensitivity afterward, but this is temporary.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Can I eat normally after the procedure?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Yes! You can eat and drink normally immediately after the procedure. Your dentist may recommend avoiding extremely hard or sticky foods for the first 24 hours.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Will the composite staining show?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Modern composite materials are highly resistant to staining. With proper care and maintenance, your restoration should maintain its natural color for years to come.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div id="consultation" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="cta-box">
+                <div class="position-relative">
+                    <h2 class="display-5 fw-bold mb-4">Restore Your Smile Naturally</h2>
+                    <p class="lead mb-4">Experience the benefits of invisible composite restoration with our expert dental team.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Schedule Consultation</a>
+                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Us Now</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

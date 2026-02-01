@@ -3,40 +3,371 @@
 {% block title %}Chin & Jaw Line Enhancement - Panache Advanced Dental Care{% endblock %}
 
 {% block content %}
-<div class="container-fluid hero-section">
+<style>
+.hero-gradient {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+    opacity: 0.3;
+}
+.feature-card {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-color: var(--accent-sage);
+}
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--warm-white);
+    font-size: 1.5rem;
+}
+.procedure-step {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-sage);
+    transition: all 0.3s ease;
+}
+.procedure-step:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.stat-box {
+    background: var(--warm-white);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--accent-sage);
+}
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+}
+.cta-box {
+    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
+    color: var(--warm-white);
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+    opacity: 0.2;
+}
+.treatment-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin: 30px 0;
+}
+.comparison-item {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 25px;
+    position: relative;
+}
+.comparison-item.recommended {
+    border: 2px solid var(--accent-sage);
+    background: var(--warm-white);
+}
+.recommended-badge {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background: var(--accent-sage);
+    color: var(--warm-white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+</style>
+
+<!-- Modern Hero Section -->
+<div class="hero-gradient py-5">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <h1 class="display-4 fw-bold mb-4">Chin & Jaw Line Enhancement</h1>
-                <h2 class="h3 mb-4">With OGS/Chin Implants - SP</h2>
-                <p class="lead">Content will be provided for this chin and jaw line enhancement procedure.</p>
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <div class="badge bg-light text-dark mb-3">FACIAL ENHANCEMENT</div>
+                    <h1 class="display-2 fw-bold mb-4 text-white">Chin & Jaw Line Enhancement</h1>
+                    <h2 class="h3 mb-4 text-white-50">Orthognathic Surgery & Chin Implants</h2>
+                    <p class="lead mb-4 text-white-50">Achieve a more defined, harmonious facial profile with advanced chin and jaw enhancement procedures. Transform your appearance and boost your confidence with our expert surgical solutions.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#consultation" class="btn btn-light btn-lg">Book Consultation</a>
+                        <a href="#procedures" class="btn btn-outline-light btn-lg">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <img src="https://www.drfedele.com/wp-content/uploads/sites/97/2023/03/1910624.jpg " alt="Chin and Jaw Enhancement" class="img-fluid rounded-4 shadow-lg">
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Quick Stats -->
 <div class="container py-5">
     <div class="row">
-        <div class="col-lg-12">
-            <div class="doctor-card">
-                <h3 class="section-title">About Chin & Jaw Line Enhancement</h3>
-                <p>Detailed information about the chin and jaw line enhancement procedure will be provided here.</p>
-                
-                <h4>Procedure Details</h4>
-                <p>Information about the OGS/Chin implants procedure will be added here.</p>
-                
-                <h4>Benefits</h4>
-                <p>Benefits of the procedure will be listed here.</p>
-                
-                <h4>Recovery</h4>
-                <p>Recovery information will be provided here.</p>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">2-4</div>
+                <div class="text-muted">Hours Surgery Time</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">7-10</div>
+                <div class="text-muted">Days Recovery</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">95%</div>
+                <div class="text-muted">Success Rate</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="stat-number">15+</div>
+                <div class="text-muted">Years Experience</div>
             </div>
         </div>
     </div>
-    
-    <div class="row mt-4">
-        <div class="col-lg-12 text-center">
-            <a href="{{ url_for('contact') }}" class="btn btn-primary-custom">Schedule Consultation</a>
+</div>
+
+<!-- Introduction -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Transform Your Facial Profile</h2>
+                <p class="lead text-muted">Advanced Chin and Jaw Enhancement for Perfect Facial Harmony</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="mb-3"><strong>Chin and jaw line enhancement</strong> procedures are designed to improve facial aesthetics by creating a more balanced and defined profile. Whether through <strong>orthognathic surgery</strong> for comprehensive jaw correction or <strong>chin implants</strong> for targeted enhancement, these procedures can dramatically transform your appearance.</p>
+            <p>Our surgical approach combines <strong>precision techniques</strong> with artistic vision to achieve natural-looking results that enhance your unique facial features. We utilize advanced 3D imaging and planning to ensure optimal outcomes with minimal recovery time.</p>
+        </div>
+        <div class="col-lg-6">
+            <img src="https://hips.hearstapps.com/hmg-prod/images/jawline-2-1547233193.jpg" alt="Facial Profile Analysis" class="img-fluid rounded-3 shadow">
+        </div>
+    </div>
+</div>
+
+<!-- Treatment Options -->
+<div id="procedures" class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Our Enhancement Options</h2>
+            </div>
+            <div class="treatment-comparison">
+                <div class="comparison-item">
+                    <h4 class="mb-3">Orthognathic Surgery</h4>
+                    <p>Comprehensive jaw repositioning for severe asymmetry and functional issues.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success me-2"></i>Corrects bite misalignment</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Treats facial asymmetry</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Improves chewing function</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Dramatic profile transformation</li>
+                    </ul>
+                </div>
+                <div class="comparison-item recommended">
+                    <div class="recommended-badge">POPULAR</div>
+                    <h4 class="mb-3">Chin Implants</h4>
+                    <p>Targeted enhancement for chin projection and jawline definition.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success me-2"></i>Minimally invasive procedure</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Immediate visible results</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Custom implant sizing</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Quick recovery time</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Procedure Details -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">The Enhancement Process</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-camera me-2"></i>3D Imaging & Planning</h5>
+                        <p class="text-muted mb-0">Advanced digital imaging to create precise surgical plan and predict outcomes.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-user-md me-2"></i>Custom Treatment Design</h5>
+                        <p class="text-muted mb-0">Personalized approach based on your facial structure and aesthetic goals.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-procedures me-2"></i>Surgical Procedure</h5>
+                        <p class="text-muted mb-0">Minimally invasive technique with precise implant placement or bone repositioning.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-bed me-2"></i>Recovery & Healing</h5>
+                        <p class="text-muted mb-0">Comprehensive post-operative care with minimal discomfort and optimal healing.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-eye me-2"></i>Result Assessment</h5>
+                        <p class="text-muted mb-0">Follow-up evaluations to ensure optimal results and patient satisfaction.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Benefits Section -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Benefits of Chin & Jaw Enhancement</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h4>Improved Facial Balance</h4>
+                        <p class="text-muted">Creates harmony between facial features for a more attractive profile.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                        <h4>Enhanced Confidence</h4>
+                        <p class="text-muted">Boosts self-esteem with a more defined and youthful appearance.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h4>Functional Improvement</h4>
+                        <p class="text-muted">Corrects bite issues and improves chewing and speech function.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4>Long-Lasting Results</h4>
+                        <p class="text-muted">Permanent enhancement with natural-looking, durable outcomes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Candidate Section -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Ideal Candidates</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4 class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>You May Be Ideal If:</h4>
+                    <ul>
+                        <li>You have a weak or receding chin</li>
+                        <li>Your facial profile lacks definition</li>
+                        <li>You experience bite misalignment</li>
+                        <li>You desire a more balanced facial appearance</li>
+                        <li>You're in good overall health</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <h4 class="mb-3"><i class="fas fa-info-circle text-info me-2"></i>Considerations:</h4>
+                    <ul>
+                        <li>Complete facial bone development (typically 18+ years)</li>
+                        <li>Realistic expectations about outcomes</li>
+                        <li>Commitment to post-operative care</li>
+                        <li>No active dental or gum infections</li>
+                        <li>Non-smoker or willing to quit during recovery</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div id="consultation" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="cta-box">
+                <div class="position-relative">
+                    <h2 class="display-5 fw-bold mb-4">Ready to Transform Your Profile?</h2>
+                    <p class="lead mb-4">Take the first step towards a more confident, defined appearance. Schedule your personalized consultation with our expert surgical team today.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Book Consultation</a>
+                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Us Now</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
