@@ -143,6 +143,11 @@ def malo_bridge():
     """Render the Malo S Bridge page"""
     return render_template('malo_bridge.html')
 
+@app.route('/gallery')
+def gallery():
+    """Render the gallery page"""
+    return render_template('gallery.html')
+
 @app.route('/book-appointment', methods=['POST'])
 def book_appointment():
     """Handle appointment booking requests"""
