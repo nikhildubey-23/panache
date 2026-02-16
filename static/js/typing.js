@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const counters = [
-                    { element: entry.target.querySelector('.col-4:nth-child(1) .h3'), target: 17 },
+                    { element: entry.target.querySelector('.col-4:nth-child(1) .h3'), target: 18 },
                     { element: entry.target.querySelector('.col-4:nth-child(2) .h3'), target: 1000 },
                     { element: entry.target.querySelector('.col-4:nth-child(3) .h3'), target: 15 }
                 ];
