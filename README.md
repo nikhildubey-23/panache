@@ -1,4 +1,4 @@
-# Panache Advanced Dental Care Website
+# PANACHE DENTAL & FACIAL AESTHETICS CLINIC Website
 
 A professional dental and maxillofacial surgery website for Dr. Sandeep Prakash, built with Flask and Bootstrap.
 
@@ -42,7 +42,7 @@ A professional dental and maxillofacial surgery website for Dr. Sandeep Prakash,
 - Registration: CGDC/14/PG/48
 - Specialization: Facial Esthetic Surgery, Dental Implants, Maxillofacial Trauma
 
-**Clinic:** Panache Advanced Dental Care
+**Clinic:** PANACHE DENTAL & FACIAL AESTHETICS CLINIC
 **Address:** 1st Floor, Rama Trade Centre, Beside Axis Bank, Old Bus Stand, Bilaspur, Chhattisgarh
 **Contact:** 9993888758, 9993078758
 **Email:** panachedental@gmail.com

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Panache Advanced Dental Care{% endblock %}</title>
+    <title>{% block title %}PANACHE DENTAL & FACIAL AESTHETICS CLINIC{% endblock %}</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -47,7 +47,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
                             <li><a class="dropdown-item" href="{{ url_for('digital_smile_design') }}">DIGITAL SMILE DESIGNING</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('crowded_teeth_correction') }}">CORRECTION OF CROWDED TEETH WITH ALIGNERS/INVISALIGN/ORTHODONTIC CERAMIC BRACES</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('crowded_teeth_correction') }}">ORTHODONTIC CORRECTION WITH BRACES/ALIGNERS/INVISALIGN</a></li>
                             <li><a class="dropdown-item" href="{{ url_for('laminates_veneers') }}">LAMINATES/VENEERS</a></li>
                             <li><a class="dropdown-item" href="{{ url_for('all_ceramic_crowns') }}">ALL CERAMIC CROWNS</a></li>
                         </ul>
@@ -90,8 +90,15 @@
                         </ul>
                     </li>
                     
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            ABOUT US
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
+                            <li><a class="dropdown-item" href="{{ url_for('about') }}">ABOUT US</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('gallery') }}">GALLERY</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('reviews') }}">REVIEWS</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -107,12 +114,12 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 mb-4">
+                <div class="col-lg-4 mb-4 scroll-left">
                     <div class="footer-section">
                         <div class="footer-logo">
                             <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Panache Dental">
                             <div>
-                                <h4>Panache Advanced Dental Care</h4>
+                                <h4>PANACHE DENTAL & FACIAL AESTHETICS CLINIC</h4>
                                 <p class="text-white-50">Excellence in Dental & Maxillofacial Care</p>
                             </div>
                         </div>
@@ -126,7 +133,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 mb-4">
+                <div class="col-lg-4 mb-4 scroll-up">
                     <div class="footer-section">
                         <h5><i class="fas fa-clock me-2"></i>Clinic Hours</h5>
                         <div class="footer-contact-item">
@@ -152,7 +159,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="col-lg-4 mb-4">
+                <div class="col-lg-4 mb-4 scroll-right">
                     <div class="footer-section">
                         <h5><i class="fas fa-phone me-2"></i>Contact Us</h5>
                         <div class="footer-contact-item">
@@ -197,7 +204,7 @@
                         <div class="col-lg-6">
                             <div class="footer-bottom-content">
                                 <div>
-                                    &copy; 2026 Panache Advanced Dental Care. All rights reserved.
+                                    &copy; 2026 PANACHE DENTAL & FACIAL AESTHETICS CLINIC. All rights reserved.
                                 </div>
                                 <div class="footer-links">
                                     <a href="#">Privacy Policy</a>
@@ -232,6 +239,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Typing Animation -->
     <script src="{{ url_for('static', filename='js/typing.js') }}"></script>
+    <!-- Scroll Animations -->
+    <script src="{{ url_for('static', filename='js/scroll-animations.js') }}"></script>
     {% block extra_js %}{% endblock %}
 </body>
 </html>

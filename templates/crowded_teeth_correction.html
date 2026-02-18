@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Correction of Crowded Teeth - Panache Advanced Dental Care{% endblock %}
+{% block title %}Correction of Crowded Teeth - PANACHE DENTAL & FACIAL AESTHETICS CLINIC{% endblock %}
 
 {% block content %}
 <style>
@@ -156,6 +156,7 @@
                         <a href="#consultation" class="btn btn-light btn-lg">Free Consultation</a>
                         <a href="#treatments" class="btn btn-outline-light btn-lg">Explore Options</a>
                     </div>
+                    <p class="mt-4 text-white" style="font-size: 1rem; opacity: 0.9;">Experience next-generation digital scanning technology in our clinic. Say goodbye to impression putty and uncomfortable gag-inducing trays, and hello to comfort and accuracy.</p>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -172,26 +173,26 @@
     <div class="row">
         <div class="col-md-3 mb-4">
             <div class="stat-box">
-                <div class="stat-number">6-18</div>
                 <div class="text-muted">Months Treatment</div>
+                <div class="stat-number">6-18</div>
             </div>
         </div>
         <div class="col-md-3 mb-4">
             <div class="stat-box">
-                <div class="stat-number">90%</div>
                 <div class="text-muted">Invisible Appearance</div>
+                <div class="stat-number">90%</div>
             </div>
         </div>
         <div class="col-md-3 mb-4">
             <div class="stat-box">
-                <div class="stat-number">100%</div>
                 <div class="text-muted">Custom Fit</div>
+                <div class="stat-number">100%</div>
             </div>
         </div>
         <div class="col-md-3 mb-4">
             <div class="stat-box">
-                <div class="stat-number">24/7</div>
                 <div class="text-muted">Treatment Progress</div>
+                <div class="stat-number">24/7</div>
             </div>
         </div>
     </div>
@@ -266,6 +267,20 @@
                         <li><i class="fas fa-check text-success me-2"></i>Cost-effective</li>
                     </ul>
                 </div>
+                <div class="comparison-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h4>Metal Braces</h4>
+                    <p>Traditional stainless steel brackets and wires for reliable teeth straightening.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="fas fa-check text-success me-2"></i>Highly effective for all cases</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Strong and durable</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Precise tooth movement</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Cost-effective option</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Suitable for all ages</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -304,7 +319,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <img src="https://my.clevelandclinic.org/-/scassets/Images/org/health/articles/24285-orthodontics" alt="Treatment Process" class="img-fluid rounded-3 shadow">
+                    <img src="{{ url_for('static', filename='images/orthodontics.jpg') }}" alt="Treatment Process" class="img-fluid rounded-3 shadow">
                 </div>
             </div>
         </div>

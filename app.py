@@ -140,13 +140,18 @@ def gbr():
 
 @app.route('/malo-bridge')
 def malo_bridge():
-    """Render the Malo S Bridge page"""
+    """Render the Malo's Bridge page"""
     return render_template('malo_bridge.html')
 
 @app.route('/gallery')
 def gallery():
     """Render the gallery page"""
     return render_template('gallery.html')
+
+@app.route('/reviews')
+def reviews():
+    """Render the reviews page"""
+    return render_template('reviews.html')
 
 @app.route('/book-appointment', methods=['POST'])
 def book_appointment():
