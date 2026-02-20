@@ -1,0 +1,571 @@
+{% extends "base.html" %}
+
+{% block title %}Digital Dentistry - PANACHE DENTAL & FACIAL AESTHETICS CLINIC{% endblock %}
+
+{% block content %}
+<style>
+.hero-gradient {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+    opacity: 0.3;
+}
+.feature-card {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-color: var(--accent-sage);
+}
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--warm-white);
+    font-size: 1.5rem;
+}
+.procedure-step {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-sage);
+    transition: all 0.3s ease;
+}
+.procedure-step:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 25px;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    border: 3px solid var(--warm-white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.faq-item {
+    background: var(--warm-white);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.faq-question {
+    background: var(--primary-navy);
+    color: var(--warm-white);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+}
+.faq-question:hover {
+    background: var(--secondary-navy);
+}
+.faq-answer {
+    padding: 20px;
+    background: var(--warm-white);
+}
+.stat-box {
+    background: var(--warm-white);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--accent-sage);
+}
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+}
+.cta-box {
+    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
+    color: var(--warm-white);
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+    opacity: 0.2;
+}
+.tech-card {
+    background: linear-gradient(135deg, var(--primary-navy), var(--secondary-navy));
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+.tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+.scanner-showcase {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 25px;
+    padding: 40px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+.scanner-showcase::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+    animation: pulse 4s ease-in-out infinite;
+}
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+.comparison-table {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+.comparison-table th {
+    background: var(--primary-navy);
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+.comparison-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+.comparison-table .traditional {
+    background: #f8f9fa;
+}
+.comparison-table .digital {
+    background: #e8f5e9;
+}
+</style>
+
+<!-- Modern Hero Section -->
+<div class="hero-gradient py-5">
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <div class="badge bg-light text-dark mb-3">ADVANCED DENTAL TECHNOLOGY</div>
+                    <h1 class="display-2 fw-bold mb-4 text-white">Digital Dentistry</h1>
+                    <h2 class="h3 mb-4 text-white-50">The Future of Dental Care</h2>
+                    <p class="lead mb-4 text-white-50">Experience the precision of computer-based technologies including intraoral scanners, 3D imaging (CBCT), and CAD/CAM for superior diagnosis, planning, and treatment.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#consultation" class="btn btn-light btn-lg">Book Consultation</a>
+                        <a href="#how-it-works" class="btn btn-outline-light btn-lg">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&h=400&fit=crop" alt="Digital Dentistry" class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- What is Digital Dentistry -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">What is Digital Dentistry?</h2>
+                <p class="lead text-muted">Precision Meets Innovation</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="mb-3">Digital dentistry refers to the use of computer-based technologies—such as <strong>intraoral scanners</strong>, <strong>3D imaging (CBCT)</strong>, <strong>CAD/CAM</strong> —to diagnose, plan, and perform dental treatments with higher precision, efficiency, and patient comfort than traditional, manual methods.</p>
+            <p class="mb-3">It replaces physical molds with <strong>digital impressions</strong>, enables <strong>same-day crowns</strong>, and improves restorative accuracy.</p>
+            <p>By replacing older mechanical tools with digital components, we can plan and execute your treatment with a level of precision that was never before possible.</p>
+        </div>
+        <div class="col-lg-6">
+            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&h=400&fit=crop" alt="Digital Dental Technology" class="img-fluid rounded-3 shadow">
+        </div>
+    </div>
+</div>
+
+<!-- How Digital Dentistry Works -->
+<div id="how-it-works" class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">How Digital Dentistry Works?</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="tech-card">
+                        <div class="feature-icon" style="background: white; color: var(--primary-navy);">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h4>Digital Imaging</h4>
+                        <p class="text-white-50 mb-0">Crystal-clear X-rays and CBCT scans with less radiation and minimal wait time.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="tech-card">
+                        <div class="feature-icon" style="background: white; color: var(--primary-navy);">
+                            <i class="fas fa-scan"></i>
+                        </div>
+                        <h4>IOS Scanning</h4>
+                        <p class="text-white-50 mb-0">We scan the patient's teeth which acts as a future reference for all patient and doctor needs.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="tech-card">
+                        <div class="feature-icon" style="background: white; color: var(--primary-navy);">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4>CAD/CAM Technology</h4>
+                        <p class="text-white-50 mb-0">Custom-designed crowns and restorations crafted in a digital dental lab.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="tech-card">
+                        <div class="feature-icon" style="background: white; color: var(--primary-navy);">
+                            <i class="fas fa-print"></i>
+                        </div>
+                        <h4>3D Printing</h4>
+                        <p class="text-white-50 mb-0">Rapid, highly accurate creation of dental models and surgical guides.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Digital Records -->
+<div class="container py-5">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop" alt="Digital Records" class="img-fluid rounded-3 shadow">
+        </div>
+        <div class="col-lg-6">
+            <h2 class="fw-bold mb-4">Digital Records</h2>
+            <p>Seamless, secure, and eco-friendly record keeping for your peace of mind.</p>
+            <div class="row mt-4">
+                <div class="col-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h5>Secure</h5>
+                        <p class="text-muted small mb-0">Protected digital storage</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h5>Eco-Friendly</h5>
+                        <p class="text-muted small mb-0">Reduced paper usage</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Advantages -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Advantages Over Traditional Methods</h2>
+                <p class="lead text-muted">Key Benefits of Digital Dentistry</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-crosshairs"></i>
+                        </div>
+                        <h4>Improved Accuracy and Precision</h4>
+                        <p class="text-muted">Intraoral scanners and 3D imaging provide highly detailed, precise data, resulting in better-fitting restorations (crowns, bridges, veneers) and fewer adjustments.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                        <h4>Enhanced Patient Comfort and Experience</h4>
+                        <p class="text-muted">The need for uncomfortable, gag-inducing traditional impression materials is eliminated. Digital smile design allows patients to preview their results, boosting trust and understanding.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Faster, More Efficient Workflows</h4>
+                        <p class="text-muted">Many procedures, such as crowns, can be completed in a single visit. Lab turnaround times are significantly reduced, often by 75-85%.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h4>Improved Diagnostics</h4>
+                        <p class="text-muted">Digital X-rays and 3D Cone Beam CT scans provide clearer, high-resolution images with significantly less radiation exposure. These allow dentists to spot issues, such as decay or bone loss, much earlier.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Increased Productivity and Sustainability</h4>
+                        <p class="text-muted">The technology streamlines workflows, reducing material waste and improving practice efficiency.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>Predictable Results</h4>
+                        <p class="text-muted">Digital planning allows for more accurate, predictable outcomes for treatments like dental implants, dentures, and orthodontic aligners. Digital technology also facilitates easier, more secure data management and sharing, enhancing collaboration with specialists.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Intraoral Scanner Section -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Intra Oral Scanner</h2>
+                <p class="lead text-muted">You Have Come to the Right Place</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            <div class="scanner-showcase">
+                <h3 class="fw-bold mb-3">Say Goodbye to Messy Trays</h3>
+                <p class="mb-3">Dentistry has entered a new era. We now use intraoral scanners to capture a precise digital map of your smile in seconds.</p>
+                <p class="mb-3">By ditching traditional dental impressions, we offer a faster, more comfortable, and highly accurate experience designed with your comfort in mind.</p>
+                <hr class="border-light">
+                <h4 class="mt-4">Modern Care Benefits:</h4>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i>A faster, cleaner, and more efficient workflow</li>
+                    <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i>No more long setting times</li>
+                    <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i>No more smell</li>
+                    <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i>No more gag!</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-4">
+            <div class="scanner-showcase" style="background: linear-gradient(135deg, #2d3436, #000000);">
+                <h3 class="fw-bold mb-3">iTero Lumina Scanner</h3>
+                <p class="mb-3">The intra oral scanner used at Panache Dental is extremely accurate, fast and very well tolerated by the patients.</p>
+                <p class="mb-3">We are the <strong>1st in Chhattisgarh</strong> to use this latest generation of iTero scanner - <strong>Lumina</strong></p>
+                <hr class="border-light">
+                <h4 class="mt-4">The Best Scanner in the World</h4>
+                <p class="mb-3">The iTero Lumina intraoral scanner features:</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-star me-2 text-warning"></i><strong>Multi-Direct Capture (MDC) technology</strong></li>
+                    <li class="mb-2"><i class="fas fa-expand me-2 text-warning"></i>3x wider field of view</li>
+                    <li class="mb-2"><i class="fas fa-bolt me-2 text-warning"></i>2x faster, more accurate scanning</li>
+                    <li class="mb-2"><i class="fas fa-feather me-2 text-warning"></i>Smaller, lighter wand for improved comfort</li>
+                    <li class="mb-2"><i class="fas fa-camera me-2 text-warning"></i>Photorealistic, high-resolution 3D models</li>
+                    <li class="mb-2"><i class="fas fa-ruler-horizontal me-2 text-warning"></i>25mm capture distance, ideal for complex cases</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Comparison Table -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Traditional vs Digital Impression</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Traditional Impression</th>
+                                <th>Digital Impression</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Comfort</strong></td>
+                                <td class="traditional">Uncomfortable, gag-inducing</td>
+                                <td class="digital">Comfortable, no mess</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Time</strong></td>
+                                <td class="traditional">5+ minutes setting time</td>
+                                <td class="digital">2-3 minutes scan</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Accuracy</strong></td>
+                                <td class="traditional">Can warp, shrink, air bubbles</td>
+                                <td class="digital">1:1 precise digital replica</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Results</strong></td>
+                                <td class="traditional">Wait for physical models</td>
+                                <td class="digital">Instant 3D visualization</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Revisions</strong></td>
+                                <td class="traditional">May need re-impressions</td>
+                                <td class="digital">Instant rescan if needed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            What exactly is an intraoral scanner?
+                        </button>
+                        <div class="faq-answer">
+                            An intraoral scanner is a small, handheld wand that takes thousands of high-resolution images of your teeth in seconds. Our software then "stitches" these images together to create a perfect 3D digital map of your smile.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Does the scanning process hurt?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Not at all! Unlike traditional impressions, there is no bulky tray to bite down on and no messy "goop" involved. The scanner never even has to touch your teeth—it simply uses light to capture the shape of your mouth.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How long does a digital scan take?
+                        </button>
+                        <div class="faq-answer d-none">
+                            It's incredibly fast. Most full-mouth scans are completed in less than 2 to 3 minutes. This is significantly faster than traditional materials, which often require you to sit still for up to 5 minutes while the material sets.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            I have a strong gag reflex. Is this better for me?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Yes! This is one of the biggest benefits for our patients. Because we've eliminated the thick, runny materials that often trigger gagging, the digital process is much more comfortable. If you ever need a break, we can stop the scan instantly and resume whenever you're ready.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Is digital scanning more accurate?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Absolutely. Traditional impressions can sometimes warp, shrink, or develop air bubbles. Digital scans provide a "1:1" digital replica that is incredibly precise. This leads to crowns, bridges, and aligners that fit better and feel more natural.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Can I see my scan?
+                        </button>
+                        <div class="faq-answer d-none">
+                            One of the coolest parts of the process is that the 3D model appears on a screen in real-time. We can show you exactly what we see, helping you better understand your dental health and treatment plan.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div id="consultation" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="cta-box">
+                <div class="position-relative">
+                    <h2 class="display-5 fw-bold mb-4">Experience Digital Dentistry Today</h2>
+                    <p class="lead mb-4">Discover the future of dental care at Panache Dental. Experience comfort, precision, and efficiency like never before.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Schedule Consultation</a>
+                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

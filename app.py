@@ -103,6 +103,11 @@ def composite_restoration():
     """Render the composite restoration page"""
     return render_template('composite_restoration.html')
 
+@app.route('/digital-dentistry')
+def digital_dentistry():
+    """Render the digital dentistry page"""
+    return render_template('digital_dentistry.html')
+
 @app.route('/digital-smile-design')
 def digital_smile_design():
     """Render the digital smile design page"""
