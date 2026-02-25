@@ -1046,3 +1046,126 @@ body {
         transform: translateY(0);
     }
 }
+
+/* ============================================
+   IMPLANT TYPES SECTION
+   ============================================ */
+.implant-types {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.implant-type {
+    background: var(--warm-white);
+    border-radius: 15px;
+    padding: 30px 25px;
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+    max-width: 280px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    border: 2px solid var(--border-light);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.implant-type::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--secondary-navy);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.implant-type:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    border-color: var(--secondary-navy);
+}
+
+.implant-type:hover::before {
+    transform: scaleX(1);
+}
+
+.implant-type h5 {
+    color: var(--primary-navy);
+    font-weight: 700;
+    font-size: 1.1rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.implant-type h5::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: var(--border-light);
+}
+
+.implant-type p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+.implant-type.featured {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    border-color: var(--primary-navy);
+    transform: scale(1.05);
+}
+
+.implant-type.featured::before {
+    background: var(--highlight-gold);
+    transform: scaleX(1);
+}
+
+.implant-type.featured:hover {
+    transform: scale(1.08) translateY(-8px);
+    box-shadow: 0 20px 40px rgba(26, 59, 93, 0.3);
+}
+
+.implant-type.featured h5 {
+    color: var(--warm-white);
+}
+
+.implant-type.featured h5::after {
+    background: rgba(255,255,255,0.3);
+}
+
+.implant-type.featured p {
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+}
+
+@media (max-width: 576px) {
+    .implant-types {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .implant-type {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .implant-type.featured {
+        transform: scale(1);
+    }
+    
+    .implant-type.featured:hover {
+        transform: translateY(-8px);
+    }
+}
