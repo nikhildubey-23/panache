@@ -169,27 +169,45 @@
 .comparison-table {
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    border: none;
 }
 .comparison-table th {
-    background: var(--primary-navy);
+    background: linear-gradient(135deg, var(--primary-navy), #1a365d);
     color: white;
-    padding: 15px;
+    padding: 18px;
     text-align: center;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 .comparison-table td {
-    padding: 15px;
+    padding: 20px;
     text-align: center;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1rem;
+    vertical-align: middle;
 }
 .comparison-table tr:last-child td {
     border-bottom: none;
 }
+.comparison-table tr:hover td {
+    background: rgba(0,0,0,0.02);
+}
 .comparison-table .traditional {
-    background: #f8f9fa;
+    background: linear-gradient(135deg, #fff5f5, #ffe0e0);
+    color: #c0392b;
+    font-weight: 500;
 }
 .comparison-table .digital {
-    background: #e8f5e9;
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    color: #27ae60;
+    font-weight: 500;
+}
+.comparison-table td:first-child {
+    background: white;
+    font-weight: 600;
+    color: var(--primary-navy);
 }
 </style>
 
@@ -432,6 +450,7 @@
                     <li class="mb-2"><i class="fas fa-camera me-2 text-warning"></i>Photorealistic, high-resolution 3D models</li>
                     <li class="mb-2"><i class="fas fa-ruler-horizontal me-2 text-warning"></i>25mm capture distance, ideal for complex cases</li>
                 </ul>
+                <img src="https://images.ctfassets.net/o8m7afojxkhl/5nosdsqkdOoUIQ3Y735Y9X/4c22e017b18d663c7891951d1d0cb276/Snipaste_2025-02-14_15-33-16.png" alt="Itero Scan" class="img-fluid rounded-3 shadow mt-3">
             </div>
         </div>
     </div>
@@ -446,6 +465,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 mx-auto">
+                    <img src="https://www.brandywinedentalcare.com/wp-content/uploads/2023/05/conventional-digital-impressons-1.png" alt="Traditional vs Digital Impression" class="img-fluid rounded-3 shadow mb-4">
                     <table class="comparison-table">
                         <thead>
                             <tr>
