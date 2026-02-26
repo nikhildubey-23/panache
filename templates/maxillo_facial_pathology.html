@@ -142,7 +142,7 @@
                 <div class="hero-content">
                     <div class="badge bg-light text-dark mb-3">ORAL PATHOLOGY</div>
                     <h1 class="display-2 fw-bold mb-4 text-white">Maxillo-Facial Pathology</h1>
-                    <p class="lead mb-4 text-white-50">Specialized diagnosis and treatment of cysts, tumors, and pathological conditions affecting the jaws and facial structures.</p>
+                    <p class="lead mb-4 text-white-50">Dr Sandeep Prakash is experts in diagnosing and treating diseases,  and tumors affecting the mouth, jaws, face. He combines expertise in clinical, radiographic, and histopathological (microscopic) examination to diagnose conditions like  cysts & tumors of jaw, salivary gland disorders & oral cancer,.</p>
                     <div class="d-flex gap-3">
                         <a href="#consultation" class="btn btn-light btn-lg">Get Evaluation</a>
                         <a href="#procedure" class="btn btn-outline-light btn-lg">Learn More</a>
@@ -152,7 +152,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="hero-image">
-                    <img src="https://neofacedental.com/wp-content/uploads/sites/124/2025/01/oral-maxillofacial.jpg" alt="Maxillofacial Pathology" class="img-fluid rounded-4 shadow-lg">
+                    <img src="{{ url_for('static', filename='images/maxillo_hero.png') }}" alt="Maxillofacial Pathology" class="img-fluid rounded-4 shadow-lg">
                 </div>
             </div>
         </div>
@@ -162,53 +162,29 @@
 <!-- Quick Stats -->
 <div class="container py-5">
     <div class="row">
-        <div class="col-md-3 mb-4">
+        <div class="col-md-4 mb-4">
             <div class="stat-box">
                 <div class="text-muted">Hours Duration</div>
                 <div class="stat-number">1-3</div>
             </div>
         </div>
-        <div class="col-md-3 mb-4">
+        <div class="col-md-4 mb-4">
             <div class="stat-box">
                 <div class="text-muted">Anesthesia Type</div>
                 <div class="stat-number">Local/General</div>
             </div>
         </div>
-        <div class="col-md-3 mb-4">
+        <div class="col-md-4 mb-4">
             <div class="stat-box">
                 <div class="text-muted">Weeks Recovery</div>
                 <div class="stat-number">1-2</div>
             </div>
         </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Diagnostic Accuracy</div>
-                <div class="stat-number">98%+</div>
-            </div>
-        </div>
+        
     </div>
 </div>
 
-<!-- Introduction -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Expert Jaw Pathology Management</h2>
-                <p class="lead text-muted">Precision Diagnosis for Optimal Treatment Outcomes</p>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-6">
-            <p class="mb-3"><strong>Maxillo-facial pathology</strong> encompasses a wide range of conditions affecting the jaws, facial bones, and associated soft tissues. From benign cysts to complex tumors, accurate diagnosis is crucial for effective treatment planning.</p>
-            <p>Our specialized team combines <strong>advanced diagnostic imaging</strong> with surgical expertise to identify and treat these conditions with minimal impact on function and aesthetics, ensuring comprehensive care for each patient.</p>
-        </div>
-        <div class="col-lg-6">
-            <img src="https://drlarrywolford.com/wp-content/uploads/maxillofacial-surgery.png" alt="Diagnostic Imaging" class="img-fluid rounded-3 shadow">
-        </div>
-    </div>
-</div>
+
 
 <!-- Conditions We Treat -->
 <div class="container py-5 bg-light">
@@ -250,7 +226,7 @@
                         <div class="feature-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h4>Malignant Tumors</h4>
+                        <h4>Malignant Tumors And Oral Cancer</h4>
                         <p class="text-muted">Early detection and comprehensive treatment of jaw cancers with coordinated oncology care and reconstruction.</p>
                     </div>
                 </div>
@@ -296,39 +272,6 @@
     </div>
 </div>
 
-<!-- Diagnostic Approach -->
-<div id="procedure" class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Our Advanced Diagnostic Approach</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="timeline-item">
-                        <h5>Clinical Examination</h5>
-                        <p class="text-muted">Comprehensive physical examination including palpation, visual inspection, and functional assessment of affected areas.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Advanced Imaging</h5>
-                        <p class="text-muted">Digital X-rays, CT scans, MRI, and 3D cone beam imaging for precise anatomical evaluation.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Histopathology</h5>
-                        <p class="text-muted">Biopsy procedures and microscopic examination for definitive diagnosis and classification.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Multidisciplinary Review</h5>
-                        <p class="text-muted">Expert evaluation by our maxillofacial surgery team with pathology and radiology consultation.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <img src="https://drhakimortho.com/wp-content/uploads/2024/04/AdobeStock_404575189.jpg" alt="Diagnostic Imaging" class="img-fluid rounded-3 shadow">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Treatment Options -->
 <div class="container py-5">
@@ -356,24 +299,8 @@
                         <p class="text-muted">Restoration of form and function using bone grafts, advanced techniques, and implant-supported rehabilitation.</p>
                     </div>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-sync"></i>
-                        </div>
-                        <h4>Regular Monitoring</h4>
-                        <p class="text-muted">Long-term surveillance and follow-up care for early detection of any changes or recurrence.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-pills"></i>
-                        </div>
-                        <h4>Adjuvant Therapy</h4>
-                        <p class="text-muted">Coordinated care with oncology specialists when additional treatment modalities are required.</p>
-                    </div>
-                </div>
+                
+                
             </div>
         </div>
     </div>

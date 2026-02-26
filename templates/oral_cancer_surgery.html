@@ -150,7 +150,7 @@
                     <div class="badge bg-light text-dark mb-3">ONCOLOGIC SURGERY</div>
                     <h1 class="display-2 fw-bold mb-4 text-white">Oral Cancer Surgery</h1>
                     <h2 class="h3 mb-4 text-white-50">& Reconstruction</h2>
-                    <p class="lead mb-4 text-white-50">Comprehensive cancer treatment with advanced reconstruction techniques to restore both function and quality of life.</p>
+                    <p class="lead mb-4 text-white-50">Dr sandeep prakash specializes in the surgical treatment of oral cancer,providing comprehensive evaluation ,precise oncologic resection ,and coordinated care for optimal recovery and rehabilitation.</p>
                     <div class="d-flex gap-3">
                         <a href="#consultation" class="btn btn-light btn-lg">Get Evaluation</a>
                         <a href="#procedure" class="btn btn-outline-light btn-lg">Learn More</a>
@@ -160,7 +160,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="hero-image">
-                    <img src="https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-981-15-1346-6_82/MediaObjects/462947_1_En_82_Fig11_HTML.png" alt="Oral Cancer Treatment" class="img-fluid rounded-4 shadow-lg">
+                    <img src="{{ url_for('static', filename='images/oral_cancer.png') }}" alt="Oral Cancer Treatment" class="img-fluid rounded-4 shadow-lg">
                 </div>
             </div>
         </div>
@@ -229,37 +229,37 @@
                 <div class="col-md-6 mb-4">
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <i class="fas fa-lips"></i>
+                            <i class="fas fa-check-circle"></i>
                         </div>
-                        <h4>Tongue Cancer</h4>
-                        <p class="text-muted">Surgical removal with advanced techniques to preserve speech and swallowing function. Partial or total glossectomy with immediate reconstruction.</p>
+                        <h4>Squamous Cell Carcinoma</h4>
+                        <p class="text-muted">This is the most common type, accounting for over 90% of oral cancers. It begins in the thin, flat cells lining the mouth.</p>
                     </div>
                 </div>
                 <div class="col-md-6 mb-4">
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <i class="fas fa-microscope"></i>
+                            <i class="fas fa-check-circle"></i>
                         </div>
-                        <h4>Floor of Mouth Cancer</h4>
-                        <p class="text-muted">Complex resection with functional reconstruction to maintain tongue mobility and oral competence for optimal recovery.</p>
+                        <h4>Verrucous Carcinoma</h4>
+                        <p class="text-muted">A slow-growing variant of squamous cell carcinoma that rarely spreads but can be locally aggressive.</p>
                     </div>
                 </div>
                 <div class="col-md-6 mb-4">
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <i class="fas fa-tooth"></i>
+                            <i class="fas fa-check-circle"></i>
                         </div>
-                        <h4>Gum and Jaw Cancer</h4>
-                        <p class="text-muted">Mandibulectomy and maxillectomy procedures with vascularized bone reconstruction and dental rehabilitation.</p>
+                        <h4>Minor Salivary Gland Cancer</h4>
+                        <p class="text-muted">Arises from small salivary glands present in the palate, lips, or inner cheeks.</p>
                     </div>
                 </div>
                 <div class="col-md-6 mb-4">
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <i class="fas fa-cheese"></i>
+                            <i class="fas fa-check-circle"></i>
                         </div>
-                        <h4>Palate Cancer</h4>
-                        <p class="text-muted">Resection with prosthetic or microvascular flap reconstruction to restore speech and swallowing functions.</p>
+                        <h4>Oral Melanoma</h4>
+                        <p class="text-muted">A rare but aggressive cancer that develops from pigment-producing cells in the mouth.</p>
                     </div>
                 </div>
             </div>
@@ -309,6 +309,243 @@
                     <div class="procedure-step">
                         <h5><i class="fas fa-exclamation-triangle text-danger me-2"></i>Lump or Thickening</h5>
                         <p class="text-muted mb-0">Any lump, thickening, rough spot, or eroded area in the mouth.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sign & Symptoms -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Sign & Symptoms</h2>
+                <p class="lead text-muted">Seek evaluation if you experience:</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Non-healing ulcer lasting more than 2 weeks</h5>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Red or white patches inside the mouth</h5>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Unexplained bleeding</h5>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Lump or thickening in the cheek</h5>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Difficulty swallowing or speaking</h5>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Persistent ear pain</h5>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Loosening of teeth without gum disease</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Common Sites -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Common Sites of Oral Cancer</h2>
+                <p class="lead text-muted">Oral cancer may develop in:</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-check-circle text-success me-2"></i>Tongue (especially the sides)</h5>
+                    </div>
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-check-circle text-success me-2"></i>Floor of the mouth</h5>
+                    </div>
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-check-circle text-success me-2"></i>Buccal mucosa (inner cheek)</h5>
+                    </div>
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-check-circle text-success me-2"></i>Hard and soft palate</h5>
+                    </div>
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-check-circle text-success me-2"></i>Lips</h5>
+                    </div>
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-check-circle text-success me-2"></i>Gums</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Surgical Management -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Surgical Management</h2>
+                <p class="lead text-muted">(Primary Treatment)</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 mb-4">
+                    <p>Surgery is often the first line of treatment.</p>
+                    <p class="mb-2">Procedures may include:</p>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-scalpel text-primary me-2"></i>Wide local excision</h5>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-scalpel text-primary me-2"></i>Partial glossectomy (tongue resection)</h5>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-scalpel text-primary me-2"></i>Mandibulectomy (jaw bone removal if involved)</h5>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-scalpel text-primary me-2"></i>Neck dissection (removal of lymph nodes)</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Reconstructive Surgery -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Reconstructive Surgery</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 mb-4">
+                    <p>After tumor removal, reconstruction is often necessary.</p>
+                    <p class="mb-2">Options include:</p>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-stethoscope text-primary me-2"></i>Local flaps</h5>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-stethoscope text-primary me-2"></i>Regional flaps</h5>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-stethoscope text-primary me-2"></i>Microvascular free flap reconstruction</h5>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-stethoscope text-primary me-2"></i>Bone grafting</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-12">
+                    <p class="mb-2">Reconstruction restores:</p>
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-check text-success me-2"></i>Facial symmetry</h5>
+                    </div>
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-check text-success me-2"></i>Jaw continuity</h5>
+                    </div>
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-check text-success me-2"></i>Chewing function</h5>
+                    </div>
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-check text-success me-2"></i>Speech clarity</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Radiation Therapy -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Radiation Therapy</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="mb-3">Often used:</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-radiation text-info me-2"></i>After surgery (adjuvant therapy)</h5>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-radiation text-info me-2"></i>For inoperable cases</h5>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-radiation text-info me-2"></i>In combination with chemotherapy</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Chemotherapy -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Chemotherapy</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="mb-3">Used in:</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-pills text-danger me-2"></i>Advanced-stage cancers</h5>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-pills text-danger me-2"></i>Combined chemoradiotherapy</h5>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-pills text-danger me-2"></i>Recurrent disease</h5>
                     </div>
                 </div>
             </div>
