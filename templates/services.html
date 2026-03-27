@@ -102,36 +102,9 @@
         transform: scaleX(1);
     }
 
-    .service-icon-new {
-        width: 80px;
-        height: 80px;
-        background: linear-gradient(135deg, rgba(201, 168, 108, 0.15) 0%, rgba(201, 168, 108, 0.05) 100%);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 20px;
-        transition: all 0.3s ease;
-    }
-
-    .service-card-new:hover .service-icon-new {
-        background: linear-gradient(135deg, #c9a86c 0%, #a8894f 100%);
-        transform: scale(1.1);
-    }
-
-    .service-icon-new i {
-        font-size: 1.8rem;
-        color: #c9a86c;
-        transition: color 0.3s ease;
-    }
-
-    .service-card-new:hover .service-icon-new i {
-        color: white;
-    }
-
     .service-card-new h4 {
         color: #1b263b;
-        font-size: 1.1rem;
+        font-size: 1.5rem;
         font-weight: 700;
         margin-bottom: 12px;
     }
@@ -347,14 +320,11 @@
     <div class="container">
         <div class="category-header">
             <h2>Facial Aesthetics</h2>
-            <p>Transform your appearance with our advanced facial cosmetic procedures</p>
+            <p>Transform your appearance with our advanced facial ESTHETICS procedures</p>
         </div>
         <div class="row g-4">
             <div class="col-md-6 col-lg-4 scroll-left">
                 <div class="service-card-new" data-category="facial">
-                    <div class="service-icon-new">
-                        <i class="fas fa-face-smile"></i>
-                    </div>
                     <h4>Facial Slimming</h4>
                     <p>Achieve a more defined and sculpted facial contour with our advanced buccal fat reduction procedure.</p>
                     <a href="{{ url_for('facial_slimming') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -362,9 +332,6 @@
             </div>
             <div class="col-md-6 col-lg-4 scroll-up">
                 <div class="service-card-new" data-category="facial">
-                    <div class="service-icon-new">
-                        <i class="fas fa-user"></i>
-                    </div>
                     <h4>Chin & Jaw Line Enhancement</h4>
                     <p>Enhance your jawline and chin profile for better facial harmony and definition.</p>
                     <a href="{{ url_for('chin_jaw_enhancement') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -372,9 +339,6 @@
             </div>
             <div class="col-md-6 col-lg-4 scroll-right">
                 <div class="service-card-new" data-category="facial">
-                    <div class="service-icon-new">
-                        <i class="fas fa-smile"></i>
-                    </div>
                     <h4>Dimpleplasty</h4>
                     <p>Create natural-looking, charming dimples with our minimally invasive procedure.</p>
                     <a href="{{ url_for('dimpleplasty') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -382,9 +346,6 @@
             </div>
             <div class="col-md-6 col-lg-4 scroll-left">
                 <div class="service-card-new" data-category="facial">
-                    <div class="service-icon-new">
-                        <i class="fas fa-lips"></i>
-                    </div>
                     <h4>Lip Reduction</h4>
                     <p>Achieve balanced and harmonious lip proportions with our precision lip reduction.</p>
                     <a href="{{ url_for('lip_reduction') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -392,9 +353,6 @@
             </div>
             <div class="col-md-6 col-lg-4 scroll-up">
                 <div class="service-card-new" data-category="facial">
-                    <div class="service-icon-new">
-                        <i class="fas fa-arrows-alt-h"></i>
-                    </div>
                     <h4>Lip Lengthening</h4>
                     <p>Enhance your lip shape and reveal more of your natural smile with lip lengthening.</p>
                     <a href="{{ url_for('lip_lengthening') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -402,9 +360,6 @@
             </div>
             <div class="col-md-6 col-lg-4 scroll-right">
                 <div class="service-card-new" data-category="facial">
-                    <div class="service-icon-new">
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
                     <h4>Facial Asymmetry Correction</h4>
                     <p>Correct facial imbalances and achieve a more symmetrical, balanced appearance.</p>
                     <a href="{{ url_for('facial_asymmetry') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -424,9 +379,6 @@
         <div class="row g-4">
             <div class="col-md-6 col-lg-4 scroll-left">
                 <div class="service-card-new" data-category="dental">
-                    <div class="service-icon-new">
-                        <i class="fas fa-tooth"></i>
-                    </div>
                     <h4>Root Canal Treatment</h4>
                     <p>Save your infected teeth with our painless and advanced RCT procedures.</p>
                     <a href="{{ url_for('rct') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -434,9 +386,6 @@
             </div>
             <div class="col-md-6 col-lg-4 scroll-up">
                 <div class="service-card-new" data-category="dental">
-                    <div class="service-icon-new">
-                        <i class="fas fa-crown"></i>
-                    </div>
                     <h4>Crowns & Bridges</h4>
                     <p>Restore damaged or missing teeth with custom-made crowns and bridges.</p>
                     <a href="{{ url_for('crown_bridges') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -444,19 +393,13 @@
             </div>
             <div class="col-md-6 col-lg-4 scroll-right">
                 <div class="service-card-new" data-category="dental">
-                    <div class="service-icon-new">
-                        <i class="fas fa-sparkles"></i>
-                    </div>
-                    <h4>Teeth Cleaning & Whitening</h4>
+                    <h4>Teeth Cleaning</h4>
                     <p>Professional cleaning and whitening for a brighter, healthier smile.</p>
                     <a href="{{ url_for('teeth_cleaning') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 scroll-left">
                 <div class="service-card-new" data-category="dental">
-                    <div class="service-icon-new">
-                        <i class="fas fa-extraction"></i>
-                    </div>
                     <h4>Tooth Extraction</h4>
                     <p>Safe, painless, and professional tooth extraction services.</p>
                     <a href="{{ url_for('extraction') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -464,9 +407,6 @@
             </div>
             <div class="col-md-6 col-lg-4 scroll-up">
                 <div class="service-card-new" data-category="dental">
-                    <div class="service-icon-new">
-                        <i class="fas fa-fill-drip"></i>
-                    </div>
                     <h4>Composite Restoration</h4>
                     <p>Tooth-colored fillings for a natural-looking, seamless restoration.</p>
                     <a href="{{ url_for('composite_restoration') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -474,9 +414,6 @@
             </div>
             <div class="col-md-6 col-lg-4 scroll-right">
                 <div class="service-card-new" data-category="dental">
-                    <div class="service-icon-new">
-                        <i class="fas fa-ruler-combined"></i>
-                    </div>
                     <h4>Digital Smile Design</h4>
                     <p>Plan your perfect smile with our advanced digital technology.</p>
                     <a href="{{ url_for('digital_smile_design') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -484,9 +421,6 @@
             </div>
             <div class="col-md-6 col-lg-4 scroll-left">
                 <div class="service-card-new" data-category="dental">
-                    <div class="service-icon-new">
-                        <i class="fas fa-teeth-open"></i>
-                    </div>
                     <h4>Laminates & Veneers</h4>
                     <p>Ultra-thin porcelain shells for a flawless, transformative smile.</p>
                     <a href="{{ url_for('laminates_veneers') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -494,9 +428,6 @@
             </div>
             <div class="col-md-6 col-lg-4 scroll-up">
                 <div class="service-card-new" data-category="dental">
-                    <div class="service-icon-new">
-                        <i class="fas fa-teeth"></i>
-                    </div>
                     <h4>All-Ceramic Crowns</h4>
                     <p>Natural-looking, metal-free crowns for perfect aesthetics.</p>
                     <a href="{{ url_for('all_ceramic_crowns') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -504,9 +435,6 @@
             </div>
             <div class="col-md-6 col-lg-4 scroll-right">
                 <div class="service-card-new" data-category="dental">
-                    <div class="service-icon-new">
-                        <i class="fas fa-align-center"></i>
-                    </div>
                     <h4>Crowded Teeth Correction</h4>
                     <p>With braces, clear aligners and Invisalign treatment.</p>
                     <a href="{{ url_for('crowded_teeth_correction') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -526,19 +454,13 @@
         <div class="row g-4 justify-content-center">
             <div class="col-md-6 col-lg-4 scroll-left">
                 <div class="service-card-new" data-category="implant">
-                    <div class="service-icon-new">
-                        <i class="fas fa-tooth"></i>
-                    </div>
                     <h4>Dental Implants</h4>
-                    <p>Replace missing single or multiple teeth with permanent, natural-looking implants.</p>
+                    <p>Replace missing single or multiple teeth with permanent, natural-looking teeth.</p>
                     <a href="{{ url_for('dental_implants_missing') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 scroll-up">
                 <div class="service-card-new" data-category="implant">
-                    <div class="service-icon-new">
-                        <i class="fas fa-implant"></i>
-                    </div>
                     <h4>Fixed Teeth in a Day</h4>
                     <p>Complete smile restoration with full arch dental implants.</p>
                     <a href="{{ url_for('full_mouth_implants') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -546,9 +468,6 @@
             </div>
             <div class="col-md-6 col-lg-4 scroll-right">
                 <div class="service-card-new" data-category="implant">
-                    <div class="service-icon-new">
-                        <i class="fas fa-bone"></i>
-                    </div>
                     <h4>GBR/Sinus Lift Procedures/Ridge Split</h4>
                     <p>Guided bone regeneration for successful implant placement.</p>
                     <a href="{{ url_for('gbr') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -556,9 +475,6 @@
             </div>
             <div class="col-md-6 col-lg-4 scroll-left">
                 <div class="service-card-new" data-category="implant">
-                    <div class="service-icon-new">
-                        <i class="fas fa-bridge"></i>
-                    </div>
                     <h4>Malo's Bridge</h4>
                     <p>Revolutionary full arch implant bridge for complete dental restoration in 24-48 hours.</p>
                     <a href="{{ url_for('malo_bridge') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -578,9 +494,6 @@
         <div class="row g-4">
             <div class="col-md-6 col-lg-4 scroll-left">
                 <div class="service-card-new" data-category="surgery">
-                    <div class="service-icon-new">
-                        <i class="fas fa-user-injured"></i>
-                    </div>
                     <h4>Jaw Fractures</h4>
                     <p>Expert treatment for facial trauma, jaw, and orbital fractures.</p>
                     <a href="{{ url_for('jaw_fractures') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -588,9 +501,6 @@
             </div>
             <div class="col-md-6 col-lg-4 scroll-up">
                 <div class="service-card-new" data-category="surgery">
-                    <div class="service-icon-new">
-                        <i class="fas fa-wisdom-tooth"></i>
-                    </div>
                     <h4>Third Molar Surgery</h4>
                     <p>Safe and painless wisdom tooth extraction and removal.</p>
                     <a href="{{ url_for('third_molar_surgery') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -598,9 +508,6 @@
             </div>
             <div class="col-md-6 col-lg-4 scroll-right">
                 <div class="service-card-new" data-category="surgery">
-                    <div class="service-icon-new">
-                        <i class="fas fa-disease"></i>
-                    </div>
                     <h4>Maxillo-Facial Pathology</h4>
                     <p>Diagnosis and treatment of cysts and tumors in the jaw.</p>
                     <a href="{{ url_for('maxillo_facial_pathology') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -608,9 +515,6 @@
             </div>
             <div class="col-md-6 col-lg-4 scroll-left">
                 <div class="service-card-new" data-category="surgery">
-                    <div class="service-icon-new">
-                        <i class="fas fa-bone"></i>
-                    </div>
                     <h4>TMJ Surgery</h4>
                     <p>Treatment for temporomandibular joint disorders and pain.</p>
                     <a href="{{ url_for('tmj_surgery') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -618,9 +522,6 @@
             </div>
             <div class="col-md-6 col-lg-4 scroll-up">
                 <div class="service-card-new" data-category="surgery">
-                    <div class="service-icon-new">
-                        <i class="fas fa-ribbon"></i>
-                    </div>
                     <h4>Oral Cancer Surgery</h4>
                     <p>Comprehensive oral cancer treatment and facial reconstruction.</p>
                     <a href="{{ url_for('oral_cancer_surgery') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
