@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, Response
 import os
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -162,6 +163,64 @@ def gallery():
 def reviews():
     """Render the reviews page"""
     return render_template('reviews.html')
+
+@app.route('/sitemap.xml')
+def sitemap():
+    """Serve sitemap.xml"""
+    pages = [
+        {'loc': 'https://www.panachedental.co.in/', 'priority': '1.0', 'changefreq': 'weekly'},
+        {'loc': 'https://www.panachedental.co.in/about', 'priority': '0.8', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/services', 'priority': '0.9', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/contact', 'priority': '0.8', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/gallery', 'priority': '0.6', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/reviews', 'priority': '0.6', 'changefreq': 'weekly'},
+        {'loc': 'https://www.panachedental.co.in/jaw-fractures', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/third-molar-surgery', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/maxillo-facial-pathology', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/tmj-surgery', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/oral-cancer-surgery', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/facial-slimming', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/chin-jaw-enhancement', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/dimpleplasty', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/lip-reduction', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/lip-lengthening', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/facial-asymmetry', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/rct', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/crown-bridges', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/teeth-cleaning', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/extraction', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/composite-restoration', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/digital-dentistry', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/digital-smile-design', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/crowded-teeth-correction', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/invisalign', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/laminates-veneers', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/all-ceramic-crowns', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/dental-implants-missing', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/full-mouth-implants', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/gbr', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/malo-bridge', 'priority': '0.7', 'changefreq': 'monthly'},
+    ]
+    
+    xml = ['<?xml version="1.0" encoding="UTF-8"?>']
+    xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
+    for page in pages:
+        xml.append('  <url>')
+        xml.append(f'    <loc>{page["loc"]}</loc>')
+        xml.append(f'    <changefreq>{page["changefreq"]}</changefreq>')
+        xml.append(f'    <priority>{page["priority"]}</priority>')
+        xml.append('  </url>')
+    xml.append('</urlset>')
+    
+    return Response('\n'.join(xml), mimetype='application/xml')
+
+@app.route('/robots.txt')
+def robots():
+    """Serve robots.txt"""
+    return Response(
+        "User-agent: *\nAllow: /\n\nSitemap: https://www.panachedental.co.in/sitemap.xml",
+        mimetype='text/plain'
+    )
 
 @app.route('/book-appointment', methods=['POST'])
 def book_appointment():
