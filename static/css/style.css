@@ -16,10 +16,58 @@ html, body {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Quantico', sans-serif;
     color: var(--text-charcoal);
-    background-color: var(--warm-white);
+    background: url('../images/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    min-height: 100vh;
 }
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.85);
+    z-index: -1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lobster Two', cursive;
+    background: linear-gradient(135deg, #c9a86c 0%, #a8894f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-gradient,
+.services-hero.hero-gradient,
+.gallery-hero.hero-gradient {
+    background: #050510 !important;
+}
+.services-hero.hero-gradient h1,
+.services-hero.hero-gradient h2,
+.services-hero.hero-gradient p,
+.services-hero.hero-gradient span,
+.services-hero.hero-gradient a,
+.gallery-hero.hero-gradient h1,
+.gallery-hero.hero-gradient h2,
+.gallery-hero.hero-gradient p,
+.gallery-hero.hero-gradient span,
+.gallery-hero.hero-gradient a,
+.gallery-hero.hero-gradient li,
+.gallery-hero.hero-gradient .breadcrumb-item {
+    color: #fff !important;
+    background: none !important;
+    -webkit-text-fill-color: #fff !important;
+}
+.hero-gradient.hero-gradient::before,
+.hero-gradient::before,
+.services-hero.hero-gradient::before,
+.gallery-hero.hero-gradient::before {
+    display: none !important;
+}
+
 
 /* Animation Classes */
 .animate-element {
@@ -294,11 +342,14 @@ body {
 }
 
 .section-title {
-    color: var(--primary-navy);
     font-weight: bold;
     margin-bottom: 30px;
     position: relative;
     padding-bottom: 10px;
+    background: linear-gradient(135deg, #c9a86c 0%, #a8894f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .section-title::after {
@@ -698,11 +749,11 @@ body {
 }
 
 .text-white-50 {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255);
 }
 
 .text-white-75 {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255);
 }
 
 .text-lg-end {

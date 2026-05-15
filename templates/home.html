@@ -1540,6 +1540,7 @@
 {% block content %}
 
 <!-- Hero Carousel Section -->
+<div class="hero-gradient" style="position: relative; overflow: hidden; background: #050510;">
 <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000" style="transition-duration: 1s;">
     <!-- Carousel Indicators -->
     <div class="carousel-indicators">
@@ -1552,7 +1553,7 @@
     <!-- Carousel Inner -->
     <div class="carousel-inner">
         <!-- Slide 1: Doctor Card & Stats -->
-        <div class="carousel-item active" style="background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%); min-height: 50vh;">
+        <div class="carousel-item active" style="min-height: 50vh;">
             <div class="container h-100 d-flex align-items-center justify-content-center" style="padding: 40px;">
                 <div class="row align-items-center w-100 justify-content-center g-4">
                     <!-- Doctor Card -->
@@ -1605,7 +1606,7 @@
         </div>
 
         <!-- Slide 2: Facial Aesthetics -->
-        <div class="carousel-item" style="background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%); min-height: 50vh;">
+        <div class="carousel-item" style="min-height: 50vh;">
             <div class="container h-100 d-flex justify-content-center align-items-center" style="padding: 40px;">
                 <div class="text-center hero-text" style="max-width: 800px;">
                     <span class="badge mb-4" style="background: rgba(201, 168, 108, 0.2); border: 1px solid rgba(201, 168, 108, 0.4); color: #c9a86c; padding: 10px 20px; border-radius: 50px;">
@@ -1629,7 +1630,7 @@
         </div>
 
         <!-- Slide 3: LUMINA Scanner -->
-        <div class="carousel-item" style="background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%); min-height: 50vh;">
+        <div class="carousel-item" style="min-height: 50vh;">
             <div class="container h-100 d-flex justify-content-center align-items-center" style="padding: 40px;">
                 <div class="text-center hero-text" style="max-width: 800px;">
                     <span class="badge mb-4" style="background: rgba(201, 168, 108, 0.2); border: 1px solid rgba(201, 168, 108, 0.4); color: #c9a86c; padding: 10px 20px; border-radius: 50px;">
@@ -1653,7 +1654,7 @@
         </div>
 
         <!-- Slide 4: Invisalign -->
-        <div class="carousel-item" style="background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%); min-height: 50vh;">
+        <div class="carousel-item" style="min-height: 50vh;">
             <div class="container h-100 d-flex justify-content-center align-items-center" style="padding: 40px;">
                 <div class="text-center hero-text" style="max-width: 800px;">
                     <span class="badge mb-4" style="background: rgba(201, 168, 108, 0.2); border: 1px solid rgba(201, 168, 108, 0.4); color: #c9a86c; padding: 10px 20px; border-radius: 50px;">
@@ -1686,6 +1687,7 @@
         <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: rgba(0,0,0,0.5); border-radius: 50%; padding: 20px;"></span>
         <span class="visually-hidden">Next</span>
     </button>
+</div>
 </div>
 
 
@@ -1805,7 +1807,7 @@
             <div class="col-lg-5 mb-5 mb-lg-0 scroll-left">
                 <div class="about-card-new">
                     <div class="about-img-wrap">
-                        <img src="{{ url_for('static', filename='images/dr4.jpeg') }}" alt="Dr. Sandeep Prakash" class="about-img-new">
+                        <img src="{{ url_for('static', filename='images/panache.jpeg') }}" alt="Dr. Sandeep Prakash" class="about-img-new">
                         <div class="about-exp-badge">
                             <div class="years">18+</div>
                             <div class="text">Years<br>Experience</div>
