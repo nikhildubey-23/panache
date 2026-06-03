@@ -399,7 +399,29 @@
             <h2>Dental Care</h2>
             <p>Complete dental solutions for a healthy and beautiful smile</p>
         </div>
-        <div class="row g-4">
+
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-6 col-lg-4 scroll-right">
+                <div class="service-card-new" data-category="dental">
+                    <h4>Digital Smile Design</h4>
+                    <p>Plan your perfect smile with our advanced digital technology.</p>
+                    <a href="{{ url_for('digital_smile_design') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 scroll-left">
+                <div class="service-card-new" data-category="dental">
+                    <h4>Crowded Teeth Correction</h4>
+                    <p>With braces, clear aligners and Invisalign treatment.</p>
+                    <a href="{{ url_for('crowded_teeth_correction') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 scroll-up">
+                <div class="service-card-new" data-category="dental">
+                    <h4>Laminates & Veneers</h4>
+                    <p>Ultra-thin porcelain shells for a flawless, transformative smile.</p>
+                    <a href="{{ url_for('laminates_veneers') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
             <div class="col-md-6 col-lg-4 scroll-left">
                 <div class="service-card-new" data-category="dental">
                     <h4>Root Canal Treatment</h4>
@@ -442,27 +464,16 @@
                     <a href="{{ url_for('composite_restoration') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4 scroll-right">
-                <div class="service-card-new" data-category="dental">
-                    <h4>Digital Smile Design</h4>
-                    <p>Plan your perfect smile with our advanced digital technology.</p>
-                    <a href="{{ url_for('digital_smile_design') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
             <div class="col-md-6 col-lg-4 scroll-left">
                 <div class="service-card-new" data-category="dental">
-                    <h4>Crowded Teeth Correction</h4>
-                    <p>With braces, clear aligners and Invisalign treatment.</p>
-                    <a href="{{ url_for('crowded_teeth_correction') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <h4>Minimally Invasive Dentistry</h4>
+                    <p>Preserve natural tooth structure with advanced minimally invasive techniques.</p>
+                    <a href="{{ url_for('minimally_invasive_dentistry') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4 scroll-up">
-                <div class="service-card-new" data-category="dental">
-                    <h4>Laminates & Veneers</h4>
-                    <p>Ultra-thin porcelain shells for a flawless, transformative smile.</p>
-                    <a href="{{ url_for('laminates_veneers') }}" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
+           
+           
+            
         </div>
     </div>
 </section>
