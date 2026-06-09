@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 DATABASE_URL = os.environ.get('DATABASE_URL')
+print(f"DEBUG db.py: DATABASE_URL is {'SET' if DATABASE_URL else 'NOT SET'}")
 
 def get_connection():
     if not DATABASE_URL:
