@@ -45,6 +45,7 @@ def init_tables():
             created_at TIMESTAMP DEFAULT NOW()
         )
         """,
+        "DROP TABLE IF EXISTS bookings CASCADE",
         """
         CREATE TABLE IF NOT EXISTS bookings (
             id SERIAL PRIMARY KEY,
@@ -60,6 +61,7 @@ def init_tables():
             created_at TIMESTAMP DEFAULT NOW()
         )
         """,
+        "DROP TABLE IF EXISTS contact_messages CASCADE",
         """
         CREATE TABLE IF NOT EXISTS contact_messages (
             id SERIAL PRIMARY KEY,
