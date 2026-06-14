@@ -1,0 +1,336 @@
+{% extends "base.html" %}
+
+{% block title %}Sleep Apnea Surgery - PANACHE DENTAL & FACIAL AESTHETICS CLINIC{% endblock %}
+
+{% block content %}
+<style>
+.hero-gradient {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+    opacity: 0.3;
+}
+.feature-card {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-color: var(--accent-sage);
+}
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--warm-white);
+    font-size: 1.5rem;
+}
+.procedure-step {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-sage);
+    transition: all 0.3s ease;
+}
+.procedure-step:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.cta-box {
+    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
+    color: var(--warm-white);
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+    opacity: 0.2;
+}
+.stat-box {
+    background: var(--warm-white);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--accent-sage);
+}
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+}
+.faq-item {
+    background: var(--warm-white);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.faq-question {
+    background: var(--primary-navy);
+    color: var(--warm-white);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+}
+.faq-question:hover {
+    background: var(--secondary-navy);
+}
+.faq-answer {
+    padding: 20px;
+    background: var(--warm-white);
+}
+</style>
+
+<div class="hero-gradient py-5">
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <div class="badge text-white bg-transparent mb-3">SLEEP SURGERY</div>
+                    <h1 class="display-2 fw-bold mb-4 text-white">Obstructive Sleep Apnea (OSA) Treatment</h1>
+                    <p class="lead mb-4 text-white-50">Dr. Sandeep Prakash specializes in surgical treatment of obstructive sleep apnea when conservative therapies like CPAP fail. Advanced orthognathic techniques to improve airway patency and restore restful sleep.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#consultation" class="btn btn-light btn-lg">Get Evaluation</a>
+                        <a href="#procedure" class="btn btn-outline-light btn-lg">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <img src="https://apollodentalnallakunta.com/wp-content/uploads/2025/05/Sleep-Apnea-1536x960.jpg" alt="Sleep Apnea Treatment" class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="text-muted">Hours Duration</div>
+                <div class="stat-number">2-4</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="text-muted">Anesthesia Type</div>
+                <div class="stat-number">General</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="text-muted">Hospital Stay</div>
+                <div class="stat-number">2-3 Days</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="text-muted">Weeks Recovery</div>
+                <div class="stat-number">4-6</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Understanding Sleep Apnea</h2>
+                <p class="lead text-muted">What is Obstructive Sleep Apnea?</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="mb-4">Obstructive Sleep Apnea (OSA) is a serious sleep disorder where the throat muscles relax intermittently, blocking the airway during sleep. This causes breathing to stop and start repeatedly throughout the night, leading to poor sleep quality, daytime fatigue, and long-term health complications.</p>
+                    <p class="mb-4">Oral and Maxillofacial Surgeons (OMFS) play a critical role in treating OSA when conservative therapies like CPAP fail. They specialize in anatomical corrections of the jaw, palate, and airway through procedures designed to expand the airway and reduce snoring or apnea events.</p>
+                    <p>Dr. Sandeep Prakash is extensively trained in orthognathic surgery — moving the jaws into their correct position to improve airway patency and overall respiratory function.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="procedure" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Surgical Interventions</h2>
+                <p class="lead text-muted">Proven surgical solutions for better sleep</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h4>Maxillomandibular Advancement (MMA)</h4>
+                        <p class="text-muted">Moving the jaw forward to open the upper airway. This procedure effectively expands the airway passage and reduces snoring and apnea events significantly. MMA is considered the most effective surgical treatment for OSA.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h4>Genioglossus Advancement</h4>
+                        <p class="text-muted">Advancing the tongue muscle anchor to prevent airway collapse during sleep, keeping the airway open for uninterrupted breathing throughout the night.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h4>SARPE / DOME</h4>
+                        <p class="text-muted">Surgically Assisted Rapid Palatal Expansion or Distraction Osteogenesis Maxillary Expansion. Widening the upper jaw to improve nasal breathing and airway capacity.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h4>Hyoid Suspension</h4>
+                        <p class="text-muted">Advancing the hyoid bone forward to stabilize the airway. This procedure helps prevent airway collapse at the base of the tongue level.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Collaborative Care Approach</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-hands-helping text-primary me-2"></i>Multidisciplinary Team</h5>
+                        <p class="text-muted mb-0">OMFS work closely with sleep physicians, relying on polysomnography (PSG) data to determine the severity of sleep apnea and monitor treatment outcomes. This collaborative approach ensures comprehensive care.</p>
+                    </div>
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-tooth text-primary me-2"></i>Oral Appliance Therapy</h5>
+                        <p class="text-muted mb-0">In selected cases, OMFS collaborate with dental specialists to fit custom oral appliances that reposition the jaw and tongue to maintain an open airway during sleep.</p>
+                    </div>
+                    <div class="procedure-step">
+                        <h5><i class="fas fa-chart-line text-primary me-2"></i>Outcome Monitoring</h5>
+                        <p class="text-muted mb-0">Post-treatment sleep studies are conducted to objectively measure improvement in apnea-hypopnea index (AHI) and ensure optimal surgical outcomes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-12">
+                    <div class="warning-box" style="background: linear-gradient(135deg, #17a2b8, #138496); border-radius: 15px; padding: 30px;">
+                        <h4 class="text-white mb-3"><i class="fas fa-info-circle me-2"></i>When to Consider Surgery</h4>
+                        <p class="text-white mb-0">Individuals with moderate to severe sleep apnea, particularly those who cannot tolerate CPAP or have not achieved adequate results with conservative treatments, should be referred to an OMFS for surgical consultation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Is surgery better than CPAP?
+                        </button>
+                        <div class="faq-answer d-none">
+                            CPAP is the first-line treatment for OSA. Surgery is recommended when CPAP is not tolerated or ineffective. Surgical success rates are high, especially with MMA procedures, and many patients achieve long-term resolution of symptoms.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How long does recovery take?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Initial recovery takes 2-3 weeks, with full recovery in 4-6 weeks. Most patients return to normal activities within 3-4 weeks. Dietary modifications are needed during the initial healing phase.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Will surgery change my appearance?
+                        </button>
+                        <div class="faq-answer d-none">
+                            MMA and other jaw advancement procedures may produce subtle changes in facial profile. These changes are generally positive and harmonious with your facial features. Your surgeon will discuss expected outcomes during consultation.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Is the surgery painful?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Pain is managed effectively with medications. Most patients report moderate discomfort for the first few days, which subsides significantly within the first week. Our team provides comprehensive pain management protocols.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="consultation" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="cta-box">
+                <div class="position-relative">
+                    <h2 class="display-5 fw-bold mb-4">Ready to Sleep Better?</h2>
+                    <p class="lead mb-4">Get expert evaluation and find the right solution for your sleep apnea.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Schedule Consultation</a>
+                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Us Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

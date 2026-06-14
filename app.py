@@ -59,6 +59,10 @@ def third_molar_surgery():
 def maxillo_facial_pathology():
     return render_template('maxillo_facial_pathology.html')
 
+@app.route('/osa-surgery')
+def osa_surgery():
+    return render_template('osa_surgery.html')
+
 @app.route('/tmj-surgery')
 def tmj_surgery():
     return render_template('tmj_surgery.html')
