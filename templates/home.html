@@ -1541,8 +1541,7 @@
 
 <!-- Hero Carousel Section -->
 <div class="hero-gradient" style="position: relative; overflow: hidden; background: #050510;">
-<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000" style="transition-duration: 1s;">
-    <!-- Carousel Indicators -->
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000" style="transition-duration: 1s;">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -1550,106 +1549,120 @@
         <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
     </div>
 
-    <!-- Carousel Inner -->
     <div class="carousel-inner">
-        <!-- Slide 1: Fixed Teeth in a Day with Dental Implants -->
-        <div class="carousel-item active" style="min-height: 50vh;">
-            <div class="container h-100 d-flex justify-content-center align-items-center" style="padding: 40px;">
-                <div class="text-center hero-text" style="max-width: 800px;">
-                    <span class="badge mb-4" style="background: rgba(201, 168, 108, 0.2); border: 1px solid rgba(201, 168, 108, 0.4); color: #c9a86c; padding: 10px 20px; border-radius: 50px;">
-                        <i class="fas fa-tooth me-2"></i><strong>Fixed Teeth In a Day</strong> with Dental Implants
-                    </span>
-                    <h1 class="display-3 fw-bold font-serif mb-4" style="color: #fff;">Get Fixed Teeth in Just One Day</h1>
-                    <h2 class="h3 mb-4" style="color: rgba(255,255,255,0.9);">Full mouth rehabilitation with dental implants — walk in with missing teeth, walk out with a confident smile</h2>
-                    <p class="lead mb-4" style="color: rgba(255,255,255,0.8);">
-                        <span style="color: #c9a86c; font-weight: 600;">All-on-4</span> & <span style="color: #c9a86c; font-weight: 600;">All-on-X</span> — Permanent fixed teeth in a single day with advanced implantology techniques
-                    </p>
-                    <div class="d-flex gap-3 justify-content-center flex-wrap">
-                        <a href="{{ url_for('full_mouth_implants') }}" class="btn btn-lg rounded-pill" style="background: linear-gradient(135deg, #c9a86c 0%, #a8894f 100%); color: white; font-weight: 600;">
-                            <i class="fas fa-arrow-right me-2"></i>Learn More
-                        </a>
-                        <a href="{{ url_for('contact') }}" class="btn btn-lg rounded-pill" style="border: 2px solid rgba(255,255,255,0.4); color: white; font-weight: 600;">
-                            <i class="fas fa-calendar-check me-2"></i>Book Consultation
-                        </a>
+        <div class="carousel-item active" style="min-height: 80vh;">
+            <div class="container h-100 py-5">
+                <div class="row align-items-center min-vh-75">
+                    <div class="col-lg-6">
+                        <span class="badge mb-4" style="background: rgba(201, 168, 108, 0.2); border: 1px solid rgba(201, 168, 108, 0.4); color: #c9a86c; padding: 10px 20px; border-radius: 50px;">
+                            <i class="fas fa-tooth me-2"></i><strong>Fixed Teeth In a Day</strong> with Dental Implants
+                        </span>
+                        <h1 class="display-3 fw-bold font-serif mb-4" style="color: #fff;">Get Fixed Teeth in Just One Day</h1>
+                        <h2 class="h4 mb-4" style="color: rgba(255,255,255,0.9);">Full mouth rehabilitation with dental implants — walk in with missing teeth, walk out with a confident smile</h2>
+                        <p class="lead mb-4" style="color: rgba(255,255,255,0.8);">
+                            <span style="color: #c9a86c; font-weight: 600;">All-on-4</span> & <span style="color: #c9a86c; font-weight: 600;">All-on-X</span> — Permanent fixed teeth in a single day
+                        </p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="{{ url_for('full_mouth_implants') }}" class="btn btn-lg rounded-pill" style="background: linear-gradient(135deg, #c9a86c 0%, #a8894f 100%); color: white; font-weight: 600;">
+                                <i class="fas fa-arrow-right me-2"></i>Learn More
+                            </a>
+                            <a href="{{ url_for('contact') }}" class="btn btn-lg rounded-pill" style="border: 2px solid rgba(255,255,255,0.4); color: white; font-weight: 600;">
+                                <i class="fas fa-calendar-check me-2"></i>Book Consultation
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <img src="{{ url_for('static', filename='images/implantprocedure.jpg') }}" alt="Dental Implants" class="img-fluid rounded-4 shadow-lg" style="max-height: 500px; object-fit: cover;">
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 2: Facial Aesthetics -->
-        <div class="carousel-item" style="min-height: 50vh;">
-            <div class="container h-100 d-flex justify-content-center align-items-center" style="padding: 40px;">
-                <div class="text-center hero-text" style="max-width: 800px;">
-                    <span class="badge mb-4" style="background: rgba(201, 168, 108, 0.2); border: 1px solid rgba(201, 168, 108, 0.4); color: #c9a86c; padding: 10px 20px; border-radius: 50px;">
-                        <i class="fas fa-robot me-2"></i><strong>Minimally invasive orthognathic surgery</strong>
-                    </span>
-                    <h1 class="display-3 fw-bold font-serif mb-4" style="color: #fff;">Not Happy with Your Face?</h1>
-                    <h2 class="h3 mb-4" style="color: rgba(255,255,255,0.9);">Are you not happy with the way you look? If not, we're here to help</h2>
-                    <p class="lead mb-4" style="color: rgba(255,255,255,0.8);">
-                        <span style="color: #c9a86c; font-weight: 600;">Jawline Enhancement</span> & <span style="color: #c9a86c; font-weight: 600;">Facial Aesthetics</span> — Transform your look with world-class treatments
-                    </p>
-                    <div class="d-flex gap-3 justify-content-center flex-wrap">
-                        <a href="{{ url_for('chin_jaw_enhancement') }}" class="btn btn-lg rounded-pill" style="background: linear-gradient(135deg, #c9a86c 0%, #a8894f 100%); color: white; font-weight: 600;">
-                            <i class="fas fa-arrow-right me-2"></i>Learn More
-                        </a>
-                        <a href="{{ url_for('contact') }}" class="btn btn-lg rounded-pill" style="border: 2px solid rgba(255,255,255,0.4); color: white; font-weight: 600;">
-                            <i class="fas fa-calendar-check me-2"></i>Book Consultation
-                        </a>
+        <div class="carousel-item" style="min-height: 80vh;">
+            <div class="container h-100 py-5">
+                <div class="row align-items-center min-vh-75">
+                    <div class="col-lg-6">
+                        <span class="badge mb-4" style="background: rgba(201, 168, 108, 0.2); border: 1px solid rgba(201, 168, 108, 0.4); color: #c9a86c; padding: 10px 20px; border-radius: 50px;">
+                            <i class="fas fa-robot me-2"></i><strong>Minimally Invasive Orthognathic Surgery</strong>
+                        </span>
+                        <h1 class="display-3 fw-bold font-serif mb-4" style="color: #fff;">Not Happy with Your Face?</h1>
+                        <h2 class="h4 mb-4" style="color: rgba(255,255,255,0.9);">Transform your look with advanced jawline enhancement and facial aesthetics</h2>
+                        <p class="lead mb-4" style="color: rgba(255,255,255,0.8);">
+                            <span style="color: #c9a86c; font-weight: 600;">Jawline Enhancement</span> & <span style="color: #c9a86c; font-weight: 600;">Facial Aesthetics</span> — World-class treatments for your face
+                        </p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="{{ url_for('chin_jaw_enhancement') }}" class="btn btn-lg rounded-pill" style="background: linear-gradient(135deg, #c9a86c 0%, #a8894f 100%); color: white; font-weight: 600;">
+                                <i class="fas fa-arrow-right me-2"></i>Learn More
+                            </a>
+                            <a href="{{ url_for('contact') }}" class="btn btn-lg rounded-pill" style="border: 2px solid rgba(255,255,255,0.4); color: white; font-weight: 600;">
+                                <i class="fas fa-calendar-check me-2"></i>Book Consultation
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <img src="{{ url_for('static', filename='images/jaw_surgury.png') }}" alt="Facial Aesthetics" class="img-fluid rounded-4 shadow-lg" style="max-height: 500px; object-fit: cover;">
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 3: Digital Smile Design -->
-        <div class="carousel-item" style="min-height: 50vh;">
-            <div class="container h-100 d-flex justify-content-center align-items-center" style="padding: 40px;">
-                <div class="text-center hero-text" style="max-width: 800px;">
-                    <span class="badge mb-4" style="background: rgba(201, 168, 108, 0.2); border: 1px solid rgba(201, 168, 108, 0.4); color: #c9a86c; padding: 10px 20px; border-radius: 50px;">
-                        <i class="fas fa-smile me-2"></i><strong>Digital Smile Design</strong>
-                    </span>
-                    <h1 class="display-3 fw-bold font-serif mb-4" style="color: #fff;">Design Your Perfect Smile</h1>
-                    <h2 class="h3 mb-4" style="color: #c9a86c;">Preview your dream smile before treatment begins with advanced digital smile designing</h2>
-                    <p class="lead mb-4" style="color: rgba(255,255,255,0.8);">
-                        <span style="color: #c9a86c; font-weight: 600;">Veneers</span>, <span style="color: #c9a86c; font-weight: 600;">Laminates</span> & <span style="color: #c9a86c; font-weight: 600;">Smile Makeovers</span> — Precision-planned aesthetics tailored to your facial features
-                    </p>
-                    <div class="d-flex gap-3 justify-content-center flex-wrap">
-                        <a href="{{ url_for('services') }}" class="btn btn-lg rounded-pill" style="background: linear-gradient(135deg, #c9a86c 0%, #a8894f 100%); color: white; font-weight: 600;">
-                            <i class="fas fa-arrow-right me-2"></i>Learn More
-                        </a>
-                        <a href="{{ url_for('contact') }}" class="btn btn-lg rounded-pill" style="border: 2px solid rgba(255,255,255,0.4); color: white; font-weight: 600;">
-                            <i class="fas fa-calendar-check me-2"></i>Book Consultation
-                        </a>
+        <div class="carousel-item" style="min-height: 80vh;">
+            <div class="container h-100 py-5">
+                <div class="row align-items-center min-vh-75">
+                    <div class="col-lg-6">
+                        <span class="badge mb-4" style="background: rgba(201, 168, 108, 0.2); border: 1px solid rgba(201, 168, 108, 0.4); color: #c9a86c; padding: 10px 20px; border-radius: 50px;">
+                            <i class="fas fa-smile me-2"></i><strong>Digital Smile Design</strong>
+                        </span>
+                        <h1 class="display-3 fw-bold font-serif mb-4" style="color: #fff;">Design Your Perfect Smile</h1>
+                        <h2 class="h4 mb-4" style="color: #c9a86c;">Preview your dream smile before treatment begins with advanced digital smile designing</h2>
+                        <p class="lead mb-4" style="color: rgba(255,255,255,0.8);">
+                            <span style="color: #c9a86c; font-weight: 600;">Veneers</span>, <span style="color: #c9a86c; font-weight: 600;">Laminates</span> & <span style="color: #c9a86c; font-weight: 600;">Smile Makeovers</span> — Precision-planned aesthetics
+                        </p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="{{ url_for('services') }}" class="btn btn-lg rounded-pill" style="background: linear-gradient(135deg, #c9a86c 0%, #a8894f 100%); color: white; font-weight: 600;">
+                                <i class="fas fa-arrow-right me-2"></i>Learn More
+                            </a>
+                            <a href="{{ url_for('contact') }}" class="btn btn-lg rounded-pill" style="border: 2px solid rgba(255,255,255,0.4); color: white; font-weight: 600;">
+                                <i class="fas fa-calendar-check me-2"></i>Book Consultation
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <img src="{{ url_for('static', filename='images/digital_dentistry.png') }}" alt="Digital Smile Design" class="img-fluid rounded-4 shadow-lg" style="max-height: 500px; object-fit: cover;">
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 4: Invisalign -->
-        <div class="carousel-item" style="min-height: 50vh;">
-            <div class="container h-100 d-flex justify-content-center align-items-center" style="padding: 40px;">
-                <div class="text-center hero-text" style="max-width: 800px;">
-                    <span class="badge mb-4" style="background: rgba(201, 168, 108, 0.2); border: 1px solid rgba(201, 168, 108, 0.4); color: #c9a86c; padding: 10px 20px; border-radius: 50px;">
-                        <i class="fas fa-robot me-2"></i><strong>Digital Smile Designing</strong>
-                    </span>
-                    <h1 class="display-3 fw-bold font-serif mb-4" style="color: #c9a86c;">Invisalign Aligners</h1>
-                    <h2 class="h3 mb-4" style="color: rgba(255,255,255,0.9);">Straighten Your Teeth Invisibly</h2>
-                    <p class="lead mb-4" style="color: rgba(255,255,255,0.8);">
-                        See your corrected smile and new teeth position even before the start of treatment with invisalign.
-                    </p>
-                    <div class="d-flex gap-3 justify-content-center flex-wrap">
-                        <a href="{{ url_for('invisalign') }}" class="btn btn-lg rounded-pill" style="background: linear-gradient(135deg, #c9a86c 0%, #a8894f 100%); color: white; font-weight: 600;">
-                            <i class="fas fa-arrow-right me-2"></i>Learn More
-                        </a>
-                        <a href="{{ url_for('contact') }}" class="btn btn-lg rounded-pill" style="border: 2px solid rgba(255,255,255,0.4); color: white; font-weight: 600;">
-                            <i class="fas fa-calendar-check me-2"></i>Book Consultation
-                        </a>
+        <div class="carousel-item" style="min-height: 80vh;">
+            <div class="container h-100 py-5">
+                <div class="row align-items-center min-vh-75">
+                    <div class="col-lg-6">
+                        <span class="badge mb-4" style="background: rgba(201, 168, 108, 0.2); border: 1px solid rgba(201, 168, 108, 0.4); color: #c9a86c; padding: 10px 20px; border-radius: 50px;">
+                            <i class="fas fa-teeth me-2"></i><strong>Invisalign</strong> Clear Aligners
+                        </span>
+                        <h1 class="display-3 fw-bold font-serif mb-4" style="color: #c9a86c;">Straighten Your Teeth Invisibly</h1>
+                        <h2 class="h4 mb-4" style="color: rgba(255,255,255,0.9);">See your corrected smile even before treatment starts with advanced digital planning</h2>
+                        <p class="lead mb-4" style="color: rgba(255,255,255,0.8);">
+                            Comfortable, removable, and virtually invisible aligners for a confident smile
+                        </p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="{{ url_for('invisalign') }}" class="btn btn-lg rounded-pill" style="background: linear-gradient(135deg, #c9a86c 0%, #a8894f 100%); color: white; font-weight: 600;">
+                                <i class="fas fa-arrow-right me-2"></i>Learn More
+                            </a>
+                            <a href="{{ url_for('contact') }}" class="btn btn-lg rounded-pill" style="border: 2px solid rgba(255,255,255,0.4); color: white; font-weight: 600;">
+                                <i class="fas fa-calendar-check me-2"></i>Book Consultation
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <img src="{{ url_for('static', filename='images/invisalign_img_1.png') }}" alt="Invisalign" class="img-fluid rounded-4 shadow-lg" style="max-height: 500px; object-fit: cover;">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Carousel Controls -->
     <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: rgba(0,0,0,0.5); border-radius: 50%; padding: 20px;"></span>
         <span class="visually-hidden">Previous</span>

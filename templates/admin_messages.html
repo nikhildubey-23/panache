@@ -44,6 +44,31 @@
         .filter-bar .btn { font-size: 0.85rem; padding: 5px 15px; border-radius: 20px; }
         .filter-bar .btn.active { background: #1a2332; color: white; border-color: #1a2332; }
         .msg-preview { max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        @media (max-width: 991px) {
+            .sidebar { width: 60px; padding: 15px 0; }
+            .sidebar .brand h5, .sidebar .brand small, .sidebar .nav-item span { display: none; }
+            .sidebar .nav-item { justify-content: center; padding: 15px; font-size: 1.2rem; }
+            .sidebar .nav-item i { width: auto; }
+            .sidebar .nav-item[style*="bottom"] { width: calc(100% - 20px) !important; }
+            .main-content { margin-left: 60px; padding: 15px; }
+        }
+        @media (max-width: 767px) {
+            .main-content { margin-left: 60px; padding: 10px; }
+            .table-card { padding: 10px; overflow-x: auto; }
+            .table-card table { font-size: 0.75rem; }
+            .table-card td, .table-card th { white-space: nowrap; padding: 6px 4px; }
+            .top-bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .top-bar h4 { font-size: 1rem; }
+            .filter-bar { flex-wrap: wrap; gap: 5px; }
+            .filter-bar .btn { font-size: 0.75rem; padding: 4px 10px; }
+            .status-form select { font-size: 0.7rem; padding: 1px 4px; }
+            .msg-preview { max-width: 120px; }
+        }
+        @media (max-width: 575px) {
+            .sidebar { width: 50px; }
+            .sidebar .nav-item { padding: 12px; font-size: 1rem; }
+            .main-content { margin-left: 50px; padding: 8px; }
+        }
     </style>
 </head>
 <body>
