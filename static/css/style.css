@@ -1284,6 +1284,10 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 1rem !important;
     }
 
+    .carousel-item .row.align-items-center .col-lg-6:last-child {
+        margin-top: 30px;
+    }
+
     .about-text-new {
         font-size: 0.95rem;
     }
@@ -1477,6 +1481,10 @@ h1, h2, h3, h4, h5, h6 {
 
     img.rounded-4.shadow-lg {
         max-height: 280px !important;
+    }
+
+    .carousel-item .row.align-items-center .col-lg-6:last-child {
+        margin-top: 25px;
     }
 
     .d-flex.gap-3.flex-wrap .btn {
